@@ -4,6 +4,8 @@ module Travis::Yaml
       map :language, required: true
       map :deploy, :ruby
       map :rvm, to: :ruby
+      map :before_install, :install, :before_script, :script, :after_result, :after_script,
+            :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
 
       def nested_warnings(*)
         super.uniq
