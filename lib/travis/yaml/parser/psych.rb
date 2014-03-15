@@ -44,6 +44,17 @@ module Travis::Yaml
         '!int'       => ::Psych::ScalarScanner::INTEGER
       }
 
+      if defined? ::Psych::ClassLoader
+        CLASS_LOADER = ::Psych::ClassLoader.new
+        class ScalarScanner < ::Psych::ScalarScanner
+          def initialize
+            super(CLASS_LOADER)
+          end
+        end
+      else
+        ScalarScanner = ::Psych::ScalarScanner
+      end
+
       def self.parses?(value)
         return true if value.is_a?(::Psych::Nodes::Node)
         return true if value.is_a?(String) or value.is_a?(IO)
@@ -59,7 +70,7 @@ module Travis::Yaml
         value    = value.to_str if value.respond_to? :to_str
         value    = value.to_io  if value.respond_to? :to_io
         @value   = value
-        @scanner = ::Psych::ScalarScanner.new
+        @scanner = ScalarScanner.new
       end
 
       def parse(root = nil)
