@@ -2,7 +2,7 @@
 
 **This is work in progress, it is not actually in use yet.**
 
-## What is this
+## What is this?
 
 This project is a library for loading Travis CI build configuration.
 
@@ -24,7 +24,7 @@ Travis::Yaml.parse! deploy: []
 # .travis.yml: value for "deploy" section is empty, dropping
 ```
 
-## Why use this
+## Why use it?
 
 * **Prevents code execution.** Instead of deserializing arbitrary Ruby objects, it only deserializes primitive objects. To go even further, in contrast to SafeYAML, it only deserializes primitive objects that are expected for a certain part of the configuration.
 * **Prevents memory leaks.** Internally, only expected values are stored in the data structure, discarding any additional data. No user input is converted to symbols (which would allow a memory based DoS attack).
@@ -38,7 +38,7 @@ Travis::Yaml.parse! deploy: []
 * **Extensibility.** The configuration structure is easily extended.
 * **Pluggable parser.** It is easy to write a new parser. This would be useful for instance for the Travis CI command line client, where one could imagine a parser for the small subset of the YAML format that is commonly in use. This would for instance allow to write a parser and serializer able to preserve comments and indentation when modifying the contents of the .travis.yml.
 
-## What is missing
+## What is missing?
 
 * Full definition of current .travis.yml format
 * Serialization
