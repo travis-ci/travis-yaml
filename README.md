@@ -30,7 +30,7 @@ Travis::Yaml.parse! deploy: []
 * **Prevents memory leaks.** Internally, only expected values are stored in the data structure, discarding any additional data. No user input is converted to symbols (which would allow a memory based DoS attack).
 * **Normalization is happening in one place.** Travis CI currently does config normalization in many different parts of its infrastructure, making it tedious to determine supported input formats and the resulting internal structure.
 * **Explicit structure.** Due to the explicit configuration structure, exceptions throughout the system can be greatly reduced, since the configuration will not contain unexpected objects.
-* **Forgiving about user input.** The parser knows the expected structure and can therefore automatically map some malformed input onto that structure.
+* **Forgiving about user input.** The parser knows the expected structure and can therefore automatically map some malformed input onto that structure. For instance, `node: 1.10` does not get converted to `node: 1.1` internally, because travis-yaml knows to expect a string here rather than a float.
 * **Built-in support for encrypted values**, making it easier to support these in different parts of the system and never leak the decrypted form if configuration is being serialized.
 * **Extensive warning and error handling**, making it possible to use this library for linting and also to display such warnings when running a build.
 * **Performance.** Using travis-yaml to load a configuration from a YAML string is slightly faster than using psych directly and significantly faster than using safeyaml.
