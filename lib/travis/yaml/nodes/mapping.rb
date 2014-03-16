@@ -32,6 +32,12 @@ module Travis::Yaml
         end
       end
 
+      def self.prefix_scalar(key)
+        define_method(:visit_scalar) do |visitor, type, value, implicit = true|
+          visit_key_value(visitor, key, value)
+        end
+      end
+
       def self.define_map_accessor(key)
         define_method(key)       { | | self[key]       } unless method_defined? key
         define_method("#{key}=") { |v| self[key] = v   } unless method_defined? "#{key}="
@@ -55,12 +61,13 @@ module Travis::Yaml
 
       def visit_pair(visitor, key, value)
         key = visitor.generate_key(self, key)
-        if node = subnode_for(key)
-          self[key] = node
-          visitor.accept(node, value)
-        else
-          warning("unexpected key %p, dropping", key)
-        end
+        visit_key_value(visitor, key, value)
+      end
+
+      def visit_key_value(visitor, key, value)
+        return warning("unexpected key %p, dropping", key) unless node = subnode_for(key)
+        self[key] = node
+        visitor.accept(node, value)
       end
 
       def drop_empty?(key)

@@ -13,6 +13,12 @@ describe Travis::Yaml::Nodes::Deploy do
       expect(config.nested_warnings).to include([[], 'value for "deploy" section is empty, dropping'])
     end
 
+    specify 'with a string' do
+      config = Travis::Yaml.parse(deploy: 'heroku')
+      expect(config.deploy)                 .to be == [{"provider" => "heroku"}]
+      expect(config.deploy.nested_warnings) .to be_empty
+    end
+
     specify 'with one provider' do
       config = Travis::Yaml.parse(deploy: { provider: :heroku })
       expect(config.deploy)                 .to be == [{"provider" => "heroku"}]
