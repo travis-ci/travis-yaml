@@ -43,6 +43,174 @@ Travis::Yaml.parse! deploy: []
 * Full definition of current .travis.yml format
 * Serialization
 
-## Contributing
+## Defining Structure
 
 Good starting points for getting into the code are the [root](lib/travis/yaml/nodes/root.rb) node and the [language](lib/travis/yaml/nodes/language.rb) node.
+
+A parsed configuration is very similar to a syntax tree. To create a new node type, you should inherit from one of the abstract types. Internal vocabulary is taken from the YAML spec rather than the Ruby names (ie, sequence vs array, mapping vs hash).
+
+### Scalar Values
+
+Most of the time, scalar values are just strings. In fact, if you create a new scalar node class and don't specify and other supported type, it will treat everything as string.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class Example < Scalar
+  end
+end
+```
+
+This will parse `foo` to `"foo"` and `1.10` to `1.10`. This will also generate a warning and discard values like `!float 1.10`.
+
+#### Value Types
+
+You can also allow other types and change the default type unsupported implicit types are cast to.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class Example < Scalar
+    cast :str, :binary, :int
+    default_type :int
+  end
+end
+```
+
+Available types are `str`, `binary`, `bool`, `float`, `int`, `time`, `secure` and `null`.
+
+#### Default Value
+
+It is also possible to give a scalar a default value.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class Example < Scalar
+    default_value "example"
+  end
+end
+```
+
+This is handy when using it for a required entry in a mapping (for instance, `language` is required, but has a default).
+
+#### Fixed Value Set
+
+For entries that have a well defined set of values, you can inherit from `FixedValue`:
+
+``` ruby
+module Travis::Yaml::Nodes
+  class Example < FixedValue
+    ignore_case
+
+    default_value :example
+    value :foo, :bar, baz: :bar
+  end
+end
+```
+
+This will, for example, map `FOO` to `"foo"`, `baz` to `"bar"`, and `blah` to `"example"` (and generate a warning about `blah` being not supported).
+
+### Sequences
+
+Sequences correspond to Ruby arrays. If you pass in a scalar or mapping instead of a sequence, it will be treated as if it was a sequence with a single entry of that value.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class ExampleList < Sequence
+    type ExampleValue # node type, defaults to Scalar
+  end
+end
+```
+
+### Mappings
+
+Mappings correspond to hashes in Ruby.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class ExampleMapping < Mapping
+    # map the value for the "example" key to an Example node
+    # map the value for the "other" key to an Other node
+    map :example, :other
+
+    # map the values for "foo" and "bar" to a Scalar
+    map :foo, :bar, to: Scalar
+
+    # map "list" to a Sequence, keep it even if it's empty
+    map :list, to: Sequence, drop_empty: false
+
+    # require "setting" to be present
+    map :setting, required: true
+
+    # make "option" an alias for "setting"
+    map :option, to: :setting
+
+    # if a scalar is passed in instead of a mapping, treat it as
+    # the value of "setting" ("foo" becomes { setting: "foo" })
+    prefix_scalar :setting
+  end
+end
+```
+
+#### Open Mappings
+
+Sometimes it is not possible to define all available keys for a mapping. You can solve this by using an open mapping:
+
+``` ruby
+module Travis::Yaml::Nodes
+  class ExampleMapping < OpenMapping
+    # node type for entries not specified (defaults to Scalar)
+    default_type ExampleValue
+
+    # map "setting" to Setting node, make it a requirement
+    map :setting, required: true
+  end
+end
+```
+
+You can also limit the possible keys by overriding `accept_key?`.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class ExampleMapping < OpenMapping
+    default_type ExampleValue
+
+    def accept_key?(key)
+      key.start_with? "example_"
+    end
+  end
+end
+```
+
+### Additional Verification
+
+Besides the generated warnings, validations and normalizations inherent to the structure, you can define your own checks and normalizations by overriding the `verify` method.
+
+``` ruby
+module Travis::Yaml::Nodes
+  class Example < Scalar
+    def verify
+      if value == "foo"
+        warning "foo is deprecated, using bar instead"
+        self.value = "bar"
+      end
+      super
+    end
+  end
+end
+```
+
+The `warning` method will generate track a warning, so it can be presented to the user later on. The `error` method will lead to the node being removed from its parent node. It will also propagate the error message as a warning in the parent node.
+
+### Nested Warnings
+
+When reflecting upon a node, `warnings` and `errors` will only contain the messages for that specific node. To get all the warnings for the entire tree, use `nested_warnings`, which will also give you the path (as array of strings).
+
+``` ruby
+config.nested_warnings.each do |path, message|
+  p path      # ["my", "example", "key"]
+  p message   # "this is the warning"
+end
+```
+
+## Requirements
+
+This project requires Ruby 1.9.3 or 2.0.0 and Psych ~> 2.0 (part of the stdlib).
