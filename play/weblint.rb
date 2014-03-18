@@ -57,10 +57,17 @@ html
       input type="text" id="repo" name="repo" maxlength="80" placeholder="travis-ci/travis-yaml" value=params[:repo]
       input type="submit" value="Validate"
 
-    form action="/" method="post" accept-charset="UTF-8"
+    form action="/" method="post" accept-charset="UTF-8" id="ymlform"
       label for="yml" Or paste your .travis.yml
-      textarea id="yml" name="yml" maxlength="10000" = params[:yml]
+      textarea id="yml" name="yml" maxlength="10000" autofocus=true = params[:yml]
       input type="submit" value="Validate"
+
+    javascript:
+      var input = document.getElementById("yml");
+      var form  = document.getElementById("ymlform");
+      input.onkeydown = function(event) {
+          if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) form.submit();
+      };
 
 @@ style
 
