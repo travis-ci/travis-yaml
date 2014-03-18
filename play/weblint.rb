@@ -19,7 +19,13 @@ post '/' do
   slim :result
 end
 
-error GH::Error do
+get '/gist/:id' do
+  params[:yml] = GH["/gists/#{params[:id]}"]['files']['.travis.yml']['content']
+  @result = Travis::Yaml.parse(params[:yml])
+  slim :result
+end
+
+error GH::Error, NoMethodError do
   halt 400, slim("ul.result\n  li failed to fetch <b class='error'>.travis.yml</b>")
 end
 
