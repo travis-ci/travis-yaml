@@ -3,4 +3,11 @@ rvm:
 - 1.9.3
 - 2.0.0
 script: bundle exec rspec
-bundler_args: --without play
+bundler_args: "--without play"
+deploy:
+  provider: heroku
+  api_key:
+    secure: OrCcUz+MNjlxNkReqCvQZq62Y5mdKxjA+Lwo6VdsuoWHIJ8ShKIZUhoWOE6B0VIYSxSBObkXULitqiuZAvJfHSmS6soowPc79VvVeetMkIxRbHG9v3utg5O5pHqjHeW7pOWwrvTR5sria9YPevFN3+0R/C3xsxnQrc8dw+06jEQ=
+  app: travis-yaml
+  on:
+    repo: travis-ci/travis-yaml
