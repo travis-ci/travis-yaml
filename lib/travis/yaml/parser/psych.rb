@@ -79,6 +79,11 @@ module Travis::Yaml
         parsed ||= ::Psych.parse(@value)
         accept(root, parsed)
         root
+      rescue ::Psych::SyntaxError => error
+        root.verify
+        root.warnings.clear
+        root.error("syntax error: %s", error.message)
+        root
       end
 
       def accept(node, value)
