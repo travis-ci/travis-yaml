@@ -26,7 +26,7 @@ module Travis::Yaml
       end
 
       def visit_child(visitor, value)
-        child = self.class.type.new
+        child = self.class.type.new(self)
         visitor.accept(child, value)
         @children << child
       end

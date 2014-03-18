@@ -33,7 +33,7 @@ describe Travis::Yaml::Parser::Ruby do
     specify { expect(parser.generate_key(nil, :foo )).to be == "foo" }
 
     specify do
-      node = Travis::Yaml::Nodes::Node.new
+      node = Travis::Yaml::Nodes::Node.new(nil)
       parser.generate_key(node, 10)
       expect(node.errors).to include("expected string as key")
     end

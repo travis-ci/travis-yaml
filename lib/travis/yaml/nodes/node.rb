@@ -6,7 +6,7 @@ module Travis::Yaml
       end
 
       attr_accessor :partent
-      def initialize(parent = nil)
+      def initialize(parent)
         @nested_warnings = []
         @parent          = parent
         prepare

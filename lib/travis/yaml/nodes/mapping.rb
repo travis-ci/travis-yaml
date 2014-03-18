@@ -146,7 +146,7 @@ module Travis::Yaml
           type = self.class.subnode_for(key)
           if type.has_default?
             warning "missing key %p, defaulting to %p", key, type.default
-            @mapping[key] = type.new
+            @mapping[key] = type.new(self)
           else
             error "missing key %p", key
           end
