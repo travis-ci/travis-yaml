@@ -81,6 +81,10 @@ html
       textarea id="yml" name="yml" maxlength="10000" autofocus=true = params[:yml]
       input type="submit" value="Validate"
 
+    p.note
+      | This is still experimental and incomplete. Use <a href="http://lint.travis-ci.org/">the old version</a> if
+        you are looking for something stable.
+
     javascript:
       var input = document.getElementById("yml");
       var form  = document.getElementById("ymlform");
@@ -249,3 +253,6 @@ textarea
 
 .error
   color: #c00
+
+.note
+  margin-top: 5em
