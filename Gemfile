@@ -1,2 +1,9 @@
 source "https://rubygems.org"
 gemspec
+
+group :play do
+  gem 'sinatra'
+  gem 'sass', '~> 3.1'
+  gem 'slim', '~> 1.3'
+  gem 'gh'
+end
