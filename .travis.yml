@@ -11,3 +11,4 @@ deploy:
   app: travis-yaml
   on:
     repo: travis-ci/travis-yaml
+    ruby: 2.0.0
