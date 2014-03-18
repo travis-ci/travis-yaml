@@ -13,20 +13,33 @@ get '/style.css' do
 end
 
 post '/' do
-  halt 400, 'needs repo or yml' unless params[:repo] or params[:yml]
-  params[:yml] ||= GH["https://api.github.com/repos/#{params[:repo]}/contents/.travis.yml?ref=master"]['content'].to_s.unpack('m').first
-  @result = Travis::Yaml.parse(params[:yml])
-  slim :result
+  redirect to(params[:repo]) if params[:repo]
+  show_result
 end
 
 get '/gist/:id' do
-  params[:yml] = GH["/gists/#{params[:id]}"]['files']['.travis.yml']['content']
-  @result = Travis::Yaml.parse(params[:yml])
-  slim :result
+  file         = params[:file] || '.travis.yml'
+  params[:yml] = GH["/gists/#{params[:id]}"]['files'][file]['content']
+  show_result
+end
+
+get '/:owner/:name' do
+  params[:repo] = request.path_info[1..-1]
+  show_result
 end
 
 error GH::Error, NoMethodError do
   halt 400, slim("ul.result\n  li failed to fetch <b class='error'>.travis.yml</b>")
+end
+
+helpers do
+  def show_result
+    halt 400, 'needs repo or yml' unless params[:repo] or params[:yml]
+    branch = params[:branch] || 'master'
+    params[:yml] ||= GH["/repos/#{params[:repo]}/contents/.travis.yml?ref=#{branch}"]['content'].to_s.unpack('m').first
+    @result = Travis::Yaml.parse(params[:yml])
+    slim :result
+  end
 end
 
 __END__
@@ -60,7 +73,7 @@ html
 
     form class="first" action="/" method="post" accept-charset="UTF-8"
       label for="repo" Enter your Github repository
-      input type="text" id="repo" name="repo" maxlength="80" placeholder="travis-ci/travis-yaml" value=params[:repo]
+      input type="text" id="repo" name="repo" maxlength="80" placeholder="travis-ci/travis-yaml" required=true value=params[:repo]
       input type="submit" value="Validate"
 
     form action="/" method="post" accept-charset="UTF-8" id="ymlform"
