@@ -10,6 +10,7 @@ module Travis::Yaml
         @nested_warnings = []
         @parent          = parent
         prepare
+        yield self if block_given?
       end
 
       def warngings?
@@ -88,6 +89,10 @@ module Travis::Yaml
       def method_missing(method, *args, &block)
         return super unless __getobj__.respond_to?(method)
         __getobj__.public_send(method, *args, &block)
+      end
+
+      def to_s
+        __getobj__.to_s
       end
     end
   end

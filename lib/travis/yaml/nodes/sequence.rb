@@ -64,7 +64,7 @@ module Travis::Yaml
       end
 
       def deep_verify
-        @children.each_value(&:deep_verify)
+        @children.each(&:deep_verify)
         super
       end
     end

@@ -10,6 +10,7 @@ module Travis::Yaml
       def verify
         super
         self.os = language.default_os unless include? :os
+        os.verify_language(language)
       end
 
       def nested_warnings(*)
