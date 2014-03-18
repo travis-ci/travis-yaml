@@ -4,6 +4,10 @@ require 'sinatra'
 require 'slim'
 require 'gh'
 
+configure :production do
+  GH.set token: ENV.fetch('GITHUB_TOKEN')
+end
+
 get '/' do
   slim ""
 end
