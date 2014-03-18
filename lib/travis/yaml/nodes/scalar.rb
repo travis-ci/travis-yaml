@@ -53,7 +53,7 @@ module Travis::Yaml
       def visit_scalar(visitor, type, value, implicit = true)
         return self.value = visitor.cast(type,         value) if cast? type
         return self.value = visitor.cast(default_type, value) if implicit
-        error "%s not supported, dropping %p", type, visitor.cast(:str, value)
+        error "%p not supported, dropping %p", type.to_s, visitor.cast(:str, value)
       end
 
       def cast?(type)

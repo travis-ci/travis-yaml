@@ -156,7 +156,7 @@ module Travis::Yaml
       def verify_errors
         @mapping.delete_if do |key, value|
           if value.errors?
-            warning "dropping %p section: %s", key, value.errors.join(', ')
+            warning "dropping %p section: %p", key, value.errors.join(', ')
             true
           end
         end

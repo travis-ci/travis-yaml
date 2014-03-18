@@ -19,8 +19,8 @@ describe Travis::Yaml::Nodes::Ruby do
     specify 'filters out invalid entries' do
       config = Travis::Yaml.parse(ruby: [:jruby, '2.0.0', nil, 1.0, { foo: :bar }])
       expect(config.ruby).to be == ['jruby', '2.0.0']
-      expect(config.nested_warnings).to include([["ruby"], 'null not supported, dropping ""'])
-      expect(config.nested_warnings).to include([["ruby"], 'float not supported, dropping "1.0"'])
+      expect(config.nested_warnings).to include([["ruby"], '"null" not supported, dropping ""'])
+      expect(config.nested_warnings).to include([["ruby"], '"float" not supported, dropping "1.0"'])
       expect(config.nested_warnings).to include([["ruby"], 'unexpected mapping'])
     end
 
@@ -53,8 +53,8 @@ describe Travis::Yaml::Nodes::Ruby do
     specify 'filters out invalid entries' do
       config = Travis::Yaml.parse('ruby: [jruby, 2.0, !null ~, !float 1.0, { foo: bar }]')
       expect(config.ruby).to be == ['jruby', '2.0']
-      expect(config.nested_warnings).to include([["ruby"], 'null not supported, dropping "~"'])
-      expect(config.nested_warnings).to include([["ruby"], 'float not supported, dropping "1.0"'])
+      expect(config.nested_warnings).to include([["ruby"], '"null" not supported, dropping "~"'])
+      expect(config.nested_warnings).to include([["ruby"], '"float" not supported, dropping "1.0"'])
       expect(config.nested_warnings).to include([["ruby"], 'unexpected mapping'])
     end
 

@@ -22,7 +22,7 @@ describe Travis::Yaml::Nodes::OS do
   specify 'checks if the os suppors the language' do
     config = Travis::Yaml.parse(os: :linux, language: :objc)
     expect(config.os).to be == ['osx']
-    expect(config.os.warnings).to include('dropping linux, does not support objective-c')
-    expect(config.os.warnings).to include('no suitable operating system given for objective-c, using osx')
+    expect(config.os.warnings).to include('dropping "linux", does not support "objective-c"')
+    expect(config.os.warnings).to include('no suitable operating system given for "objective-c", using "osx"')
   end
 end
