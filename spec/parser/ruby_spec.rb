@@ -6,7 +6,7 @@ describe Travis::Yaml::Parser::Ruby do
   describe :parse do
     example do
       result = subject.parse(input)
-      expect(result).to be == { rvm: ['2.0.0', 'jruby'], language: 'ruby' }
+      expect(result).to be == { rvm: ['2.0.0', 'jruby'], language: 'ruby', os: ['linux'] }
     end
   end
 

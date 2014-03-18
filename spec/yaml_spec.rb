@@ -21,6 +21,6 @@ describe Travis::Yaml do
 
   specify :inspect do
     config = Travis::Yaml.parse(rvm: ['jruby', '2.0.0'], language: :ruby)
-    expect(config.inspect).to be == '#<Travis::Yaml:{"ruby"=>["jruby", "2.0.0"], "language"=>"ruby"}>'
+    expect(config.inspect).to be == '#<Travis::Yaml:{"ruby"=>["jruby", "2.0.0"], "language"=>"ruby", "os"=>["linux"]}>'
   end
 end
