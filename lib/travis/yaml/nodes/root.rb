@@ -19,16 +19,18 @@ module Travis::Yaml
         xctool_args:      %w[objective-c],
         perl:             %w[perl],
         php:              %w[php],
-        python:           %w[python]
+        python:           %w[python],
+        virtualenv:       %w[python],
       }
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
-      map :deploy, :ruby, :os, :compiler, :git, :jdk
+      map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv
       map :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk, :xcode_scheme, :perl, :php, :python, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release
       map :node, to: :node_js
+      map :virtual_env, to: :virtualenv
       map :gobuild_args, :xcode_project, :xcode_workspace, :xctool_args, to: Scalar[:str]
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
