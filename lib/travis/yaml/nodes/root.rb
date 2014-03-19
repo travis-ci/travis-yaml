@@ -1,31 +1,11 @@
 module Travis::Yaml
   module Nodes
     class Root < Mapping
-      LANGUAGE_SPECIFIC = {
-        bundler_args:     %w[ruby],
-        compiler:         %w[c cpp],
-        lein:             %w[clojure],
-        otp_release:      %w[erlang],
-        gobuild_args:     %w[go],
-        go:               %w[go],
-        jdk:              %w[clojure groovy java ruby scala],
-        ghc:              %w[haskell],
-        node_js:          %w[node_js],
-        ruby:             %w[ruby objective-c],
-        xcode_sdk:        %w[objective-c],
-        xcode_scheme:     %w[objective-c],
-        xcode_project:    %w[objective-c],
-        xcode_workspace:  %w[objective-c],
-        xctool_args:      %w[objective-c],
-        perl:             %w[perl],
-        php:              %w[php],
-        python:           %w[python],
-        virtualenv:       %w[python],
-      }
+      include LanguageSpecific
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
-      map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv
+      map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv, :matrix, :env
       map :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk, :xcode_scheme, :perl, :php, :python, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release
@@ -42,24 +22,11 @@ module Travis::Yaml
       def verify
         super
         verify_os
-        verify_language_specific
-        verify_errors
+        verify_language(language)
       end
 
       def verify_os
         self.os = language.default_os unless include? :os
-      end
-
-      def verify_language_specific
-        LANGUAGE_SPECIFIC.each do |key, languages|
-          next unless include? key and not languages.include? language
-          mapping.delete mapped_key(key)
-          warning "specified %p, but setting is not relevant for %p", key.to_s, language
-        end
-
-        mapping.each_value do |value|
-          value.verify_language(language) if value.respond_to? :verify_language
-        end
       end
 
       def nested_warnings(*)

@@ -55,12 +55,16 @@ module Travis::Yaml
       end
 
       def verify
+        verify_children
+        super
+      end
+
+      def verify_children
         @children.delete_if do |child|
           next unless child.errors?
           child.errors.each { |message| warning(message) }
           true
         end
-        super
       end
 
       def deep_verify

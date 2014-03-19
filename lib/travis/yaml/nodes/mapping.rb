@@ -32,6 +32,17 @@ module Travis::Yaml
         end
       end
 
+      def self.auto_prefix(key)
+        prefix_sequence(key)
+        prefix_scalar(key)
+      end
+
+      def self.prefix_sequence(key)
+        define_method(:visit_sequence) do |visitor, value|
+          visit_key_value(visitor, key, value)
+        end
+      end
+
       def self.prefix_scalar(key)
         define_method(:visit_scalar) do |visitor, type, value, implicit = true|
           visit_key_value(visitor, key, value)

@@ -13,6 +13,7 @@ module Travis::Yaml
     require 'travis/yaml/nodes/sequence'
     require 'travis/yaml/nodes/mapping'
     require 'travis/yaml/nodes/open_mapping'
+    require 'travis/yaml/nodes/language_specific'
     require 'travis/yaml/nodes/version'
     require 'travis/yaml/nodes/version_list'
     require 'travis/yaml/nodes/git'
@@ -29,6 +30,8 @@ module Travis::Yaml
     require 'travis/yaml/nodes/virtual_env'
     require 'travis/yaml/nodes/ruby'
     require 'travis/yaml/nodes/jdk'
+    require 'travis/yaml/nodes/env'
+    require 'travis/yaml/nodes/matrix'
     require 'travis/yaml/nodes/root'
   end
 end

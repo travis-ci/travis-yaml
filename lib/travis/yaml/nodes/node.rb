@@ -54,6 +54,9 @@ module Travis::Yaml
       def verify
       end
 
+      def verify_language(language)
+      end
+
       def deep_verify
         verify
       end
