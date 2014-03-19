@@ -42,7 +42,7 @@ module Travis::Yaml
         if other.respond_to? :to_a and other.to_a.size == children.size
           children.zip(other.to_a).all? { |a, b| a == b }
         else
-          false
+          identifier == other
         end
       end
 
@@ -51,7 +51,15 @@ module Travis::Yaml
       end
 
       def inspect
-        @children.inspect
+        identifier.inspect
+      end
+
+      def to_s
+        identifier.to_s
+      end
+
+      def identifier
+        @children.size == 1 ? @children.first : @children
       end
 
       def verify
