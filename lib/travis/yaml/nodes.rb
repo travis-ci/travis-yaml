@@ -27,6 +27,7 @@ module Travis::Yaml
     require 'travis/yaml/nodes/os_entry'
     require 'travis/yaml/nodes/os'
     require 'travis/yaml/nodes/ruby'
+    require 'travis/yaml/nodes/jdk'
     require 'travis/yaml/nodes/root'
   end
 end

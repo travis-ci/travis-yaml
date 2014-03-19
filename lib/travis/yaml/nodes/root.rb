@@ -8,11 +8,12 @@ module Travis::Yaml
         otp_release:  %w[erlang],
         gobuild_args: %w[go],
         go:           %w[go],
+        jdk:          %w[clojure groovy java ruby scala]
       }
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
-      map :deploy, :ruby, :os, :compiler, :git
+      map :deploy, :ruby, :os, :compiler, :git, :jdk
       map :lein, :otp_release, :go, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release
@@ -28,6 +29,7 @@ module Travis::Yaml
         super
         verify_os
         verify_language_specific
+        verify_errors
       end
 
       def verify_os
