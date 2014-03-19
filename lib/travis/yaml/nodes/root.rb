@@ -24,7 +24,6 @@ module Travis::Yaml
 
       def verify_os
         self.os = language.default_os unless include? :os
-        os.verify_language(language)
       end
 
       def verify_language_specific
@@ -32,6 +31,10 @@ module Travis::Yaml
           next unless include? key and not languages.include? language
           mapping.delete mapped_key(key)
           warning "specified %p, but setting is not relevant for %p", key.to_s, language
+        end
+
+        mapping.each_value do |value|
+          value.verify_language(language) if value.respond_to? :verify_language
         end
       end
 
