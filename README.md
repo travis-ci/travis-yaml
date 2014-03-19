@@ -108,6 +108,19 @@ end
 
 This will, for example, map `FOO` to `"foo"`, `baz` to `"bar"`, and `blah` to `"example"` (and generate a warning about `blah` being not supported).
 
+#### Shorthands
+
+There are shorthands for creating `Scalar` and `FixedValue` subclasses:
+
+``` ruby
+module Travis::Yaml::Nodes
+  class Example < Map
+    map :foo, to: Scalar[:int]
+    map :bar, to: FixedValue[:foo, :bar]
+  end
+end
+```
+
 ### Sequences
 
 Sequences correspond to Ruby arrays. If you pass in a scalar or mapping instead of a sequence, it will be treated as if it was a sequence with a single entry of that value.
