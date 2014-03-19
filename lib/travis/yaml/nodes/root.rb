@@ -8,13 +8,14 @@ module Travis::Yaml
         otp_release:  %w[erlang],
         gobuild_args: %w[go],
         go:           %w[go],
-        jdk:          %w[clojure groovy java ruby scala]
+        jdk:          %w[clojure groovy java ruby scala],
+        ghc:          %[haskell]
       }
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
       map :deploy, :ruby, :os, :compiler, :git, :jdk
-      map :lein, :otp_release, :go, to: VersionList
+      map :lein, :otp_release, :go, :ghc, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release
       map :gobuild_args, to: Scalar[:str]
