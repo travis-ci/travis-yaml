@@ -1,6 +1,7 @@
 module Travis::Yaml
   module Nodes
-    class Lein < Sequence
+    class VersionList < Sequence
+      type Version
     end
   end
 end

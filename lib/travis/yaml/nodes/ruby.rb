@@ -1,6 +1,6 @@
 module Travis::Yaml
   module Nodes
-    class Ruby < Sequence
+    class Ruby < VersionList
     end
   end
 end
