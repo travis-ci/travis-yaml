@@ -17,7 +17,7 @@ module Travis
 
     def parse!(value, file_name = '.travis.yml')
       result = parse(value)
-      result.nested_warnings.reverse_each do |key, message|
+      result.nested_warnings.each do |key, message|
         warn key.empty? ? "#{file_name}: #{message}" :
           "#{file_name}: #{key.join(?.)} section - #{message}"
       end

@@ -169,7 +169,7 @@ module Travis::Yaml
 
       def nested_warnings(*prefix)
         @mapping.inject(super) do |list, (key, value)|
-          list += value.nested_warnings(*prefix, key)
+          list = value.nested_warnings(*prefix, key) + list
         end
       end
     end

@@ -33,7 +33,7 @@ module Travis::Yaml
 
       def nested_warnings(*prefix)
         @children.inject(super) do |list, value|
-          list += value.nested_warnings(*prefix)
+          list = value.nested_warnings(*prefix) + list
         end
       end
 
