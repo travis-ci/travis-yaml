@@ -9,15 +9,17 @@ module Travis::Yaml
         gobuild_args: %w[go],
         go:           %w[go],
         jdk:          %w[clojure groovy java ruby scala],
-        ghc:          %[haskell]
+        ghc:          %[haskell],
+        node_js:      %[node_js]
       }
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
       map :deploy, :ruby, :os, :compiler, :git, :jdk
-      map :lein, :otp_release, :go, :ghc, to: VersionList
+      map :lein, :otp_release, :go, :ghc, :node_js, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release
+      map :node, to: :node_js
       map :gobuild_args, to: Scalar[:str]
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
