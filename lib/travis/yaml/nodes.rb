@@ -19,6 +19,8 @@ module Travis::Yaml
     require 'travis/yaml/nodes/deploy_entry'
     require 'travis/yaml/nodes/deploy'
     require 'travis/yaml/nodes/language'
+    require 'travis/yaml/nodes/compiler_entry'
+    require 'travis/yaml/nodes/compiler'
     require 'travis/yaml/nodes/os_entry'
     require 'travis/yaml/nodes/os'
     require 'travis/yaml/nodes/ruby'
