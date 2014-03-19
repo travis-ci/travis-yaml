@@ -1,6 +1,13 @@
 module Travis::Yaml
   module Nodes
     class Scalar < Node
+      def self.[](*types)
+        Class.new(self) do
+          default_type(types.first)
+          cast(*types)
+        end
+      end
+
       def self.cast?(type)
         cast.include? type
       end
@@ -51,9 +58,15 @@ module Travis::Yaml
       end
 
       def visit_scalar(visitor, type, value, implicit = true)
-        return self.value = visitor.cast(type,         value) if cast? type
-        return self.value = visitor.cast(default_type, value) if implicit
+        return self.value = cast(visitor, type,         value) if cast? type
+        return self.value = cast(visitor, default_type, value) if implicit
         error "%p not supported, dropping %p", type.to_s, visitor.cast(:str, value)
+      end
+
+      def cast(visitor, type, value)
+        visitor.cast(type, value)
+      rescue ArgumentError => error
+        error "failed to parse %p - %s", type.to_s, error.message
       end
 
       def cast?(type)

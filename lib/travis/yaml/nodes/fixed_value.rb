@@ -1,6 +1,10 @@
 module Travis::Yaml
   module Nodes
     class FixedValue < Scalar
+      def self.[](*values)
+        Class.new(self) { value(*values) }
+      end
+
       def self.default(value = nil)
         value &&= value.to_s
         super(value)
@@ -45,8 +49,10 @@ module Travis::Yaml
       def value=(value)
         if mapped = self.class.map_value(value)
           super(mapped)
-        else
+        elsif self.value
           warning "illegal value %p, defaulting to %p", value, self.value
+        elsif value
+          error "illegal value %p", value
         end
       end
     end

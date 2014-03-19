@@ -13,6 +13,7 @@ module Travis::Yaml
     require 'travis/yaml/nodes/sequence'
     require 'travis/yaml/nodes/mapping'
     require 'travis/yaml/nodes/open_mapping'
+    require 'travis/yaml/nodes/git'
     require 'travis/yaml/nodes/bundler_args'
     require 'travis/yaml/nodes/stage'
     require 'travis/yaml/nodes/deploy_conditions'
