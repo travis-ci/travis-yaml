@@ -18,12 +18,13 @@ module Travis::Yaml
         xcode_workspace:  %w[objective-c],
         xctool_args:      %w[objective-c],
         perl:             %w[perl],
+        php:              %w[php],
       }
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
       map :deploy, :ruby, :os, :compiler, :git, :jdk
-      map :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk, :xcode_scheme, :perl, to: VersionList
+      map :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk, :xcode_scheme, :perl, :php, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release
       map :node, to: :node_js
