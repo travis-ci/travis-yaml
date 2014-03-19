@@ -3,12 +3,13 @@ module Travis::Yaml
     class Root < Mapping
       LANGUAGE_SPECIFIC = {
         bundler_args: %w[ruby],
-        compiler: %w[c cpp]
+        compiler: %w[c cpp],
+        lein: %[clojure]
       }
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
-      map :deploy, :ruby, :os, :compiler, :git
+      map :deploy, :ruby, :os, :compiler, :git, :lein
       map :rvm, to: :ruby
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
