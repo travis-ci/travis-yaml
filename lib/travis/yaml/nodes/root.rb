@@ -9,9 +9,9 @@ module Travis::Yaml
         gobuild_args: %w[go],
         go:           %w[go],
         jdk:          %w[clojure groovy java ruby scala],
-        ghc:          %[haskell],
-        node_js:      %[node_js],
-        ruby:         %[ruby objective-c]
+        ghc:          %w[haskell],
+        node_js:      %w[node_js],
+        ruby:         %w[ruby objective-c]
       }
 
       map :language, required: true
