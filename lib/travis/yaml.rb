@@ -5,6 +5,7 @@ module Travis
 
     require 'travis/yaml/secure_string'
     require 'travis/yaml/nodes'
+    require 'travis/yaml/matrix'
     require 'travis/yaml/parser'
 
     extend self
@@ -29,6 +30,14 @@ module Travis
       yield root if block_given?
       root.deep_verify
       root
+    end
+
+    def matrix(value)
+      Matrix.new parse(value)
+    end
+
+    def matrix!(value, file_name = '.travis.yml')
+      Matrix.new parse!(value, file_name)
     end
   end
 end

@@ -4,7 +4,7 @@ module Travis::Yaml
   module Parser
     class Ruby
       def self.parses?(value)
-        value.is_a?(Hash) or value.respond_to?(:to_h)
+        value.is_a? Hash
       end
 
       def self.parse(value)
@@ -12,7 +12,6 @@ module Travis::Yaml
       end
 
       def initialize(value, implicit = false)
-        value     = value.to_h if value.respond_to? :to_h
         @value    = value
         @implicit = implicit
       end

@@ -42,6 +42,7 @@ helpers do
     branch = params[:branch] || 'master'
     params[:yml] ||= GH["/repos/#{params[:repo]}/contents/.travis.yml?ref=#{branch}"]['content'].to_s.unpack('m').first
     @result = Travis::Yaml.parse(params[:yml])
+    @matrix = Travis::Yaml::Matrix.new(@result)
     slim :result
   end
 end
@@ -60,6 +61,12 @@ __END__
           | in <b class="error">#{key.join('.')}</b> section:
           = " "
         == slim('= error', {}, error: warning).gsub(/&quot;(.+?)&quot;/, '<b class="error">\1</b>')
+
+- if @matrix.size > 1
+  p.jobs It will generate #{@matrix.size} jobs:
+  ul.jobs
+    - @matrix.each do |job|
+      li = job.matrix_attributes.map { |k,v| "%s=%p" % [k,v] }.join(', ')
 
 @@ layout
 
@@ -191,7 +198,7 @@ p.tagline
 
 .result
   font-size: 1.5em
-  margin-bottom: 4em
+  margin-bottom: 2em
 
 p.result
   color: #6c3
@@ -207,6 +214,29 @@ ul.result li:before
   width: 1.4em
   height: 1.4em
   font-size: 40%
+  margin-right: 1em
+  text-align: center
+  position: relative
+  top: -0.5em
+
+// jobs
+
+.jobs
+  font-size: 1.5em
+
+ul.jobs
+  list-style: none
+  margin-bottom: 2em
+  font-size: 1.25em
+
+ul.jobs li:before
+  content: ">"
+  display: inline-block
+  background-color: #000
+  color: #fff
+  width: 1.4em
+  height: 1.4em
+  font-size: 48%
   margin-right: 1em
   text-align: center
   position: relative
