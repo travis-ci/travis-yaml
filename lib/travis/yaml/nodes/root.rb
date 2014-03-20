@@ -5,7 +5,7 @@ module Travis::Yaml
 
       map :language, required: true
       map :bundler_args, to: BundlerArgs
-      map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv, :matrix, :env
+      map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv, :matrix, :env, :notifications
       map :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk, :xcode_scheme, :perl, :php, :python, to: VersionList
       map :rvm, to: :ruby
       map :otp, to: :otp_release

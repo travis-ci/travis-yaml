@@ -72,6 +72,10 @@ module Travis::Yaml
       def cast?(type)
         self.class.cast?(type) or type == default_type
       end
+
+      def !@
+        !value
+      end
     end
   end
 end

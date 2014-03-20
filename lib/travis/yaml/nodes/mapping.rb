@@ -48,8 +48,9 @@ module Travis::Yaml
         end
       end
 
-      def self.prefix_scalar(key)
+      def self.prefix_scalar(key, *types)
         define_method(:visit_scalar) do |visitor, type, value, implicit = true|
+          return super(visitor, type, value, implicit = true) if types.any? and not types.include?(type)
           visit_key_value(visitor, key, value)
         end
       end
@@ -57,6 +58,7 @@ module Travis::Yaml
       def self.define_map_accessor(key)
         define_method(key)       { | | self[key]       } unless method_defined? key
         define_method("#{key}=") { |v| self[key] = v   } unless method_defined? "#{key}="
+        define_method("#{key}?") { | | !!self[key]     } unless method_defined? "#{key}?"
       end
 
       def self.subnode_for(key)

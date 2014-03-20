@@ -32,6 +32,7 @@ module Travis::Yaml
     require 'travis/yaml/nodes/jdk'
     require 'travis/yaml/nodes/env'
     require 'travis/yaml/nodes/matrix'
+    require 'travis/yaml/nodes/notifications'
     require 'travis/yaml/nodes/root'
   end
 end
