@@ -1,7 +1,5 @@
 # Travis Configuration Parser
 
-**This is work in progress, it is not actually in use yet.**
-
 ## What is this?
 
 This project is a library for loading Travis CI build configuration.
