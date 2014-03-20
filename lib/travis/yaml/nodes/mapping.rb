@@ -9,6 +9,10 @@ module Travis::Yaml
         @required ||= superclass.respond_to?(:required) ? superclass.required.dup : []
       end
 
+      def self.experimental
+        @experimental ||= superclass.respond_to?(:experimental) ? superclass.experimental.dup : []
+      end
+
       def self.drop_empty
         @drop_empty ||= superclass.respond_to?(:drop_empty) ? superclass.drop_empty.dup : []
       end
@@ -20,8 +24,9 @@ module Travis::Yaml
       def self.map(*list)
         options = Hash === list.last ? list.pop : {}
         list.each do |key|
-          drop_empty << key.to_s if options.fetch(:drop_empty, true)
-          required   << key.to_s if options[:required]
+          drop_empty   << key.to_s if options.fetch(:drop_empty, true)
+          required     << key.to_s if options[:required]
+          experimental << key.to_s if options[:experimental]
           define_map_accessor(key)
           case options[:to]
           when Symbol then aliases[key.to_s] = options[:to].to_s
@@ -137,9 +142,17 @@ module Travis::Yaml
       end
 
       def verify
+        verify_experimental
         verify_empty
         verify_required
         verify_errors
+      end
+
+      def verify_experimental
+        self.class.experimental.each do |key|
+          next unless @mapping.include? key
+          warning "%p is experimental and might be removed in the future", key
+        end
       end
 
       def verify_empty
