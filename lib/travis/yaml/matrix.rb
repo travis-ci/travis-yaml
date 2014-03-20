@@ -46,7 +46,7 @@ module Travis::Yaml
 
     def entries
       @entries ||= begin
-        first, *rest = axes.map { |k| values_for(k) || [] }
+        first, *rest = axes.map { |k| values_for(k) || [nil] }
         entries      = Array(first).product(*rest).map { |list| Hash[axes.zip(list)] }
         if m = root.matrix
           entries.delete_if { |e| m.exclude.any? { |p| p.all? { |k,v| e[k.to_sym] == v } } } if m.exclude
