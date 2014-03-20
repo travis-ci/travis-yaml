@@ -66,7 +66,7 @@ __END__
   p.jobs It will generate #{@matrix.size} jobs:
   ul.jobs
     - @matrix.each do |job|
-      li = job.matrix_attributes.map { |k,v| "%s=%p" % [k,v] }.join(', ')
+      li = job.matrix_attributes.map { |k,v| "%s=%p" % [k,v] if v }.compact.join(', ')
 
 @@ layout
 
