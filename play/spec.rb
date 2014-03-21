@@ -110,6 +110,14 @@ module Travis::Yaml
   end
 end
 
+def self.format_name(key)
+  key.join('.').gsub('.[]', '[]')
+end
+
+def self.format_link(key)
+  key.join.gsub('[]', '')
+end
+
 content = <<-MARKDOWN
 ## The `.travis.yml` Format
 Here is a list of all the options understood by travis-yaml.
@@ -120,11 +128,11 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 MARKDOWN
 
 Travis::Yaml.spec.each do |entry|
-  content << "#### `" << entry[:key].join('.').gsub('.[]', '[]') << "`\n"
+  content << "#### `" << format_name(entry[:key]) << "`\n"
   content << "**This setting is required!**\n\n" if entry[:required]
   content << "**This setting is experimental and might be removed!**\n\n" if entry[:experimental]
-  if entry[:alias_for] and other = entry[:alias_for].join('.')
-    content << "Alias for " << "[`#{other}`](##{other})." << "\n"
+  if other = entry[:alias_for]
+    content << "Alias for " << "[`#{format_name(other)}`](##{format_link(other)})." << "\n"
   else
     content << entry[:description] << "\n\n" if entry[:description]
     content << "**Expected format:** " <<  entry[:format].capitalize << ".\n\n" if entry[:format]

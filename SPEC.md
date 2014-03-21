@@ -145,7 +145,7 @@ Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `jav
 **Expected format:** String.
 
 #### `matrix.allow_failures[].node`
-Alias for [`matrix.allow_failures.[].node_js`](#matrix.allow_failures.[].node_js).
+Alias for [`matrix.allow_failures[].node_js`](#matrixallow_failuresnode_js).
 #### `matrix.allow_failures[].node_js`
 **Expected format:** String.
 
@@ -155,7 +155,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 **Expected format:** String.
 
 #### `matrix.allow_failures[].otp`
-Alias for [`matrix.allow_failures.[].otp_release`](#matrix.allow_failures.[].otp_release).
+Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_release).
 #### `matrix.allow_failures[].otp_release`
 **Expected format:** String.
 
@@ -172,7 +172,7 @@ Alias for [`matrix.allow_failures.[].otp_release`](#matrix.allow_failures.[].otp
 **Expected format:** String.
 
 #### `matrix.allow_failures[].rvm`
-Alias for [`matrix.allow_failures.[].ruby`](#matrix.allow_failures.[].ruby).
+Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 #### `matrix.allow_failures[].xcode_scheme`
 **Expected format:** String.
 
@@ -204,7 +204,7 @@ Alias for [`matrix.allow_failures.[].ruby`](#matrix.allow_failures.[].ruby).
 **Expected format:** String.
 
 #### `matrix.exclude[].node`
-Alias for [`matrix.exclude.[].node_js`](#matrix.exclude.[].node_js).
+Alias for [`matrix.exclude[].node_js`](#matrixexcludenode_js).
 #### `matrix.exclude[].node_js`
 **Expected format:** String.
 
@@ -214,7 +214,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 **Expected format:** String.
 
 #### `matrix.exclude[].otp`
-Alias for [`matrix.exclude.[].otp_release`](#matrix.exclude.[].otp_release).
+Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 #### `matrix.exclude[].otp_release`
 **Expected format:** String.
 
@@ -231,7 +231,7 @@ Alias for [`matrix.exclude.[].otp_release`](#matrix.exclude.[].otp_release).
 **Expected format:** String.
 
 #### `matrix.exclude[].rvm`
-Alias for [`matrix.exclude.[].ruby`](#matrix.exclude.[].ruby).
+Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 #### `matrix.exclude[].xcode_scheme`
 **Expected format:** String.
 
@@ -266,7 +266,7 @@ Alias for [`matrix.exclude.[].ruby`](#matrix.exclude.[].ruby).
 **Expected format:** String.
 
 #### `matrix.include[].node`
-Alias for [`matrix.include.[].node_js`](#matrix.include.[].node_js).
+Alias for [`matrix.include[].node_js`](#matrixincludenode_js).
 #### `matrix.include[].node_js`
 **Expected format:** String.
 
@@ -276,7 +276,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 **Expected format:** String.
 
 #### `matrix.include[].otp`
-Alias for [`matrix.include.[].otp_release`](#matrix.include.[].otp_release).
+Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 #### `matrix.include[].otp_release`
 **Expected format:** String.
 
@@ -293,7 +293,7 @@ Alias for [`matrix.include.[].otp_release`](#matrix.include.[].otp_release).
 **Expected format:** String.
 
 #### `matrix.include[].rvm`
-Alias for [`matrix.include.[].ruby`](#matrix.include.[].ruby).
+Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 #### `matrix.include[].xcode_scheme`
 **Expected format:** String.
 
