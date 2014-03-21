@@ -45,17 +45,23 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `bundler_args`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default).**
+
 **Expected format:** String.
 
 #### `compiler`
+**This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
+
 **Expected format:** List of strings; or a single string.
 
 #### `compiler[]`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
+Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` for `gcc` or `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
 #### `composer_args`
+**This setting is only relevant if [`language`](#language) is set to `php`.**
+
 **Expected format:** String.
 
 #### `deploy`
@@ -80,6 +86,8 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String.
 
 #### `deploy[].on.jdk`
+**This setting is only relevant if [`language`](#language) is set to `clojure`, `groovy`, `java`, `ruby` (default), `scala` or `android`.**
+
 `jdk` version to use.
 
 **Expected format:** String.
@@ -90,16 +98,22 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String.
 
 #### `deploy[].on.perl`
+**This setting is only relevant if [`language`](#language) is set to `perl`.**
+
 `perl` version to use.
 
 **Expected format:** String.
 
 #### `deploy[].on.php`
+**This setting is only relevant if [`language`](#language) is set to `php`.**
+
 `php` version to use.
 
 **Expected format:** String.
 
 #### `deploy[].on.python`
+**This setting is only relevant if [`language`](#language) is set to `python`.**
+
 `python` version to use.
 
 **Expected format:** String.
@@ -108,6 +122,8 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String.
 
 #### `deploy[].on.ruby`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 `ruby` version to use.
 
 **Expected format:** String.
@@ -138,11 +154,15 @@ Alias for [`deploy[].on.ruby`](#deployonruby).
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `gemfile`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 Gemfile(s) to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `ghc`
+**This setting is only relevant if [`language`](#language) is set to `haskell`.**
+
 List of `ghc` versions to use.
 
 **Expected format:** List of strings; or a single string.
@@ -154,7 +174,7 @@ List of `ghc` versions to use.
 **Expected format:** Integer value.
 
 #### `git.strategy`
-Value has to be `clone` or  `tarball`. Setting is case sensitive.
+Value has to be `clone` or `tarball`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -162,11 +182,15 @@ Value has to be `clone` or  `tarball`. Setting is case sensitive.
 **Expected format:** Boolean value.
 
 #### `go`
+**This setting is only relevant if [`language`](#language) is set to `go`.**
+
 List of `go` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `gobuild_args`
+**This setting is only relevant if [`language`](#language) is set to `go`.**
+
 **Expected format:** String.
 
 #### `install`
@@ -175,6 +199,8 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `jdk`
+**This setting is only relevant if [`language`](#language) is set to `clojure`, `groovy`, `java`, `ruby` (default), `scala` or `android`.**
+
 List of `jdk` versions to use.
 
 **Expected format:** List of strings; or a single string.
@@ -182,11 +208,13 @@ List of `jdk` versions to use.
 #### `language`
 **This setting is required!**
 
-Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala` or  `android`; or one of the known aliases: `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js` or  `obj-c` for `objective-c`. Setting is not case sensitive.
+Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala` or `android`; or one of the known aliases: `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js` or `obj-c` for `objective-c`. Setting is not case sensitive.
 
 **Expected format:** String.
 
 #### `lein`
+**This setting is only relevant if [`language`](#language) is set to `clojure`.**
+
 List of `lein` versions to use.
 
 **Expected format:** List of strings; or a single string.
@@ -201,7 +229,9 @@ List of `lein` versions to use.
 **Expected format:** Key value mapping.
 
 #### `matrix.allow_failures[].compiler`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
+**This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
+
+Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` for `gcc` or `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -209,26 +239,36 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String or encrypted string.
 
 #### `matrix.allow_failures[].gemfile`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 Gemfile to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].ghc`
+**This setting is only relevant if [`language`](#language) is set to `haskell`.**
+
 `ghc` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].go`
+**This setting is only relevant if [`language`](#language) is set to `go`.**
+
 `go` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].jdk`
+**This setting is only relevant if [`language`](#language) is set to `clojure`, `groovy`, `java`, `ruby` (default), `scala` or `android`.**
+
 `jdk` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].lein`
+**This setting is only relevant if [`language`](#language) is set to `clojure`.**
+
 `lein` version to use.
 
 **Expected format:** String.
@@ -237,12 +277,14 @@ Gemfile to use.
 Alias for [`matrix.allow_failures[].node_js`](#matrixallow_failuresnode_js).
 
 #### `matrix.allow_failures[].node_js`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
 `node_js` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].os`
-Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or  `macos` for `osx`. Setting is not case sensitive.
+Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or `macos` for `osx`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -250,26 +292,36 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_release).
 
 #### `matrix.allow_failures[].otp_release`
+**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+
 `otp_release` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].perl`
+**This setting is only relevant if [`language`](#language) is set to `perl`.**
+
 `perl` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].php`
+**This setting is only relevant if [`language`](#language) is set to `php`.**
+
 `php` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].python`
+**This setting is only relevant if [`language`](#language) is set to `python`.**
+
 `python` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].ruby`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 `ruby` version to use.
 
 **Expected format:** String.
@@ -278,11 +330,15 @@ Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_relea
 Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 
 #### `matrix.allow_failures[].xcode_scheme`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 `xcode_scheme` version to use.
 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].xcode_sdk`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 `xcode_sdk` version to use.
 
 **Expected format:** String.
@@ -294,7 +350,9 @@ Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 **Expected format:** Key value mapping.
 
 #### `matrix.exclude[].compiler`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
+**This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
+
+Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` for `gcc` or `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -302,26 +360,36 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String or encrypted string.
 
 #### `matrix.exclude[].gemfile`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 Gemfile to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].ghc`
+**This setting is only relevant if [`language`](#language) is set to `haskell`.**
+
 `ghc` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].go`
+**This setting is only relevant if [`language`](#language) is set to `go`.**
+
 `go` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].jdk`
+**This setting is only relevant if [`language`](#language) is set to `clojure`, `groovy`, `java`, `ruby` (default), `scala` or `android`.**
+
 `jdk` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].lein`
+**This setting is only relevant if [`language`](#language) is set to `clojure`.**
+
 `lein` version to use.
 
 **Expected format:** String.
@@ -330,12 +398,14 @@ Gemfile to use.
 Alias for [`matrix.exclude[].node_js`](#matrixexcludenode_js).
 
 #### `matrix.exclude[].node_js`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
 `node_js` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].os`
-Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or  `macos` for `osx`. Setting is not case sensitive.
+Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or `macos` for `osx`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -343,26 +413,36 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 
 #### `matrix.exclude[].otp_release`
+**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+
 `otp_release` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].perl`
+**This setting is only relevant if [`language`](#language) is set to `perl`.**
+
 `perl` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].php`
+**This setting is only relevant if [`language`](#language) is set to `php`.**
+
 `php` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].python`
+**This setting is only relevant if [`language`](#language) is set to `python`.**
+
 `python` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].ruby`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 `ruby` version to use.
 
 **Expected format:** String.
@@ -371,11 +451,15 @@ Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 
 #### `matrix.exclude[].xcode_scheme`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 `xcode_scheme` version to use.
 
 **Expected format:** String.
 
 #### `matrix.exclude[].xcode_sdk`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 `xcode_sdk` version to use.
 
 **Expected format:** String.
@@ -390,7 +474,9 @@ Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 **Expected format:** Key value mapping.
 
 #### `matrix.include[].compiler`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
+**This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
+
+Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` for `gcc` or `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -398,26 +484,36 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String or encrypted string.
 
 #### `matrix.include[].gemfile`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 Gemfile to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].ghc`
+**This setting is only relevant if [`language`](#language) is set to `haskell`.**
+
 `ghc` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].go`
+**This setting is only relevant if [`language`](#language) is set to `go`.**
+
 `go` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].jdk`
+**This setting is only relevant if [`language`](#language) is set to `clojure`, `groovy`, `java`, `ruby` (default), `scala` or `android`.**
+
 `jdk` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].lein`
+**This setting is only relevant if [`language`](#language) is set to `clojure`.**
+
 `lein` version to use.
 
 **Expected format:** String.
@@ -426,12 +522,14 @@ Gemfile to use.
 Alias for [`matrix.include[].node_js`](#matrixincludenode_js).
 
 #### `matrix.include[].node_js`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
 `node_js` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].os`
-Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or  `macos` for `osx`. Setting is not case sensitive.
+Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or `macos` for `osx`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -439,26 +537,36 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 
 #### `matrix.include[].otp_release`
+**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+
 `otp_release` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].perl`
+**This setting is only relevant if [`language`](#language) is set to `perl`.**
+
 `perl` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].php`
+**This setting is only relevant if [`language`](#language) is set to `php`.**
+
 `php` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].python`
+**This setting is only relevant if [`language`](#language) is set to `python`.**
+
 `python` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].ruby`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 `ruby` version to use.
 
 **Expected format:** String.
@@ -467,11 +575,15 @@ Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 
 #### `matrix.include[].xcode_scheme`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 `xcode_scheme` version to use.
 
 **Expected format:** String.
 
 #### `matrix.include[].xcode_sdk`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 `xcode_sdk` version to use.
 
 **Expected format:** String.
@@ -480,6 +592,8 @@ Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 Alias for [`node_js`](#node_js).
 
 #### `node_js`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
 List of `node_js` versions to use.
 
 **Expected format:** List of strings; or a single string.
@@ -497,17 +611,17 @@ List of `node_js` versions to use.
 **Expected format:** Boolean value.
 
 #### `notifications.campfire.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.campfire.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.campfire.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -529,17 +643,17 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Boolean value.
 
 #### `notifications.email.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.email.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.email.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -559,17 +673,17 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 **Expected format:** Boolean value.
 
 #### `notifications.flowdoc.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.flowdoc.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.flowdoc.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -583,22 +697,22 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 **Expected format:** Boolean value.
 
 #### `notifications.hipchat.format`
-Value has to be `html` or  `text`. Setting is case sensitive.
+Value has to be `html` or `text`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.hipchat.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.hipchat.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.hipchat.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -632,17 +746,17 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** String or encrypted string.
 
 #### `notifications.irc.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.irc.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.irc.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -670,17 +784,17 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Boolean value.
 
 #### `notifications.slack.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.slack.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.slack.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -702,17 +816,17 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Boolean value.
 
 #### `notifications.sqwiggle.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.sqwiggle.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.sqwiggle.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -737,17 +851,17 @@ Alias for [`notifications.webhooks`](#notificationswebhooks).
 **Expected format:** Boolean value.
 
 #### `notifications.webhooks.on_failure`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.webhooks.on_start`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
 #### `notifications.webhooks.on_success`
-Value has to be `always`, `never` or  `change`. Setting is case sensitive.
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
@@ -755,13 +869,15 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 **Expected format:** List of strings; or a single string.
 
 #### `npm_args`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
 **Expected format:** String.
 
 #### `os`
 **Expected format:** List of strings; or a single string.
 
 #### `os[]`
-Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or  `macos` for `osx`. Setting is not case sensitive.
+Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or `macos` for `osx`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -776,26 +892,36 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 Alias for [`otp_release`](#otp_release).
 
 #### `otp_release`
+**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+
 List of `otp_release` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `perl`
+**This setting is only relevant if [`language`](#language) is set to `perl`.**
+
 List of `perl` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `php`
+**This setting is only relevant if [`language`](#language) is set to `php`.**
+
 List of `php` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `python`
+**This setting is only relevant if [`language`](#language) is set to `python`.**
+
 List of `python` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `ruby`
+**This setting is only relevant if [`language`](#language) is set to `ruby` (default) or `objective-c`.**
+
 List of `ruby` versions to use.
 
 **Expected format:** List of strings; or a single string.
@@ -809,6 +935,8 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `sdk_components`
+**This setting is only relevant if [`language`](#language) is set to `android`.**
+
 **Expected format:** List of strings; or a single string.
 
 #### `services`
@@ -823,28 +951,40 @@ List of `services` versions to use.
 Alias for [`virtualenv`](#virtualenv).
 
 #### `virtualenv`
+**This setting is only relevant if [`language`](#language) is set to `python`.**
+
 **Expected format:** Key value mapping.
 
 #### `virtualenv.system_site_packages`
 **Expected format:** Boolean value.
 
 #### `xcode_project`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 **Expected format:** String.
 
 #### `xcode_scheme`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 List of `xcode_scheme` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `xcode_sdk`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 List of `xcode_sdk` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
 #### `xcode_workspace`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 **Expected format:** String.
 
 #### `xctool_args`
+**This setting is only relevant if [`language`](#language) is set to `objective-c`.**
+
 **Expected format:** String.
 
 ## Generating the Specification

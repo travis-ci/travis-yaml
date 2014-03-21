@@ -65,9 +65,9 @@ module Travis::Yaml
     class FixedValue
       def self.spec_description(*prefix)
         super || begin
-          list = valid_values.map { |v| "`#{v}`#{" (default)" if default == v.to_s}" }.join(', ').gsub(/,([^,]+)$/, ' or \1')
+          list = valid_values.map { |v| "`#{v}`#{" (default)" if default == v.to_s}" }.join(', ').gsub(/,([^,]+)$/, ' or\1')
           if aliases.any?
-            alias_list = aliases.map { |k,v| "`#{k}` for `#{v}`" }.join(', ').gsub(/,([^,]+)$/, ' or \1')
+            alias_list = aliases.map { |k,v| "`#{k}` for `#{v}`" }.join(', ').gsub(/,([^,]+)$/, ' or\1')
             list += "; or one of the known aliases: #{alias_list}"
           end
           "Value has to be #{list}. Setting is#{" not" if ignore_case?} case sensitive."
@@ -125,7 +125,10 @@ module Travis::Yaml
       end
 
       def self.spec_options(key, **options)
-        { required: required.include?(key), experimental: experimental.include?(key) }
+        if self < LanguageSpecific and languages = LanguageSpecific::LANGUAGE_SPECIFIC[key.to_sym]
+          languages = languages.map { |v| "`#{v}`#{" (default)" if v.to_s == 'ruby'}" }.join(', ').gsub(/,([^,]+)$/, ' or\1')
+        end
+        { required: required.include?(key), experimental: experimental.include?(key), languages:  languages }
       end
 
       def self.spec_aliases(*prefix, **options)
@@ -159,6 +162,7 @@ MARKDOWN
 
 Travis::Yaml.spec.each do |entry|
   content << "#### `" << format_name(entry[:key]) << "`\n"
+  content << "**This setting is only relevant if [`language`](#language) is set to #{entry[:languages]}.**\n\n" if entry[:languages]
   content << "**This setting is required!**\n\n" if entry[:required]
   content << "**This setting is experimental and might be removed!**\n\n" if entry[:experimental]
   if other = entry[:alias_for]
