@@ -75,6 +75,22 @@ module Travis::Yaml
       end
     end
 
+    class Notifications::Notification
+      def self.spec_notification_format
+        "list of strings or encrypted strings"
+      end
+
+      def self.spec_format
+        super + ", or #{spec_notification_format}, or boolean value"
+      end
+    end
+
+    class Notifications::Flowdoc
+      def self.spec_notification_format
+        "string, encrypted string"
+      end
+    end
+
     class Sequence
       def self.spec_format
         "list of " << type.spec_format("s") << "; or a single " << type.spec_format if type.spec_format
