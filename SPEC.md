@@ -94,6 +94,11 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 #### `deploy[].*`
 **Expected format:** String.
 
+#### `deploy[].edge`
+**This setting is experimental and might be removed!**
+
+**Expected format:** Boolean value.
+
 #### `deploy[].on`
 **Expected format:** Key value mapping.
 
