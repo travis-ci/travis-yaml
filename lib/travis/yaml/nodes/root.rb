@@ -14,6 +14,7 @@ module Travis::Yaml
       map :osx_image, to: Version, experimental: true
       map :gobuild_args, :xcode_project, :xcode_workspace, :xctool_args, :composer_args, :npm_args, to: Scalar[:str]
       map :source_key, to: Scalar[:str, :secure]
+      map :sdk_components, to: Sequence
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
 

@@ -8,7 +8,7 @@ module Travis::Yaml
         otp_release:      %w[erlang],
         gobuild_args:     %w[go],
         go:               %w[go],
-        jdk:              %w[clojure groovy java ruby scala],
+        jdk:              %w[clojure groovy java ruby scala android],
         ghc:              %w[haskell],
         node_js:          %w[node_js],
         ruby:             %w[ruby objective-c],
@@ -23,7 +23,8 @@ module Travis::Yaml
         virtualenv:       %w[python],
         gemfile:          %w[ruby objective-c],
         composer_args:    %w[php],
-        npm_args:         %w[node_js]
+        npm_args:         %w[node_js],
+        sdk_components:   %w[android]
       }
 
       def verify_language(language)
