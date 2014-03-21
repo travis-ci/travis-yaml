@@ -12,7 +12,7 @@ module Travis::Yaml
       map :node, to: :node_js
       map :virtual_env, to: :virtualenv
       map :osx_image, to: Version, experimental: true
-      map :gobuild_args, :xcode_project, :xcode_workspace, :xctool_args, :composer_args, to: Scalar[:str]
+      map :gobuild_args, :xcode_project, :xcode_workspace, :xctool_args, :composer_args, :npm_args, to: Scalar[:str]
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
 
