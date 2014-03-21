@@ -99,6 +99,14 @@ html
           if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) form.submit();
       };
 
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-24868285-9', 'travis-ci.org');
+      ga('send', 'pageview');
+
 @@ style
 
 // http://meyerweb.com/eric/tools/css/reset/
