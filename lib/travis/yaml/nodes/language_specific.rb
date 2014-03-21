@@ -21,7 +21,8 @@ module Travis::Yaml
         php:              %w[php],
         python:           %w[python],
         virtualenv:       %w[python],
-        gemfile:          %w[ruby objective-c]
+        gemfile:          %w[ruby objective-c],
+        composer_args:    %w[php]
       }
 
       def verify_language(language)
