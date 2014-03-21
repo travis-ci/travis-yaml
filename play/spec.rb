@@ -46,7 +46,7 @@ module Travis::Yaml
     class Scalar
       def self.spec_format(append = "")
         formats = cast.any? ? cast : [default_type]
-        formats.map { |f| TYPES[f] ? TYPES[f]+append : f.to_s }.join(', ').gsub(/,([^,]+)$/, ' or \1')
+        formats.map { |f| TYPES[f] ? TYPES[f]+append : f.to_s }.join(', ').gsub(/, ([^,]+)$/, ' or \1')
       end
     end
 

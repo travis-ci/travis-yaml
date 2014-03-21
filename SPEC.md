@@ -55,6 +55,9 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 
 **Expected format:** String.
 
+#### `composer_args`
+**Expected format:** String.
+
 #### `deploy`
 **Expected format:** List of key value mappings; or a single key value mapping.
 
@@ -76,10 +79,10 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** Key value mapping.
 
 #### `env.global`
-**Expected format:** List of strings or  encrypted strings; or a single string or  encrypted string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `env.matrix`
-**Expected format:** List of strings or  encrypted strings; or a single string or  encrypted string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `gemfile`
 Gemfile(s) to use.
@@ -150,7 +153,7 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String.
 
 #### `matrix.allow_failures[].env`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `matrix.allow_failures[].gemfile`
 Gemfile to use.
@@ -243,7 +246,7 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String.
 
 #### `matrix.exclude[].env`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `matrix.exclude[].gemfile`
 Gemfile to use.
@@ -339,7 +342,7 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 **Expected format:** String.
 
 #### `matrix.include[].env`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `matrix.include[].gemfile`
 Gemfile to use.
@@ -494,7 +497,7 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 **Expected format:** Key value mapping, or string, encrypted string, or boolean value.
 
 #### `notifications.flowdoc.api_token`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `notifications.flowdoc.disabled`
 **Expected format:** Boolean value.
@@ -558,7 +561,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.irc.channel_key`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `notifications.irc.channels`
 **Expected format:** List of strings; or a single string.
@@ -570,10 +573,10 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Boolean value.
 
 #### `notifications.irc.nick`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `notifications.irc.nickserv_password`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `notifications.irc.on_failure`
 Value has to be `always`, `never` or  `change`. Setting is case sensitive.
@@ -591,7 +594,7 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.irc.password`
-**Expected format:** String or  encrypted string.
+**Expected format:** String or encrypted string.
 
 #### `notifications.irc.skip_join`
 **Expected format:** Boolean value.
@@ -698,6 +701,9 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 #### `notifications.webhooks.urls`
 **Expected format:** List of strings; or a single string.
 
+#### `npm_args`
+**Expected format:** String.
+
 #### `os`
 **Expected format:** List of strings; or a single string.
 
@@ -753,6 +759,9 @@ Commands that will be run on the VM.
 List of `services` versions to use.
 
 **Expected format:** List of strings; or a single string.
+
+#### `source_key`
+**Expected format:** String or encrypted string.
 
 #### `virtual_env`
 Alias for [`virtualenv`](#virtualenv).
