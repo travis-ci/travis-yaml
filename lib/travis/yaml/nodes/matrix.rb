@@ -11,6 +11,7 @@ module Travis::Yaml
         map :node, to: :node_js
         map :env, to: Env::Variables
         map :os, to: OSEntry
+        map :compiler, to: CompilerEntry
       end
 
       class MatcherList < Sequence
