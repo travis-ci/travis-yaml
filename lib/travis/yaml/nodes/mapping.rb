@@ -145,6 +145,7 @@ module Travis::Yaml
 
       def verify
         verify_experimental
+        verify_errors
         verify_empty
         verify_required
         verify_errors

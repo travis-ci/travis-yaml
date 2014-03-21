@@ -7,7 +7,7 @@ describe Travis::Yaml::Nodes::Git do
 
       specify 'complains about non-integer values' do
         expect(Travis::Yaml.parse(git: { depth: "foo" }).nested_warnings).to \
-          include([['git', 'depth'], '"str" not supported, dropping "foo"'])
+          include([['git'], 'dropping "depth" section: "str" not supported, dropping "foo"'])
       end
     end
 
@@ -18,7 +18,7 @@ describe Travis::Yaml::Nodes::Git do
 
       specify 'complains about non-integer values' do
         expect(Travis::Yaml.parse(git: { submodules: "foo" }).nested_warnings).to \
-          include([['git', 'submodules'], '"str" not supported, dropping "foo"'])
+          include([['git'], 'dropping "submodules" section: "str" not supported, dropping "foo"'])
       end
     end
 
@@ -33,7 +33,7 @@ describe Travis::Yaml::Nodes::Git do
 
       specify 'cannot be foo' do
         expect(Travis::Yaml.parse(git: { strategy: :foo }).nested_warnings).to \
-          include([['git', 'strategy'], 'illegal value "foo"'])
+          include([['git'], 'dropping "strategy" section: illegal value "foo"'])
       end
     end
   end
@@ -46,7 +46,7 @@ describe Travis::Yaml::Nodes::Git do
 
       specify 'complains about non-integer values' do
         expect(Travis::Yaml.parse('git: { depth: !str foo }').nested_warnings).to \
-          include([['git', 'depth'], '"str" not supported, dropping "foo"'])
+          include([['git'], 'dropping "depth" section: "str" not supported, dropping "foo"'])
         expect(Travis::Yaml.parse('git: { depth: foo }').nested_warnings).to \
           include([['git'], 'dropping "depth" section: failed to parse "int" - invalid value for Integer(): "foo"'])
       end

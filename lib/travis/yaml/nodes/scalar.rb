@@ -41,6 +41,7 @@ module Travis::Yaml
 
       def prepare
         self.value = self.class.default
+        @multiple  = false
         super
       end
 
@@ -60,7 +61,22 @@ module Travis::Yaml
       def visit_scalar(visitor, type, value, implicit = true)
         return self.value = cast(visitor, type,         value) if cast? type
         return self.value = cast(visitor, default_type, value) if implicit
-        error "%p not supported, dropping %p", type.to_s, visitor.cast(:str, value)
+        error "%p not supported, dropping %p", type.to_s, cast(visitor, :str, value)
+      end
+
+      def visit_sequence(visitor, value)
+        @multiple = false
+        visitor.apply_sequence(self, value)
+      end
+
+      def visit_child(visitor, value)
+        if @multiple
+          value = cast(visitor, :str, value) rescue value
+          warning "does not support multiple values, dropping %p", value
+        else
+          @multiple = true
+          visitor.accept(self, value)
+        end
       end
 
       def cast(visitor, type, value)

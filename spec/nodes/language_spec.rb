@@ -24,6 +24,18 @@ describe Travis::Yaml::Nodes::Language do
       config = Travis::Yaml.parse(language: 'javascript')
       expect(config.language).to be == 'node_js'
     end
+
+    specify 'supports singe element arrays' do
+      config = Travis::Yaml.parse(language: ['javascript'])
+      expect(config.language)           .to be == 'node_js'
+      expect(config.language.warnings)  .to be_empty
+    end
+
+    specify 'complains about multi element arrays' do
+      config = Travis::Yaml.parse(language: ['javascript', 'ruby'])
+      expect(config.language)           .to be == 'node_js'
+      expect(config.language.warnings)  .to include('does not support multiple values, dropping "ruby"')
+    end
   end
 
   context 'from yaml' do
@@ -50,6 +62,18 @@ describe Travis::Yaml::Nodes::Language do
     specify 'supports aliases' do
       config = Travis::Yaml.parse('language: javascript')
       expect(config.language).to be == 'node_js'
+    end
+
+    specify 'supports singe element arrays' do
+      config = Travis::Yaml.parse("language: [javascript]")
+      expect(config.language)           .to be == 'node_js'
+      expect(config.language.warnings)  .to be_empty
+    end
+
+    specify 'complains about multi element arrays' do
+      config = Travis::Yaml.parse("language: [javascript, ruby]")
+      expect(config.language)           .to be == 'node_js'
+      expect(config.language.warnings)  .to include('does not support multiple values, dropping "ruby"')
     end
   end
 end
