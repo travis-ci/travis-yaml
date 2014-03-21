@@ -56,6 +56,9 @@ Commands that will be run on the VM.
 #### `deploy[]`
 **Expected format:** Key value mapping.
 
+#### `deploy[].*`
+**Expected format:** String.
+
 #### `deploy[].on`
 **Expected format:** Key value mapping.
 

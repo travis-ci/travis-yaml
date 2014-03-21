@@ -94,9 +94,9 @@ module Travis::Yaml
     end
 
     class OpenMapping
-      # def self.spec(*prefix, **options)
-      #   super + default_type.spec(*prefix, '*')
-      # end
+      def self.spec(*prefix, **options)
+        super + default_type.spec(*prefix, '*')
+      end
     end
 
     class Mapping
