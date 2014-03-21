@@ -140,7 +140,7 @@ List of `lein` versions to use.
 **Expected format:** Key value mapping.
 
 #### `matrix.allow_failures[].compiler`
-Compiler to use.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -230,7 +230,7 @@ Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 **Expected format:** Key value mapping.
 
 #### `matrix.exclude[].compiler`
-Compiler to use.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -323,7 +323,7 @@ Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 **Expected format:** Key value mapping.
 
 #### `matrix.include[].compiler`
-Compiler to use.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
 
 **Expected format:** String.
 
