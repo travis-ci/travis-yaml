@@ -36,6 +36,16 @@ describe Travis::Yaml::Nodes::Deploy do
       expect(config.deploy.first['foo'])    .to be == "bar"
       expect(config.deploy.nested_warnings) .to be_empty
     end
+
+    specify 'with conditions' do
+      config = Travis::Yaml.parse(deploy: { provider: :heroku, on: :production })
+      expect(config.deploy.first.on.branch).to be == "production"
+    end
+
+    specify 'with multiple conditions' do
+      config = Travis::Yaml.parse(deploy: { provider: :heroku, on: { rvm: "2.0.0", repo: 'foo/bar', tags: true } })
+      expect(config.deploy.first.on).to be == { 'ruby' => '2.0.0', 'repo' => 'foo/bar', 'tags' => true }
+    end
   end
 
   describe 'from yaml' do

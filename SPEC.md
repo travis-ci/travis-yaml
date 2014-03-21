@@ -70,6 +70,59 @@ Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` 
 #### `deploy[].on`
 **Expected format:** Key value mapping.
 
+#### `deploy[].on.all_branches`
+**Expected format:** Boolean value.
+
+#### `deploy[].on.branch`
+**Expected format:** String.
+
+#### `deploy[].on.condition`
+**Expected format:** String.
+
+#### `deploy[].on.jdk`
+`jdk` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.node`
+`node` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.perl`
+`perl` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.php`
+`php` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.python`
+`python` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.repo`
+**Expected format:** String.
+
+#### `deploy[].on.ruby`
+`ruby` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.rvm`
+Alias for [`deploy[].on.ruby`](#deployonruby).
+
+#### `deploy[].on.scala`
+`scala` version to use.
+
+**Expected format:** String.
+
+#### `deploy[].on.tags`
+**Expected format:** Boolean value.
+
 #### `deploy[].provider`
 **This setting is required!**
 
