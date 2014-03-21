@@ -50,6 +50,11 @@ Commands that will be run on the VM.
 #### `compiler`
 **Expected format:** List of strings; or a single string.
 
+#### `compiler[]`
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
+
+**Expected format:** String.
+
 #### `deploy`
 **Expected format:** List of key value mappings; or a single key value mapping.
 
@@ -667,6 +672,11 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 
 #### `os`
 **Expected format:** List of strings; or a single string.
+
+#### `os[]`
+Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubuntu` for `linux`, `mac` for `osx` or  `macos` for `osx`. Setting is not case sensitive.
+
+**Expected format:** String.
 
 #### `osx_image`
 **This setting is experimental and might be removed!**

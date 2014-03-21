@@ -98,7 +98,7 @@ module Travis::Yaml
 
       def self.spec(*prefix, **options)
         specs = super
-        specs += type.spec(*prefix, '[]') unless type <= Scalar
+        specs += type.spec(*prefix, '[]') unless type <= Scalar and not type < FixedValue
         specs
       end
     end
