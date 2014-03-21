@@ -4,7 +4,8 @@ module Travis::Yaml
       class Matcher < Mapping
         include LanguageSpecific
 
-        map :ruby, :jdk, :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk, :xcode_scheme, :perl, :php, :python, to: Version
+        map :ruby, :jdk, :lein, :otp_release, :go, :ghc, :node_js, :xcode_sdk,
+          :xcode_scheme, :perl, :php, :python, :gemfile, to: Version
         map :rvm, to: :ruby
         map :otp, to: :otp_release
         map :node, to: :node_js
