@@ -7,10 +7,12 @@ module Travis::Yaml
   end
 
   module Nodes
-    TEMPLATE_VARS = Notifications::Template::VARIABLES.map { |v| "`%{#{v}}`"}.join(", ")
+    TEMPLATE_VARS     = Notifications::Template::VARIABLES.map { |v| "`%{#{v}}`"}.join(", ")
     SPEC_DESCRIPTIONS = {
-      Stage => "Commands that will be run on the VM.",
-      Notifications::Template => "Strings will be interpolated. Available variables: #{TEMPLATE_VARS}."
+      Stage                   => "Commands that will be run on the VM.",
+      Notifications::Template => "Strings will be interpolated. Available variables: #{TEMPLATE_VARS}.",
+      %w[gemfile]             => "Gemfile(s) to use.",
+      "gemfile"               => "Gemfile to use."
     }
 
     TYPES = {
@@ -26,7 +28,7 @@ module Travis::Yaml
 
     class Node
       def self.spec_description(*prefix)
-        description = SPEC_DESCRIPTIONS[prefix]
+        description = SPEC_DESCRIPTIONS[prefix] || SPEC_DESCRIPTIONS[prefix.last]
         ancestors.each { |a| description ||= SPEC_DESCRIPTIONS[a] }
         description
       end
@@ -37,7 +39,7 @@ module Travis::Yaml
       def self.spec(*prefix, **options)
         options[:experimental] ||= false
         options[:required]     ||= false
-        [{ key: prefix, description: spec_description(prefix), format: spec_format, **options }]
+        [{ key: prefix, description: spec_description(*prefix), format: spec_format, **options }]
       end
     end
 
@@ -45,6 +47,18 @@ module Travis::Yaml
       def self.spec_format(append = "")
         formats = cast.any? ? cast : [default_type]
         formats.map { |f| TYPES[f] ? TYPES[f]+append : f.to_s }.join(', ').gsub(/,([^,]+)$/, ' or \1')
+      end
+    end
+
+    class Version
+      def self.spec_description(*prefix)
+        super || "`#{prefix.last}` version to use."
+      end
+    end
+
+    class VersionList
+      def self.spec_description(*prefix)
+        super || "List of `#{prefix.last}` versions to use."
       end
     end
 

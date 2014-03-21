@@ -74,9 +74,13 @@ Commands that will be run on the VM.
 **Expected format:** List of strings or  encrypted strings; or a single string or  encrypted string.
 
 #### `gemfile`
+Gemfile(s) to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `ghc`
+List of `ghc` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `git`
@@ -94,6 +98,8 @@ Value has to be `clone` or  `tarball`. Setting is case sensitive.
 **Expected format:** Boolean value.
 
 #### `go`
+List of `go` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `gobuild_args`
@@ -105,6 +111,8 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `jdk`
+List of `jdk` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `language`
@@ -115,6 +123,8 @@ Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `jav
 **Expected format:** String.
 
 #### `lein`
+List of `lein` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `matrix`
@@ -130,23 +140,35 @@ Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `jav
 **Expected format:** String or  encrypted string.
 
 #### `matrix.allow_failures[].gemfile`
+Gemfile to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].ghc`
+`ghc` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].go`
+`go` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].jdk`
+`jdk` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].lein`
+`lein` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].node`
 Alias for [`matrix.allow_failures[].node_js`](#matrixallow_failuresnode_js).
 #### `matrix.allow_failures[].node_js`
+`node_js` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].os`
@@ -157,26 +179,40 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 #### `matrix.allow_failures[].otp`
 Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_release).
 #### `matrix.allow_failures[].otp_release`
+`otp_release` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].perl`
+`perl` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].php`
+`php` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].python`
+`python` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].ruby`
+`ruby` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].rvm`
 Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 #### `matrix.allow_failures[].xcode_scheme`
+`xcode_scheme` version to use.
+
 **Expected format:** String.
 
 #### `matrix.allow_failures[].xcode_sdk`
+`xcode_sdk` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude`
@@ -189,23 +225,35 @@ Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 **Expected format:** String or  encrypted string.
 
 #### `matrix.exclude[].gemfile`
+Gemfile to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].ghc`
+`ghc` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].go`
+`go` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].jdk`
+`jdk` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].lein`
+`lein` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].node`
 Alias for [`matrix.exclude[].node_js`](#matrixexcludenode_js).
 #### `matrix.exclude[].node_js`
+`node_js` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].os`
@@ -216,26 +264,40 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 #### `matrix.exclude[].otp`
 Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 #### `matrix.exclude[].otp_release`
+`otp_release` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].perl`
+`perl` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].php`
+`php` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].python`
+`python` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].ruby`
+`ruby` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].rvm`
 Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 #### `matrix.exclude[].xcode_scheme`
+`xcode_scheme` version to use.
+
 **Expected format:** String.
 
 #### `matrix.exclude[].xcode_sdk`
+`xcode_sdk` version to use.
+
 **Expected format:** String.
 
 #### `matrix.fast_finish`
@@ -251,23 +313,35 @@ Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 **Expected format:** String or  encrypted string.
 
 #### `matrix.include[].gemfile`
+Gemfile to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].ghc`
+`ghc` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].go`
+`go` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].jdk`
+`jdk` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].lein`
+`lein` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].node`
 Alias for [`matrix.include[].node_js`](#matrixincludenode_js).
 #### `matrix.include[].node_js`
+`node_js` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].os`
@@ -278,31 +352,47 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 #### `matrix.include[].otp`
 Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 #### `matrix.include[].otp_release`
+`otp_release` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].perl`
+`perl` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].php`
+`php` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].python`
+`python` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].ruby`
+`ruby` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].rvm`
 Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 #### `matrix.include[].xcode_scheme`
+`xcode_scheme` version to use.
+
 **Expected format:** String.
 
 #### `matrix.include[].xcode_sdk`
+`xcode_sdk` version to use.
+
 **Expected format:** String.
 
 #### `node`
 Alias for [`node_js`](#node_js).
 #### `node_js`
+List of `node_js` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `notifications`
@@ -578,23 +668,35 @@ Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 #### `osx_image`
 **This setting is experimental and might be removed!**
 
+`osx_image` version to use.
+
 **Expected format:** String.
 
 #### `otp`
 Alias for [`otp_release`](#otp_release).
 #### `otp_release`
+List of `otp_release` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `perl`
+List of `perl` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `php`
+List of `php` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `python`
+List of `python` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `ruby`
+List of `ruby` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `rvm`
@@ -605,6 +707,8 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `services`
+List of `services` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `virtual_env`
@@ -619,9 +723,13 @@ Alias for [`virtualenv`](#virtualenv).
 **Expected format:** String.
 
 #### `xcode_scheme`
+List of `xcode_scheme` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `xcode_sdk`
+List of `xcode_sdk` versions to use.
+
 **Expected format:** List of strings; or a single string.
 
 #### `xcode_workspace`
