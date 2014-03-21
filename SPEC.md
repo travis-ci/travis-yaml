@@ -58,6 +58,18 @@ Commands that will be run on the VM.
 
 **Expected format:** String.
 
+#### `cache`
+**Expected format:** Key value mapping.
+
+#### `cache.apt`
+**Expected format:** Boolean value.
+
+#### `cache.bundler`
+**Expected format:** Boolean value.
+
+#### `cache.directories`
+**Expected format:** List of strings; or a single string.
+
 #### `compiler`
 **This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
 
