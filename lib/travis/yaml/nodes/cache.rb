@@ -2,6 +2,7 @@ module Travis::Yaml
   module Nodes
     class Cache < Mapping
       map :apt, :bundler, to: Scalar[:bool]
+      map :edge, to: Scalar[:bool], experimental: true
       map :directories, to: Sequence
 
       def visit_scalar(visitor, type, value, implicit = true)

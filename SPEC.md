@@ -70,6 +70,11 @@ Commands that will be run on the VM.
 #### `cache.directories`
 **Expected format:** List of strings; or a single string.
 
+#### `cache.edge`
+**This setting is experimental and might be removed!**
+
+**Expected format:** Boolean value.
+
 #### `compiler`
 **This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
 
