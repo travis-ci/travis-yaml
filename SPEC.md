@@ -179,6 +179,7 @@ Gemfile to use.
 
 #### `matrix.allow_failures[].node`
 Alias for [`matrix.allow_failures[].node_js`](#matrixallow_failuresnode_js).
+
 #### `matrix.allow_failures[].node_js`
 `node_js` version to use.
 
@@ -191,6 +192,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 
 #### `matrix.allow_failures[].otp`
 Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_release).
+
 #### `matrix.allow_failures[].otp_release`
 `otp_release` version to use.
 
@@ -218,6 +220,7 @@ Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_relea
 
 #### `matrix.allow_failures[].rvm`
 Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
+
 #### `matrix.allow_failures[].xcode_scheme`
 `xcode_scheme` version to use.
 
@@ -269,6 +272,7 @@ Gemfile to use.
 
 #### `matrix.exclude[].node`
 Alias for [`matrix.exclude[].node_js`](#matrixexcludenode_js).
+
 #### `matrix.exclude[].node_js`
 `node_js` version to use.
 
@@ -281,6 +285,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 
 #### `matrix.exclude[].otp`
 Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
+
 #### `matrix.exclude[].otp_release`
 `otp_release` version to use.
 
@@ -308,6 +313,7 @@ Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 
 #### `matrix.exclude[].rvm`
 Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
+
 #### `matrix.exclude[].xcode_scheme`
 `xcode_scheme` version to use.
 
@@ -362,6 +368,7 @@ Gemfile to use.
 
 #### `matrix.include[].node`
 Alias for [`matrix.include[].node_js`](#matrixincludenode_js).
+
 #### `matrix.include[].node_js`
 `node_js` version to use.
 
@@ -374,6 +381,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 
 #### `matrix.include[].otp`
 Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
+
 #### `matrix.include[].otp_release`
 `otp_release` version to use.
 
@@ -401,6 +409,7 @@ Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 
 #### `matrix.include[].rvm`
 Alias for [`matrix.include[].ruby`](#matrixincluderuby).
+
 #### `matrix.include[].xcode_scheme`
 `xcode_scheme` version to use.
 
@@ -413,6 +422,7 @@ Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 
 #### `node`
 Alias for [`node_js`](#node_js).
+
 #### `node_js`
 List of `node_js` versions to use.
 
@@ -659,30 +669,33 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.webhook`
+Alias for [`notifications.webhooks`](#notificationswebhooks).
+
+#### `notifications.webhooks`
 **Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
-#### `notifications.webhook.disabled`
+#### `notifications.webhooks.disabled`
 **Expected format:** Boolean value.
 
-#### `notifications.webhook.enabled`
+#### `notifications.webhooks.enabled`
 **Expected format:** Boolean value.
 
-#### `notifications.webhook.on_failure`
+#### `notifications.webhooks.on_failure`
 Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
-#### `notifications.webhook.on_start`
+#### `notifications.webhooks.on_start`
 Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
-#### `notifications.webhook.on_success`
+#### `notifications.webhooks.on_success`
 Value has to be `always`, `never` or  `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
-#### `notifications.webhook.urls`
+#### `notifications.webhooks.urls`
 **Expected format:** List of strings; or a single string.
 
 #### `os`
@@ -702,6 +715,7 @@ Value has to be `linux` (default) or  `osx`; or one of the known aliases: `ubunt
 
 #### `otp`
 Alias for [`otp_release`](#otp_release).
+
 #### `otp_release`
 List of `otp_release` versions to use.
 
@@ -729,6 +743,7 @@ List of `ruby` versions to use.
 
 #### `rvm`
 Alias for [`ruby`](#ruby).
+
 #### `script`
 Commands that will be run on the VM.
 
@@ -741,6 +756,7 @@ List of `services` versions to use.
 
 #### `virtual_env`
 Alias for [`virtualenv`](#virtualenv).
+
 #### `virtualenv`
 **Expected format:** Key value mapping.
 

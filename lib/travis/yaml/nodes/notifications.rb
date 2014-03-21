@@ -65,12 +65,13 @@ module Travis::Yaml
         prefix_scalar name, :str, :secure
       end
 
-      map :webhook,                     to: Notification[:urls]
+      map :webhooks,                    to: Notification[:urls]
       map :email,                       to: Notification[:recipients]
       map :sqwiggle, :slack, :campfire, to: WithTemplate[:rooms]
       map :flowdoc,                     to: Flowdoc
       map :hipchat,                     to: Hipchat
       map :irc,                         to: IRC
+      map :webhook,                     to: :webhooks
     end
   end
 end

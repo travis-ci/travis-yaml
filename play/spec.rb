@@ -162,7 +162,7 @@ Travis::Yaml.spec.each do |entry|
   content << "**This setting is required!**\n\n" if entry[:required]
   content << "**This setting is experimental and might be removed!**\n\n" if entry[:experimental]
   if other = entry[:alias_for]
-    content << "Alias for " << "[`#{format_name(other)}`](##{format_link(other)})." << "\n"
+    content << "Alias for " << "[`#{format_name(other)}`](##{format_link(other)})." << "\n\n"
   else
     content << entry[:description] << "\n\n" if entry[:description]
     content << "**Expected format:** " <<  entry[:format].capitalize << ".\n\n" if entry[:format]
