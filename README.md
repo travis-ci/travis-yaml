@@ -78,7 +78,7 @@ module Travis::Yaml::Nodes
 end
 ```
 
-Available types are `str`, `binary`, `bool`, `float`, `int`, `time`, `secure` and `null`.
+Available types are `str`, `binary`, `bool`, `float`, `int`, `time`, `regexp`, `secure` and `null`.
 
 #### Default Value
 
