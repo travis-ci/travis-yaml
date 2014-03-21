@@ -51,7 +51,7 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `compiler[]`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -145,7 +145,7 @@ List of `lein` versions to use.
 **Expected format:** Key value mapping.
 
 #### `matrix.allow_failures[].compiler`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -235,7 +235,7 @@ Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 **Expected format:** Key value mapping.
 
 #### `matrix.exclude[].compiler`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -328,7 +328,7 @@ Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 **Expected format:** Key value mapping.
 
 #### `matrix.include[].compiler`
-Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `gcc`. Setting is not case sensitive.
+Value has to be `gcc` (default) or  `clang`; or one of the known aliases: `g++` for `gcc` or  `clang++` for `clang`. Setting is not case sensitive.
 
 **Expected format:** String.
 
