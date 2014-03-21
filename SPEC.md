@@ -44,6 +44,15 @@ Commands that will be run on the VM.
 
 **Expected format:** List of strings; or a single string.
 
+#### `branches`
+**Expected format:** Key value mapping.
+
+#### `branches.except`
+**Expected format:** List of strings or regular expressions; or a single string or regular expression.
+
+#### `branches.only`
+**Expected format:** List of strings or regular expressions; or a single string or regular expression.
+
 #### `bundler_args`
 **This setting is only relevant if [`language`](#language) is set to `ruby` (default).**
 

@@ -33,6 +33,7 @@ module Travis::Yaml
         when Float                then node.visit_scalar     self, :float,  value,      @implicit
         when DateTime, Time, Date then node.visit_scalar     self, :time,   value,      @implicit
         when true, false          then node.visit_scalar     self, :bool,   value,      @implicit
+        when Regexp               then node.visit_scalar     self, :regexp, value,      @implicit
         when nil                  then node.visit_scalar     self, :null,   value,      @implicit
         else                           node.visit_unexpected self, value
         end
@@ -48,9 +49,12 @@ module Travis::Yaml
         when :int    then Integer value
         when :time   then value.to_time
         when :secure then SecureString === value ? value : SecureString.new(value.value)
+        when :regexp then Regexp.new(value)
         when :null   then nil
         else raise ArgumentError, 'unknown scalar type %p' % type
         end
+      rescue RegexpError => error
+        raise ArgumentError, "broken regular expression - #{error.message}"
       end
 
       def apply_mapping(node, value)

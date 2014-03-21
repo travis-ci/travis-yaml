@@ -32,16 +32,17 @@ module Travis::Yaml
       VALUE     = /\A(?:tag:yaml\.org,2002:|!!?)value\z/
       YAML      = /\A(?:tag:yaml\.org,2002:|!!?)yaml\z/
       SECURE    = /\A!(?:encrypted|secure|decrypted)\z/
-
-      # copied from YAML spec
       TRUE      = /\A(?:y|Y|yes|Yes|YES|true|True|TRUE|on|On|ON)\z/
       FALSE     = /\A(?:n|N|no|No|NO|false|False|FALSE|off|Off|OFF)\z/
+      REGEXP    = /\A!(?:ruby\/)?regexp\z/
+      REG_FLAGS = { 'i' => Regexp::IGNORECASE, 'm' => Regexp::MULTILINE, 'x' => Regexp::EXTENDED }
       FORMATS   = {
         '!bool'      => Regexp.union(TRUE, FALSE),
         '!float'     => ::Psych::ScalarScanner::FLOAT,
         '!null'      => /\A(:?~|null|Null|NULL|)\z/,
         '!timestamp' => ::Psych::ScalarScanner::TIME,
-        '!int'       => ::Psych::ScalarScanner::INTEGER
+        '!int'       => ::Psych::ScalarScanner::INTEGER,
+        '!regexp'    => /\A\/(.*)\/([imx]*)\z/
       }
 
       if defined? ::Psych::ClassLoader
@@ -138,8 +139,27 @@ module Travis::Yaml
         when TIMESTAMP then node.visit_scalar self, :time,   value, value.tag.nil?
         when SECURE    then node.visit_scalar self, :secure, value, value.tag.nil?
         when NULL      then node.visit_scalar self, :null,   value, value.tag.nil?
-        else node.visit_unexpected self, value, "unexpected tag %p for scalar %p" % [tag, value]
+        when REGEXP    then node.visit_scalar self, :regexp, value, value.tag.nil?
+        else node.visit_unexpected self, value, "unexpected tag %p for scalar %p" % [tag, simple(value)]
         end
+      end
+
+      def simple(value)
+        case value
+        when ::Psych::Nodes::Scalar   then value.value
+        when ::Psych::Nodes::Mapping  then simple_mapping(value)
+        when ::Psych::Nodes::Sequence then value.children.map { |c| simple(c) }
+        when ::Psych::Nodes::Document then simple(value.root)
+        when ::Psych::Nodes::Stream   then value.children.map { |c| simple(c) }
+        else value
+        end
+      end
+
+      def simple_mapping(value)
+        children     = {}
+        keys, values = value.children.group_by.with_index { |_,i| i.even? }.values_at(true, false)
+        keys.zip(values) { |key, value| children[simple(key)] = simple(value) } if keys and values
+        children
       end
 
       def scalar_tag(value)
@@ -151,6 +171,15 @@ module Travis::Yaml
         '!str'
       end
 
+      def regexp(pattern)
+        return pattern if pattern.is_a? Regexp
+        return Regexp.new(pattern) unless pattern =~ FORMATS['!regexp']
+        flag = $2.chars.inject(0) { |f,c| f | REG_FLAGS.fetch(c, 0) }
+        Regexp.new($1, flag)
+      rescue RegexpError => error
+        raise ArgumentError, "broken regular expression - #{error.message}"
+      end
+
       def cast(type, value)
         case type
         when :str    then value.value
@@ -160,6 +189,7 @@ module Travis::Yaml
         when :int    then Integer @scanner.tokenize(value.value)
         when :time   then @scanner.parse_time(value.value)
         when :secure then SecureString.new(value.value, value.tag != '!decrypted')
+        when :regexp then regexp(value.value)
         when :null   then nil
         else raise ArgumentError, 'unknown scalar type %p' % type
         end

@@ -23,7 +23,8 @@ module Travis::Yaml
       null:   'null value',
       str:    'string',
       time:   'time value',
-      secure: 'encrypted string'
+      secure: 'encrypted string',
+      regexp: 'regular expression'
     }
 
     class Node
