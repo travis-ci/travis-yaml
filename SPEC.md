@@ -97,7 +97,10 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 **Expected format:** Key value mapping.
 
 #### `deploy[].*`
-**Expected format:** String.
+**Expected format:** Key value mapping.
+
+#### `deploy[].*.*`
+**Expected format:** String or encrypted string.
 
 #### `deploy[].edge`
 **This setting is experimental and might be removed!**

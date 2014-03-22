@@ -46,6 +46,18 @@ describe Travis::Yaml::Nodes::Deploy do
       config = Travis::Yaml.parse(deploy: { provider: :heroku, on: { rvm: "2.0.0", repo: 'foo/bar', tags: true } })
       expect(config.deploy.first.on).to be == { 'ruby' => '2.0.0', 'repo' => 'foo/bar', 'tags' => true }
     end
+
+    specify 'with branch specific settings' do
+      config = Travis::Yaml.parse(deploy: { provider: :heroku, foo: { master: :bar, staging: :baz } })
+      expect(config.deploy.first['foo'])    .to be == { 'master' => 'bar', 'staging' => 'baz' }
+      expect(config.deploy.nested_warnings) .to be_empty
+    end
+
+    specify 'branches in settings that are not in the condition' do
+      config = Travis::Yaml.parse(deploy: { provider: :heroku, foo: { master: :bar, staging: :baz }, on: :master })
+      expect(config.deploy.first['foo'])    .to be == { 'master' => 'bar' }
+      expect(config.deploy.nested_warnings) .to include([['foo'], 'branch "staging" not permitted by deploy condition, dropping'])
+    end
   end
 
   describe 'from yaml' do
