@@ -636,7 +636,7 @@ List of `node_js` versions to use.
 **Expected format:** Key value mapping.
 
 #### `notifications.campfire`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.campfire.disabled`
 **Expected format:** Boolean value.
@@ -660,7 +660,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.campfire.rooms`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.campfire.template`
 Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
@@ -668,7 +668,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.email`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.email.disabled`
 **Expected format:** Boolean value.
@@ -692,7 +692,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.email.recipients`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.flowdoc`
 **Expected format:** Key value mapping, or string, encrypted string, or boolean value.
@@ -722,7 +722,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.hipchat`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.hipchat.disabled`
 **Expected format:** Boolean value.
@@ -751,7 +751,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.hipchat.rooms`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.hipchat.template`
 Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
@@ -759,13 +759,13 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.irc`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.irc.channel_key`
 **Expected format:** String or encrypted string.
 
 #### `notifications.irc.channels`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.irc.disabled`
 **Expected format:** Boolean value.
@@ -809,7 +809,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Boolean value.
 
 #### `notifications.slack`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.slack.disabled`
 **Expected format:** Boolean value.
@@ -833,7 +833,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.slack.rooms`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.slack.template`
 Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
@@ -841,7 +841,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.sqwiggle`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.sqwiggle.disabled`
 **Expected format:** Boolean value.
@@ -865,7 +865,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.sqwiggle.rooms`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.sqwiggle.template`
 Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
@@ -876,7 +876,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 Alias for [`notifications.webhooks`](#notificationswebhooks).
 
 #### `notifications.webhooks`
-**Expected format:** Key value mapping, or list of strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
 #### `notifications.webhooks.disabled`
 **Expected format:** Boolean value.
@@ -900,7 +900,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.webhooks.urls`
-**Expected format:** List of strings; or a single string.
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `npm_args`
 **This setting is only relevant if [`language`](#language) is set to `node_js`.**

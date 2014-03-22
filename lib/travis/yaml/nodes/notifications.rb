@@ -3,6 +3,10 @@ module Travis::Yaml
     class Notifications < Mapping
       Callbacks ||= FixedValue[:always, :never, :change]
 
+      class List < Sequence
+        type Scalar[:str, :secure]
+      end
+
       class Notification < Mapping
         map :enabled, :disabled, to: Scalar[:bool]
         map :on_success, :on_failure, :on_start, to: Callbacks
@@ -12,7 +16,7 @@ module Travis::Yaml
         end
 
         def self.list(name)
-          map name, to: Sequence
+          map name, to: List
           prefix_sequence name
           prefix_scalar name, :str, :secure
         end
