@@ -188,6 +188,11 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 
 **Expected format:** String.
 
+#### `deploy[].on.node_js`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
+Alias for [`deploy[].on.node`](#deployonnode).
+
 #### `deploy[].on.perl`
 **This setting is only relevant if [`language`](#language) is set to `perl`.**
 
