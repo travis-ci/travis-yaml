@@ -32,7 +32,7 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 **Expected format:** String or encrypted string.
 
 #### `addons.coverty_scan.project`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or strings or encrypted strings.
 
 #### `addons.coverty_scan.project.name`
 **This setting is required!**
@@ -187,6 +187,11 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 `node` version to use.
 
 **Expected format:** String.
+
+#### `deploy[].on.node_js`
+**This setting is only relevant if [`language`](#language) is set to `node_js`.**
+
+Alias for [`deploy[].on.node`](#deployonnode).
 
 #### `deploy[].on.perl`
 **This setting is only relevant if [`language`](#language) is set to `perl`.**

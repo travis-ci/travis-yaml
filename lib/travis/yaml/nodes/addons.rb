@@ -14,6 +14,7 @@ module Travis::Yaml
       class CovertyScan < Addon
         class Project < Mapping
           map :name, to: Scalar[:str, :secure], required: true
+          auto_prefix :name
         end
 
         map :project, to: Project

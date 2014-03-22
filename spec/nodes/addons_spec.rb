@@ -14,6 +14,11 @@ describe Travis::Yaml::Nodes::Addons do
         config = addons(coverty_scan: { project: { name: :foo } })
         expect(config.coverty_scan.project.name).to be == "foo"
       end
+
+      example do
+        config = addons(coverty_scan: { project: :foo })
+        expect(config.coverty_scan.project.name).to be == "foo"
+      end
     end
 
     context 'firefox' do
