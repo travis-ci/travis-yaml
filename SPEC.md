@@ -32,7 +32,7 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 **Expected format:** String or encrypted string.
 
 #### `addons.coverty_scan.project`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or strings or encrypted strings.
 
 #### `addons.coverty_scan.project.name`
 **This setting is required!**
