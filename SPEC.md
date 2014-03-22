@@ -45,7 +45,7 @@ Commands that will be run on the VM.
 **Expected format:** List of strings; or a single string.
 
 #### `branches`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or list of strings or regular expressions.
 
 #### `branches.except`
 **Expected format:** List of strings or regular expressions; or a single string or regular expression.
@@ -91,13 +91,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 **Expected format:** String.
 
 #### `deploy`
-**Expected format:** List of key value mappings; or a single key value mapping.
+**Expected format:** List of key value mappings, or strings; or a single key value mapping, or string.
 
 #### `deploy[]`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or string.
 
 #### `deploy[].*`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or string or encrypted string.
 
 #### `deploy[].*.*`
 **Expected format:** String or encrypted string.
@@ -108,7 +108,7 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 **Expected format:** Boolean value.
 
 #### `deploy[].on`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or string.
 
 #### `deploy[].on.all_branches`
 **Expected format:** Boolean value.
@@ -179,7 +179,7 @@ Alias for [`deploy[].on.ruby`](#deployonruby).
 **Expected format:** String.
 
 #### `env`
-**Expected format:** Key value mapping.
+**Expected format:** Key value mapping, or list of strings or encrypted strings.
 
 #### `env.global`
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
@@ -636,7 +636,7 @@ List of `node_js` versions to use.
 **Expected format:** Key value mapping.
 
 #### `notifications.campfire`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.campfire.disabled`
 **Expected format:** Boolean value.
@@ -668,7 +668,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.email`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.email.disabled`
 **Expected format:** Boolean value.
@@ -722,7 +722,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** String.
 
 #### `notifications.hipchat`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.hipchat.disabled`
 **Expected format:** Boolean value.
@@ -759,7 +759,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.irc`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.irc.channel_key`
 **Expected format:** String or encrypted string.
@@ -809,7 +809,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** Boolean value.
 
 #### `notifications.slack`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.slack.disabled`
 **Expected format:** Boolean value.
@@ -841,7 +841,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 **Expected format:** List of strings; or a single string.
 
 #### `notifications.sqwiggle`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.sqwiggle.disabled`
 **Expected format:** Boolean value.
@@ -876,7 +876,7 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 Alias for [`notifications.webhooks`](#notificationswebhooks).
 
 #### `notifications.webhooks`
-**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+**Expected format:** Key value mapping, or list of strings, or boolean value.
 
 #### `notifications.webhooks.disabled`
 **Expected format:** Boolean value.

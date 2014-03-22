@@ -42,17 +42,27 @@ module Travis::Yaml
         prefix_scalar(key)
       end
 
-      def self.prefix_sequence(key)
-        define_method(:visit_sequence) do |visitor, value|
-          visit_key_value(visitor, key, value)
+      def self.prefix_sequence(key = nil)
+        @prefix_sequence ||= superclass.respond_to?(:prefix_sequence) ? superclass.prefix_sequence : nil
+        if key
+          @prefix_sequence = key.to_s
+          define_method(:visit_sequence) do |visitor, value|
+            visit_key_value(visitor, key, value)
+          end
         end
+        @prefix_sequence
       end
 
-      def self.prefix_scalar(key, *types)
-        define_method(:visit_scalar) do |visitor, type, value, implicit = true|
-          return super(visitor, type, value, implicit = true) if types.any? and not types.include?(type)
-          visit_key_value(visitor, key, value)
+      def self.prefix_scalar(key = nil, *types)
+        @prefix_scalar ||= superclass.respond_to?(:prefix_scalar) ? superclass.prefix_scalar : nil
+        if key
+          @prefix_scalar = key.to_s
+          define_method(:visit_scalar) do |visitor, type, value, implicit = true|
+            return super(visitor, type, value, implicit = true) if types.any? and not types.include?(type)
+            visit_key_value(visitor, key, value)
+          end
         end
+        @prefix_scalar
       end
 
       def self.define_map_accessor(key)

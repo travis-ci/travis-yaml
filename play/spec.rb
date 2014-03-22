@@ -34,7 +34,7 @@ module Travis::Yaml
         description
       end
 
-      def self.spec_format
+      def self.spec_format(*)
       end
 
       def self.spec(*prefix, **options)
@@ -45,7 +45,7 @@ module Travis::Yaml
     end
 
     class Scalar
-      def self.spec_format(append = "")
+      def self.spec_format(append = "", *)
         formats = cast.any? ? cast : [default_type]
         formats.map { |f| TYPES[f] ? TYPES[f]+append : f.to_s }.join(', ').gsub(/, ([^,]+)$/, ' or \1')
       end
@@ -77,24 +77,24 @@ module Travis::Yaml
     end
 
     class Notifications::Notification
-      def self.spec_notification_format
-        "list of strings or encrypted strings"
-      end
-
-      def self.spec_format
-        super + ", or #{spec_notification_format}, or boolean value"
-      end
+       def self.spec_format_prefix(input, append = "")
+         super(input)
+         input << ", or boolean value#{append}"
+       end
     end
 
     class Notifications::Flowdoc
-      def self.spec_notification_format
-        "string, encrypted string"
-      end
+       def self.spec_format_prefix(input, append = "")
+         input << ", or string#{append}, encrypted string#{append}, or boolean value#{append}"
+       end
     end
 
     class Sequence
-      def self.spec_format
-        "list of " << type.spec_format("s") << "; or a single " << type.spec_format if type.spec_format
+      def self.spec_format(append = "", children = true, *)
+        return unless type.spec_format
+        format = "list of " << type.spec_format("s")
+        format << "; or a single " << type.spec_format if children
+        format
       end
 
       def self.spec(*prefix, **options)
@@ -117,8 +117,15 @@ module Travis::Yaml
     end
 
     class Mapping
-      def self.spec_format(append = "")
-        "key value mapping#{append}"
+      def self.spec_format(append = "", *)
+        format = "key value mapping#{append}"
+        spec_format_prefix(format, append)
+        format
+      end
+
+      def self.spec_format_prefix(input, append = "")
+        input << ", or #{subnode_for(prefix_sequence).spec_format('s', prefix_sequence != prefix_scalar)}" if prefix_sequence
+        input << ", or #{subnode_for(prefix_scalar).spec_format(append)}" if prefix_scalar and prefix_scalar != prefix_sequence
       end
 
       def self.default_spec_description
