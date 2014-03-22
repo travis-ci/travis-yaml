@@ -43,7 +43,7 @@ end
 
 ## What is missing?
 
-* Full definition of current .travis.yml format
+* High level API for dealing with secure values
 * Serialization
 
 ## Defining Structure

@@ -35,6 +35,7 @@ module Travis::Yaml
     require 'travis/yaml/nodes/notifications'
     require 'travis/yaml/nodes/branches'
     require 'travis/yaml/nodes/cache'
+    require 'travis/yaml/nodes/addons'
     require 'travis/yaml/nodes/root'
   end
 end

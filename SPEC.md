@@ -4,6 +4,63 @@ Here is a list of all the options understood by travis-yaml.
 Note that stricitly speaking Travis CI might not have the same understanding of these as travis-yaml has at the moment, since travis-yaml is not yet being used.
 
 ### Available Options
+#### `addons`
+**Expected format:** Key value mapping.
+
+#### `addons.code_climate`
+**Expected format:** Key value mapping.
+
+#### `addons.code_climate.repo_token`
+**Expected format:** String or encrypted string.
+
+#### `addons.coverty_scan`
+**Expected format:** Key value mapping.
+
+#### `addons.coverty_scan.branch_pattern`
+**Expected format:** String or encrypted string.
+
+#### `addons.coverty_scan.build_command`
+**Expected format:** String or encrypted string.
+
+#### `addons.coverty_scan.build_command_prepend`
+**Expected format:** String or encrypted string.
+
+#### `addons.coverty_scan.build_script_url`
+**Expected format:** String or encrypted string.
+
+#### `addons.coverty_scan.notification_email`
+**Expected format:** String or encrypted string.
+
+#### `addons.coverty_scan.project`
+**Expected format:** Key value mapping.
+
+#### `addons.coverty_scan.project.name`
+**This setting is required!**
+
+**Expected format:** String or encrypted string.
+
+#### `addons.firefox`
+`firefox` version to use.
+
+**Expected format:** String.
+
+#### `addons.hosts`
+**Expected format:** List of strings; or a single string.
+
+#### `addons.postgresql`
+`postgresql` version to use.
+
+**Expected format:** String.
+
+#### `addons.sauce_connect`
+**Expected format:** Key value mapping.
+
+#### `addons.sauce_connect.access_key`
+**Expected format:** String or encrypted string.
+
+#### `addons.sauce_connect.username`
+**Expected format:** String or encrypted string.
+
 #### `after_deploy`
 Commands that will be run on the VM.
 
