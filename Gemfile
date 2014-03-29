@@ -7,3 +7,7 @@ group :play do
   gem 'slim', '~> 1.3'
   gem 'gh'
 end
+
+group :psych do
+  gem 'psych', '~> 2.0', platforms: :ruby_19
+end

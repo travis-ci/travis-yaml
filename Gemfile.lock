@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     travis-yaml (0.1.0)
-      psych (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -63,6 +62,7 @@ PLATFORMS
 
 DEPENDENCIES
   gh
+  psych (~> 2.0)
   rake
   rspec (~> 3.0.0.beta)
   safe_yaml (~> 1.0.1)
