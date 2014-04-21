@@ -11,7 +11,7 @@ module Travis::Yaml
         end
       end
 
-      class CovertyScan < Addon
+      class CoverityScan < Addon
         class Project < Mapping
           map :name, to: Scalar[:str, :secure], required: true
         end
@@ -22,7 +22,7 @@ module Travis::Yaml
       end
 
       map :code_climate,  to: Addon[:repo_token], drop_empty: false
-      map :coverty_scan,  to: CovertyScan
+      map :coverity_scan,  to: CoverityScan
       map :firefox,       to: Version
       map :hosts,         to: Sequence
       map :postgresql,    to: Version

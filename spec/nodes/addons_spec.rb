@@ -9,10 +9,10 @@ describe Travis::Yaml::Nodes::Addons do
       example { expect(addons(code_climate: { repo_token: "foo" }).code_climate.repo_token).to be == "foo" }
     end
 
-    context 'coverty_scan' do
+    context 'coverity_scan' do
       example do
-        config = addons(coverty_scan: { project: { name: :foo } })
-        expect(config.coverty_scan.project.name).to be == "foo"
+        config = addons(coverity_scan: { project: { name: :foo } })
+        expect(config.coverity_scan.project.name).to be == "foo"
       end
     end
 
