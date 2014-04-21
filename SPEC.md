@@ -13,28 +13,28 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 #### `addons.code_climate.repo_token`
 **Expected format:** String or encrypted string.
 
-#### `addons.coverty_scan`
+#### `addons.coverity_scan`
 **Expected format:** Key value mapping.
 
-#### `addons.coverty_scan.branch_pattern`
+#### `addons.coverity_scan.branch_pattern`
 **Expected format:** String or encrypted string.
 
-#### `addons.coverty_scan.build_command`
+#### `addons.coverity_scan.build_command`
 **Expected format:** String or encrypted string.
 
-#### `addons.coverty_scan.build_command_prepend`
+#### `addons.coverity_scan.build_command_prepend`
 **Expected format:** String or encrypted string.
 
-#### `addons.coverty_scan.build_script_url`
+#### `addons.coverity_scan.build_script_url`
 **Expected format:** String or encrypted string.
 
-#### `addons.coverty_scan.notification_email`
+#### `addons.coverity_scan.notification_email`
 **Expected format:** String or encrypted string.
 
-#### `addons.coverty_scan.project`
+#### `addons.coverity_scan.project`
 **Expected format:** Key value mapping.
 
-#### `addons.coverty_scan.project.name`
+#### `addons.coverity_scan.project.name`
 **This setting is required!**
 
 **Expected format:** String or encrypted string.
