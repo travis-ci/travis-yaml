@@ -3,6 +3,11 @@ rvm:
 - jruby
 - 1.9.3
 - 2.0.0
+
+matrix:
+  allow_failures:
+    - rvm: jruby
+
 script: bundle exec rspec
 bundler_args: "--without play"
 deploy:
