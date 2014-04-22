@@ -22,7 +22,7 @@ module Travis::Yaml
       end
 
       map :code_climate,  to: Addon[:repo_token], drop_empty: false
-      map :coverity_scan,  to: CoverityScan
+      map :coverity_scan, to: CoverityScan
       map :firefox,       to: Version
       map :hosts,         to: Sequence
       map :postgresql,    to: Version
