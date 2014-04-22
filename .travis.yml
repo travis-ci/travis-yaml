@@ -13,7 +13,7 @@ bundler_args: "--without play"
 deploy:
   provider: heroku
   api_key:
-    secure: OrCcUz+MNjlxNkReqCvQZq62Y5mdKxjA+Lwo6VdsuoWHIJ8ShKIZUhoWOE6B0VIYSxSBObkXULitqiuZAvJfHSmS6soowPc79VvVeetMkIxRbHG9v3utg5O5pHqjHeW7pOWwrvTR5sria9YPevFN3+0R/C3xsxnQrc8dw+06jEQ=
+    secure: Vz+b+okngg0bCVq+8TiBZz6316535CRiBnJyKzkTtZvJQEl9eQfUavodiulebU1IEm6CTZjmKArHuueyvlRKVVSvSVXLxlBih7b2+untGz1i6wqEpuIsk+1CViij9wSfbooC0lGn2uCjnpPcgXYL2Qto8PyWDOz0DDMl975iSv4=
   app: travis-yaml
   on:
     repo: travis-ci/travis-yaml
