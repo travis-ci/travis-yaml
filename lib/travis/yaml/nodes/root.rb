@@ -31,7 +31,9 @@ module Travis::Yaml
 
       def verify_os
         self.os = language.default_os unless include? :os
-        if os == 'osx' and jdk
+        warning 'your repository must be feature flagged for the "os" setting to be used' if os and os != language.default_os
+
+        if os.include? 'osx' and jdk
           # https://github.com/travis-ci/travis-ci/issues/2317
           warning 'dropping "jdk" section: currently not supported on "osx"'
           @mapping.delete('jdk')
