@@ -31,6 +31,11 @@ module Travis::Yaml
 
       def verify_os
         self.os = language.default_os unless include? :os
+        if os == 'osx' and jdk
+          # https://github.com/travis-ci/travis-ci/issues/2317
+          warning 'dropping "jdk" section: currently not supported on "osx"'
+          @mapping.delete('jdk')
+        end
       end
 
       def nested_warnings(*)
