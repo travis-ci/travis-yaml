@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.email                 = "contact@travis-ci.com"
   s.homepage              = "https://github.com/travis-ci/travis-yaml"
   s.summary               = %q{parses your .travis.yml}
-  s.description           = %q{parses and validates your .travis.yml, fast ans secure}
+  s.description           = %q{parses and validates your .travis.yml, fast and secure}
   s.license               = 'MIT'
   s.files                 = `git ls-files`.split("\n")
   s.test_files            = `git ls-files -- {test,spec,features}/*`.split("\n")
