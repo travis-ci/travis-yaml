@@ -1,7 +1,11 @@
 module Travis::Yaml
   module Nodes
     class OSEntry < FixedValue
-      OSX = %w[objective-c ruby c cpp]
+      MISSING = {
+        # see https://github.com/travis-ci/travis-ci/issues/2320
+        'osx'   => %w[node_js python php perl erlang groovy clojure scala go haskell],
+        'linux' => ['objective-c']
+      }
 
       ignore_case
       default :linux
@@ -9,10 +13,8 @@ module Travis::Yaml
       value :osx, mac: :osx, macos: :osx
 
       def supports_language?(language)
-        case value
-        when 'linux' then language != 'objective-c'
-        when 'osx'   then OSX.include? language
-        end
+        return false unless missing = MISSING[value]
+        !missing.include?(language)
       end
     end
   end
