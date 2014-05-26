@@ -24,7 +24,7 @@ module Travis::Yaml
         gemfile:          %w[ruby objective-c],
         composer_args:    %w[php],
         npm_args:         %w[node_js],
-        sdk_components:   %w[android]
+        android:          %w[android]
       }
 
       def verify_language(language)
