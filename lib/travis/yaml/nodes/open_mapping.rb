@@ -11,7 +11,7 @@ module Travis::Yaml
       end
 
       def accept_key?(key)
-        true
+        key != 'secure'
       end
     end
   end

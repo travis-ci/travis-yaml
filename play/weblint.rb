@@ -60,7 +60,7 @@ __END__
         - if key.any?
           | in <b class="error">#{key.join('.')}</b> section:
           = " "
-        == slim('= error', {}, error: warning).gsub(/&quot;(.+?)&quot;/, '<b class="error">\1</b>')
+        == slim('= error', {}, error: warning).gsub(/&quot;(.*?)&quot;/, '<b class="error">\1</b>')
 
 - if @matrix.size > 1
   p.jobs It will generate #{@matrix.size} jobs:

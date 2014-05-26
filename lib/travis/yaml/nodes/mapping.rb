@@ -103,12 +103,12 @@ module Travis::Yaml
       end
 
       def []=(key, value)
-        if key = mapped_key(key)
+        if mapped_key = mapped_key(key)
           unless value.is_a? Node
-            node  = subnode_for(key)
+            node  = subnode_for(mapped_key)
             value = node if Parser::Ruby.new(value).parse(node)
           end
-          @mapping[key] = value
+          @mapping[mapped_key] = value
         else
           warning("unexpected key %p, dropping", key)
         end
