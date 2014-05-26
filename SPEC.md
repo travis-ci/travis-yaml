@@ -86,6 +86,21 @@ Commands that will be run on the VM.
 
 **Expected format:** List of strings; or a single string.
 
+#### `android`
+**This setting is only relevant if [`language`](#language) is set to `android`.**
+
+**Expected format:** Key value mapping.
+
+#### `android.components`
+List of `components` versions to use.
+
+**Expected format:** List of strings; or a single string.
+
+#### `android.licenses`
+List of `licenses` versions to use.
+
+**Expected format:** List of strings; or a single string.
+
 #### `before_deploy`
 Commands that will be run on the VM.
 
@@ -1022,11 +1037,6 @@ Alias for [`ruby`](#ruby).
 
 #### `script`
 Commands that will be run on the VM.
-
-**Expected format:** List of strings; or a single string.
-
-#### `sdk_components`
-**This setting is only relevant if [`language`](#language) is set to `android`.**
 
 **Expected format:** List of strings; or a single string.
 
