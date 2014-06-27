@@ -64,7 +64,7 @@ module Travis::Yaml
         list :rooms
       end
 
-      class Flowdoc < Notification
+      class Flowdock < Notification
         map :api_token, to: Scalar[:str, :secure]
         prefix_scalar name, :str, :secure
       end
@@ -72,7 +72,7 @@ module Travis::Yaml
       map :webhooks,                    to: Notification[:urls]
       map :email,                       to: Notification[:recipients]
       map :sqwiggle, :slack, :campfire, to: WithTemplate[:rooms]
-      map :flowdoc,                     to: Flowdoc
+      map :flowdock,                    to: Flowdock
       map :hipchat,                     to: Hipchat
       map :irc,                         to: IRC
       map :webhook,                     to: :webhooks

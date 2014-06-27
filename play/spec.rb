@@ -83,7 +83,7 @@ module Travis::Yaml
        end
     end
 
-    class Notifications::Flowdoc
+    class Notifications::Flowdock
        def self.spec_format_prefix(input, append = "")
          input << ", or string#{append}, encrypted string#{append}, or boolean value#{append}"
        end

@@ -766,29 +766,29 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 #### `notifications.email.recipients`
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
-#### `notifications.flowdoc`
+#### `notifications.flowdock`
 **Expected format:** Key value mapping, or string, encrypted string, or boolean value.
 
-#### `notifications.flowdoc.api_token`
+#### `notifications.flowdock.api_token`
 **Expected format:** String or encrypted string.
 
-#### `notifications.flowdoc.disabled`
+#### `notifications.flowdock.disabled`
 **Expected format:** Boolean value.
 
-#### `notifications.flowdoc.enabled`
+#### `notifications.flowdock.enabled`
 **Expected format:** Boolean value.
 
-#### `notifications.flowdoc.on_failure`
+#### `notifications.flowdock.on_failure`
 Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
-#### `notifications.flowdoc.on_start`
+#### `notifications.flowdock.on_start`
 Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
-#### `notifications.flowdoc.on_success`
+#### `notifications.flowdock.on_success`
 Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
