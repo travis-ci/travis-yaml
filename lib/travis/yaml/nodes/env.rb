@@ -11,7 +11,7 @@ module Travis::Yaml
           visitor.apply_mapping(self, value)
         end
 
-        def visit_mapping(visitor, key, value)
+        def visit_key_value(visitor, key, value)
           key  = visitor.generate_key(self, key)
           node = Scalar.new
           visitor.accept(node, value)
