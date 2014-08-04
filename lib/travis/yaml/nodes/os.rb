@@ -5,7 +5,7 @@ module Travis::Yaml
 
       def verify_language(language)
         children.delete_if do |os|
-          next false if os.supports_language? language
+          next false if os.supports_language? language.to_s
           warning "dropping %p, does not support %p", os, language
           true
         end
