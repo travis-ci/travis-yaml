@@ -29,7 +29,7 @@ module Travis::Yaml
 
       def verify_language(language)
         LANGUAGE_SPECIFIC.each do |key, languages|
-          next unless include? key and not languages.include? language
+          next unless include? key and not languages.include? language.value
           mapping.delete mapped_key(key)
           warning "specified %p, but setting is not relevant for %p", key.to_s, language
         end
