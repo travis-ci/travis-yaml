@@ -34,7 +34,7 @@ module Travis::Yaml
 
         def verify_branch(name)
           branches.each do |branch|
-            next if branch == name
+            next if branch.to_s == name.to_s
             warning "branch %p not permitted by deploy condition, dropping", branch
             @mapping.delete(branch)
           end
