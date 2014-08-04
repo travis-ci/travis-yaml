@@ -33,4 +33,9 @@ describe Travis::Yaml::Nodes::OS do
     expect(config.jdk)      .to be_nil
     expect(config.warnings).to include('dropping "jdk" section: currently not supported on "osx"')
   end
+
+  specify 'does not complain about the default os' do
+    config = Travis::Yaml.parse(language: 'objective-c')
+    expect(config.warnings).to be_empty
+  end
 end

@@ -11,7 +11,7 @@ module Travis::Yaml
       value "c++" => :cpp, "node.js" => :node_js, "obj-c" => :"objective-c"
 
       def default_os
-        value == "objective-c" ? :osx : OSEntry.default
+        value == "objective-c" ? "osx" : OSEntry.default
       end
     end
   end
