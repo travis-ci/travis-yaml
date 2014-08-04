@@ -1,5 +1,5 @@
 describe Travis::Yaml::Parser::Ruby do
-  subject { described_class }
+  subject { Travis::Yaml::Parser::Ruby }
   let(:secure_string) { Travis::Yaml::SecureString.new("") }
   let(:input) {{ ruby: ['2.0.0', :jruby, 10, 4.2, Time.now, false, nil, secure_string, Object.new] }}
 
