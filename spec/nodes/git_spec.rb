@@ -48,7 +48,7 @@ describe Travis::Yaml::Nodes::Git do
         expect(Travis::Yaml.parse('git: { depth: !str foo }').nested_warnings).to \
           include([['git'], 'dropping "depth" section: "str" not supported, dropping "foo"'])
         expect(Travis::Yaml.parse('git: { depth: foo }').nested_warnings).to \
-          include([['git'], 'dropping "depth" section: failed to parse "int" - invalid value for Integer(): "foo"'])
+          include([['git'], 'dropping "depth" section: failed to parse "int" - invalid value for Integer: "foo"'])
       end
     end
   end

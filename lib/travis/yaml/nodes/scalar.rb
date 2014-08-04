@@ -82,7 +82,7 @@ module Travis::Yaml
       def cast(visitor, type, value)
         visitor.cast(type, value)
       rescue ArgumentError => error
-        error "failed to parse %p - %s", type.to_s, error.message
+        error "failed to parse %p - %s", type.to_s, error.message.sub("():", ":")
       end
 
       def cast?(type)
