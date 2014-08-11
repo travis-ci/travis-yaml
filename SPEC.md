@@ -139,6 +139,9 @@ Commands that will be run on the VM.
 #### `cache.bundler`
 **Expected format:** Boolean value.
 
+#### `cache.cocoapods`
+**Expected format:** Boolean value.
+
 #### `cache.directories`
 **Expected format:** List of strings; or a single string.
 
