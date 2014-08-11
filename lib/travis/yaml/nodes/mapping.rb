@@ -94,6 +94,7 @@ module Travis::Yaml
 
       def visit_key_value(visitor, key, value)
         return warning("unexpected key %p, dropping", key) unless node = subnode_for(key)
+        warning("has multiple %p entries, keeping last entry", key) if self[key]
         self[key] = node
         visitor.accept(node, value)
       end
