@@ -42,4 +42,11 @@ describe Travis::Yaml::Nodes::Notifications do
       expect(config.notifications.email).to     be_enabled
     end
   end
+
+  context :flowdoc do
+    example "handles scalar value" do
+      config = Travis::Yaml.parse(notifications: { flowdock: "foo" })
+      expect(config.notifications.flowdock.api_token).to be == "foo"
+    end
+  end
 end

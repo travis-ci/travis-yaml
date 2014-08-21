@@ -66,7 +66,7 @@ module Travis::Yaml
 
       class Flowdock < Notification
         map :api_token, to: Scalar[:str, :secure]
-        prefix_scalar name, :str, :secure
+        prefix_scalar :api_token, :str, :secure
       end
 
       map :webhooks,                    to: Notification[:urls]
