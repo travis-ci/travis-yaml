@@ -7,6 +7,7 @@ module Travis
     require 'travis/yaml/nodes'
     require 'travis/yaml/matrix'
     require 'travis/yaml/parser'
+    require 'travis/yaml/serializer'
 
     extend self
 

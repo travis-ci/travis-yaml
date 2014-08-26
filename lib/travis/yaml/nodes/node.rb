@@ -113,6 +113,10 @@ module Travis::Yaml
       def encrypted?
         each_scalar(SecureString).all? { |v| v.encrypted? }
       end
+
+      def serialize(serializer, options = nil)
+        Serializer[serializer].serialize(self, options)
+      end
     end
   end
 end

@@ -29,5 +29,17 @@ module Travis::Yaml
       return unless decrypted?
       @encrypted_string = yield(decrypted_string)
     end
+
+    def inspect
+      "[SECURE]".freeze
+    end
+
+    def ==(other)
+      other.encrypted_string == encrypted_string and other.decrypted_string == decrypted_string if other.is_a? SecureString
+    end
+
+    def hash
+      encrypted_string.hash | decrypted_string.hash
+    end
   end
 end
