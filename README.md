@@ -118,7 +118,6 @@ content = File.read('.travis.yml')
 Travis::Yaml.parse! content do |config|
   config.decrypt { |string| string.upcase }
 end
-```
 
 # will print nested warnings to stderr, will raise on top level error
 Travis::Yaml.parse! "foo: bar"
