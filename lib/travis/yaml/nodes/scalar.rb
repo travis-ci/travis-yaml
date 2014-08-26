@@ -92,6 +92,11 @@ module Travis::Yaml
       def !@
         !value
       end
+
+      def each_scalar(type = nil, &block)
+        return enum_for(:each_scalar, type) unless block
+        yield value if type.nil? or type === value
+      end
     end
   end
 end

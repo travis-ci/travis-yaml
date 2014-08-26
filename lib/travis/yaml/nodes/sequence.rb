@@ -79,6 +79,11 @@ module Travis::Yaml
         @children.each(&:deep_verify)
         super
       end
+
+      def each_scalar(type = nil, &block)
+        return enum_for(:each_scalar, type) unless block
+        @children.each { |c| c.each_scalar(type, &block) }
+      end
     end
   end
 end

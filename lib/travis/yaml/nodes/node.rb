@@ -97,6 +97,22 @@ module Travis::Yaml
       def to_s
         __getobj__.to_s
       end
+
+      def decrypt(&block)
+        each_scalar(SecureString) { |v| v.decrypt(&block) }
+      end
+
+      def encrypt(&block)
+        each_scalar(SecureString) { |v| v.encrypt(&block) }
+      end
+
+      def decrypted?
+        each_scalar(SecureString).all? { |v| v.decrypted? }
+      end
+
+      def encrypted?
+        each_scalar(SecureString).all? { |v| v.encrypted? }
+      end
     end
   end
 end

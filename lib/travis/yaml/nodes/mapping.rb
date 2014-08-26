@@ -210,6 +210,11 @@ module Travis::Yaml
           list = value.nested_warnings(*prefix, key) + list
         end
       end
+
+      def each_scalar(type = nil, &block)
+        return enum_for(:each_scalar, type) unless block
+        @mapping.each_value { |v| v.each_scalar(type, &block) }
+      end
     end
   end
 end

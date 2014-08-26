@@ -119,8 +119,10 @@ module Travis::Yaml
         when SEQ              then node.visit_sequence self, value
         when nil
           if value.children.size == 2 and value.children.first.value == 'secure'
-            if value.children.last.is_a? ::Psych::Nodes::Scalar
-              node.visit_scalar(self, :secure, value.children.last)
+            secret_value = value.children.last
+            if secret_value.is_a? ::Psych::Nodes::Scalar
+              secret_value.tag ||= '!secure'
+              node.visit_scalar(self, :secure, secret_value, false)
             else
               node.visit_unexpected(self, value, "secret value needs to be a string")
             end

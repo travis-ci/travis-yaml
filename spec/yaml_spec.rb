@@ -5,6 +5,13 @@ describe Travis::Yaml do
     Travis::Yaml.parse! ""
   end
 
+  specify :parse do
+    config = Travis::Yaml.parse('env: { secure: foo }') do |yaml|
+      yaml.decrypt { |value| value }
+    end
+    expect(config).to be_decrypted
+  end
+
   describe :new do
     specify 'with block' do
       config = Travis::Yaml.new { |c| c.language = 'php' }
