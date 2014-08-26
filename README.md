@@ -45,6 +45,84 @@ end
 
 * Serialization
 
+## External API
+
+### Loading a config
+
+``` ruby
+config = Travis::Yaml.parse('language: ruby') # parse from a yaml string
+config = Travis::Yaml.parse(language: "ruby") # parse from Ruby object
+```
+
+For Psych/YAML compatibility, `parse` is also aliased to `load`.
+
+### Convenience
+
+Nodes generally behave like normal Ruby objects. Mappings accept both symbols and strings as keys. Known fields on mappings are exposed as methods.
+
+``` ruby
+puts config.language
+puts config[:language]
+puts config['language']
+```
+
+### Warnings and errors
+
+* **errors** are actual parse errors, parent elements should discard elements with errors.
+* **warnigns** are general warnings for an element, with the element still being usable. These do not include warnings for child elements (though an error in a child element becomes a warning for its immediate parent).
+* **nested warnings** include warnigns for the whole tree, they also come with key prefix (array of strings) to identify the position the error occured at.
+
+``` ruby
+Travis::Yaml.parse("foo: bar").nested_warnings.each do |key, warning|
+  puts "#{key.join('.')}: #{warning}"
+end
+
+### Secure Variables
+
+Secure variables are stored as `Travis::Yaml::SecureString` internally. A secure string has at least an `encrypted_string` or a `decrypted_string`, or both.
+
+You can use `decrypt`/`encrypt` with a block to generate the missing string:
+
+``` ruby
+secret = Travis::Yaml::SecureString.new("foo")
+
+secret.encrypted_string # => "foo"
+secret.decrypted_string # => nil
+secret.encrypted?       # => true
+secret.decrypted?       # => false
+
+secret.decrypt { |string| string.upcase }
+
+secret.encrypted_string # => "foo"
+secret.decrypted_string # => "FOO"
+secret.encrypted?       # => true
+secret.decrypted?       # => true
+```
+
+To avoid having to walk the whole structure manually or hardcoding the values to decrypt, these methods are also exposed on any node:
+
+``` ruby
+config = Travis::Yaml.load 'env: { secure: foo }'
+config.decrypted? # => false
+
+config.decrypt { |string| string.upcase }
+config.decrypted?                        # => true
+config.env.matrix.first.decrypted_string # => "FOO"
+```
+
+This can even be done right with the parse step:
+
+``` ruby
+content = File.read('.travis.yml')
+Travis::Yaml.parse! content do |config|
+  config.decrypt { |string| string.upcase }
+end
+```
+
+# will print nested warnings to stderr, will raise on top level error
+Travis::Yaml.parse! "foo: bar"
+```
+
 ## Defining Structure
 
 Good starting points for getting into the code are the [root](lib/travis/yaml/nodes/root.rb) node and the [language](lib/travis/yaml/nodes/language.rb) node.
