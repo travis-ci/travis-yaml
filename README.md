@@ -76,6 +76,9 @@ puts config['language']
 Travis::Yaml.parse("foo: bar").nested_warnings.each do |key, warning|
   puts "#{key.join('.')}: #{warning}"
 end
+
+# will print nested warnings to stderr, will raise on top level error
+Travis::Yaml.parse! "foo: bar"
 ```
 
 ### Secure Variables
@@ -118,9 +121,6 @@ content = File.read('.travis.yml')
 Travis::Yaml.parse! content do |config|
   config.decrypt { |string| string.upcase }
 end
-
-# will print nested warnings to stderr, will raise on top level error
-Travis::Yaml.parse! "foo: bar"
 ```
 
 ## Defining Structure
