@@ -76,6 +76,7 @@ puts config['language']
 Travis::Yaml.parse("foo: bar").nested_warnings.each do |key, warning|
   puts "#{key.join('.')}: #{warning}"
 end
+```
 
 ### Secure Variables
 
