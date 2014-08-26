@@ -139,7 +139,7 @@ Serializer | Descriptions                                                      |
 `json`     | Serialize as JSON, parsable via `Travis::Yaml.load`               | `secure`, `pretty`
 `yaml`     | Serialize as YAML, parsable via `Travis::Yaml.load`               | `secure`, `indentation`, `line_width`, `canonical`, `avoid_tags`
 
-The `secure` option can be set to `:decrypted` or `:encrypted`, enforcing the decrypted or encrypted form of secure strings to be serialized. In some serializations, this might lead to secure strings being mapped to norma strings if set to `:decrypted`.
+The `secure` option can be set to `:decrypted` or `:encrypted`, enforcing the decrypted or encrypted form of secure strings to be serialized. In some serializations, this might lead to secure strings being mapped to normal strings if set to `:decrypted`.
 
 ## Defining Structure
 
