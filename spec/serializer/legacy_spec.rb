@@ -31,4 +31,8 @@ describe Travis::Yaml::Serializer::Legacy do
       ".result_warnings"=>[[[], "missing key \"language\", defaulting to \"ruby\""]]
     }
   end
+
+  example "is exposed via to_legacy_ruby" do
+     expect(config.serialize(:legacy)).to be == config.to_legacy_ruby
+  end
 end

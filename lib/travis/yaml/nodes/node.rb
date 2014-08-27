@@ -117,6 +117,22 @@ module Travis::Yaml
       def serialize(serializer, options = nil)
         Serializer[serializer].serialize(self, options)
       end
+
+      def to_yaml(options = nil)
+        serialize(:yaml, options)
+      end
+
+      def to_json(options = nil)
+        serialize(:json, options)
+      end
+
+      def to_ruby(options = nil)
+        serialize(:ruby, options)
+      end
+
+      def to_legacy_ruby(options = nil)
+        serialize(:legacy, options)
+      end
     end
   end
 end

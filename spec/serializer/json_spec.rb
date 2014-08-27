@@ -19,4 +19,8 @@ describe Travis::Yaml::Serializer::Json do
     expect(config.serialize(:json, secure: :encrypted)).to be == '{"env":{"matrix":[{"secure":"foo"},"bar"]},"language":"ruby","os":["linux"]}'
     expect(config.serialize(:json, secure: :decrypted)).to be == '{"env":{"matrix":["x","bar"]},"language":"ruby","os":["linux"]}'
   end
+
+  example "is exposed via to_json" do
+     expect(config.serialize(:json)).to be == config.to_json
+  end
 end

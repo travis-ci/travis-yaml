@@ -7,4 +7,8 @@ describe Travis::Yaml::Serializer::Ruby do
       "language"=>"ruby", "os"=>["linux"]
     }
   end
+
+  example "is exposed via to_ruby" do
+     expect(config.serialize(:ruby)).to be == config.to_ruby
+  end
 end
