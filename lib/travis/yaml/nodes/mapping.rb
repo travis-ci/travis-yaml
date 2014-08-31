@@ -211,10 +211,23 @@ module Travis::Yaml
         end
       end
 
+      def with_value!(value)
+        value = value.mapping while value.is_a? Mapping
+        value.each { |key, value| self[key] = value }
+      end
+
       def each_scalar(type = nil, &block)
         return enum_for(:each_scalar, type) unless block
         @mapping.each_value { |v| v.each_scalar(type, &block) }
       end
+
+      protected
+
+        def dup_values
+          duped_mapping = @mapping.map { |key, value| [key.dup, value.dup] }
+          @mapping      = Hash[duped_mapping]
+          self
+        end
     end
   end
 end

@@ -5,7 +5,7 @@ module Travis::Yaml
         false
       end
 
-      attr_accessor :partent
+      attr_accessor :parent
       def initialize(parent)
         @nested_warnings = []
         @parent          = parent
@@ -133,6 +133,27 @@ module Travis::Yaml
       def to_legacy_ruby(options = nil)
         serialize(:legacy, options)
       end
+
+      def with_value(value)
+        node = dup
+        node.with_value!(value)
+        node
+      end
+
+      def dup
+        super.dup_values
+      end
+
+      protected
+
+        def dup_values
+          self
+        end
+
+        def dup_ivar(name)
+          instance_variable_set(name, instance_variable_get(name).dup)
+        rescue TypeError
+        end
     end
   end
 end

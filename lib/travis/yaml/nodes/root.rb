@@ -47,6 +47,10 @@ module Travis::Yaml
       def inspect
         "#<Travis::Yaml:#{super}>"
       end
+
+      def to_matrix
+        Travis::Yaml.matrix(self)
+      end
     end
   end
 end

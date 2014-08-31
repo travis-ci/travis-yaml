@@ -84,6 +84,34 @@ module Travis::Yaml
         return enum_for(:each_scalar, type) unless block
         @children.each { |c| c.each_scalar(type, &block) }
       end
+
+      def with_value(value)
+        return value.dup if value.is_a? self.class
+        value = value.children if value.is_a? Sequence
+        value = value.value while value.is_a? Scalar
+        Parser::Ruby.new(Array(value)).parse self.class.new(parent)
+      end
+
+      def with_value!(value)
+        children.replace with_value(value).children
+      end
+
+      def add_value(value)
+        added = with_value(self)
+        added.add_value!(value)
+        added
+      end
+
+      def add_value!(value)
+        children.concat(with_value(value).children)
+      end
+
+      protected
+
+        def dup_values
+          @children = @children.map { |child| child.dup }
+          self
+        end
     end
   end
 end

@@ -93,6 +93,16 @@ module Travis::Yaml
         !value
       end
 
+      def with_value(value)
+        return value.dup if value.is_a? self.class
+        value = value.value while value.is_a? Scalar
+        super(value)
+      end
+
+      def with_value!(value)
+        self.value = value
+      end
+
       def each_scalar(type = nil, &block)
         return enum_for(:each_scalar, type) unless block
         yield value if type.nil? or type === value
