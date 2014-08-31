@@ -16,6 +16,6 @@ describe Travis::Yaml::Serializer::Ruby do
   end
 
   example "is exposed via to_ruby" do
-     expect(config.serialize(:ruby)).to be == config.to_ruby
+    expect(config.serialize(:ruby)).to be == config.to_ruby
   end
 end

@@ -42,6 +42,6 @@ describe Travis::Yaml::Serializer::Yaml do
   end
 
   example "is exposed via to_yaml" do
-     expect(config.serialize(:yaml)).to be == config.to_yaml
+    expect(config.serialize(:yaml)).to be == config.to_yaml
   end
 end

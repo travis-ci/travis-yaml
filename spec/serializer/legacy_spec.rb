@@ -42,6 +42,6 @@ describe Travis::Yaml::Serializer::Legacy do
   end
 
   example "is exposed via to_legacy_ruby" do
-     expect(config.serialize(:legacy)).to be == config.to_legacy_ruby
+    expect(config.serialize(:legacy)).to be == config.to_legacy_ruby
   end
 end

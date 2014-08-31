@@ -25,6 +25,6 @@ describe Travis::Yaml::Serializer::Json do
   end
 
   example "is exposed via to_json" do
-     expect(config.serialize(:json)).to be == config.to_json
+    expect(config.serialize(:json)).to be == config.to_json
   end
 end
