@@ -1,12 +1,21 @@
 describe Travis::Yaml::Serializer::Legacy do
   subject(:config) { Travis::Yaml.parse('env: [{ secure: "foo" }, "bar"]') }
 
-  example "serializes json" do
+  example "serializes to legacy ruby" do
     expect(config.serialize(:legacy)).to be == {
       "env"=>{"matrix"=>[{"secure"=>"foo"}, "bar"]},
       "language"=>"ruby", "os"=>["linux"],
       ".result"=>"configured",
       ".result_warnings"=>[[[], "missing key \"language\", defaulting to \"ruby\""]]
+    }
+  end
+
+  example "serializes to legacy ruby" do
+    expect(config.serialize(:legacy, symbol_keys: true)).to be == {
+      :env=>{:matrix=>[{:secure=>"foo"}, "bar"]},
+      :language=>"ruby", :os=>["linux"],
+      :".result"=>"configured",
+      :".result_warnings"=>[[[], "missing key \"language\", defaulting to \"ruby\""]]
     }
   end
 

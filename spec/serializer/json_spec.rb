@@ -5,6 +5,10 @@ describe Travis::Yaml::Serializer::Json do
     expect(config.serialize(:json)).to be == '{"env":{"matrix":[{"secure":"foo"},"bar"]},"language":"ruby","os":["linux"]}'
   end
 
+  example "does work properly with symbol keys option" do
+    expect(config.serialize(:json, symbol_keys: true)).to be == '{"env":{"matrix":[{"secure":"foo"},"bar"]},"language":"ruby","os":["linux"]}'
+  end
+
   example "serializes pretty json" do
     expect(config.serialize(:json, pretty: true)).to be ==
       "{\n  \"env\": {\n    \"matrix\": [\n      {\"secure\": \"foo\"},\n      \"bar\"\n    ]\n  },\n  \"language\": \"ruby\",\n  \"os\": [ \"linux\" ]\n}"

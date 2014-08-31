@@ -63,6 +63,10 @@ module Travis::Yaml
         lines = "\n  " + lines.join(",\n").strip.gsub("\n", "\n  ") + "\n"
         wrapper % lines
       end
+
+      def serialize_key(value)
+        value.to_s
+      end
     end
   end
 end

@@ -134,10 +134,10 @@ puts config.serialize(:json, pretty: true)
 
 Serializer | Descriptions                                                      | Options
 -----------|-------------------------------------------------------------------|---------
-`ruby`     | Corresponding Ruby objects, secure values will be `SecureString`s | `secure`
-`legacy`   | Format compatible with Travis CI's old `fetch_config` service     | `secure`
+`ruby`     | Corresponding Ruby objects, secure values will be `SecureString`s | `secure`, `symbol_keys`
+`legacy`   | Format compatible with Travis CI's old `fetch_config` service     | `secure`, `symbol_keys`
 `json`     | Serialize as JSON, parsable via `Travis::Yaml.load`               | `secure`, `pretty`
-`yaml`     | Serialize as YAML, parsable via `Travis::Yaml.load`               | `secure`, `indentation`, `line_width`, `canonical`, `avoid_tags`
+`yaml`     | Serialize as YAML, parsable via `Travis::Yaml.load`               | `secure`, `symbol_keys`, `indentation`, `line_width`, `canonical`, `avoid_tags`
 
 The `secure` option can be set to `:decrypted` or `:encrypted`, enforcing the decrypted or encrypted form of secure strings to be serialized. In some serializations, this might lead to secure strings being mapped to normal strings if set to `:decrypted`.
 

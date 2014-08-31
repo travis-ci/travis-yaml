@@ -11,6 +11,10 @@ module Travis::Yaml
         @options = options || {}
       end
 
+      def symbol_keys?
+        !!options[:symbol_keys]
+      end
+
       def serialize(node)
         case node 
         when Nodes::Root     then serialize_root(node)
@@ -95,11 +99,15 @@ module Travis::Yaml
       end
 
       def serialize_mapping(node)
-        node.map { |key, value| [key, serialize(value)] }
+        node.map { |key, value| [serialize_key(key), serialize(value)] }
       end
 
       def serialize_sequence(node)
         node.map { |value| serialize(value) }
+      end
+
+      def serialize_key(value)
+        symbol_keys? ? value.to_sym : value.to_s
       end
     end
   end

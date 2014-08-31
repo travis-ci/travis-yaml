@@ -36,6 +36,11 @@ describe Travis::Yaml::Serializer::Yaml do
       "---\nenv:\n   matrix:\n   - !encrypted foo\n   - bar\nlanguage: ruby\nos:\n- linux\n"
   end
 
+  example "symbol keys" do
+    expect(config.serialize(:yaml, symbol_keys: true).gsub("'", "")).to be ==
+      "---\n:env:\n  :matrix:\n  - !encrypted foo\n  - bar\n:language: ruby\n:os:\n- linux\n"
+  end
+
   example "is exposed via to_yaml" do
      expect(config.serialize(:yaml)).to be == config.to_yaml
   end
