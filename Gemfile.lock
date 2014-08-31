@@ -6,27 +6,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.6)
-    backports (3.6.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    faraday (0.9.0)
-      multipart-post (>= 1.2, < 3)
-    gh (0.13.2)
-      addressable
-      backports
-      faraday (~> 0.8)
-      multi_json (~> 1.0)
-      net-http-persistent (>= 2.7)
-      net-http-pipeline
     multi_json (1.10.1)
-    multipart-post (2.0.0)
-    net-http-persistent (2.9.4)
-    net-http-pipeline (1.0.1)
     psych (2.0.5)
-    rack (1.5.2)
-    rack-protection (1.5.3)
-      rack
     rake (10.3.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
@@ -41,34 +24,20 @@ GEM
       rspec-support (~> 3.0.0)
     rspec-support (3.0.3)
     safe_yaml (1.0.3)
-    sass (3.3.14)
     simplecov (0.9.0)
       docile (~> 1.1.0)
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    sinatra (1.4.5)
-      rack (~> 1.4)
-      rack-protection (~> 1.4)
-      tilt (~> 1.3, >= 1.3.4)
-    slim (1.3.9)
-      temple (~> 0.6.3)
-      tilt (~> 1.3, >= 1.3.3)
-    temple (0.6.8)
-    tilt (1.4.1)
 
 PLATFORMS
   java
   ruby
 
 DEPENDENCIES
-  gh
   psych (~> 2.0)
   rake
   rspec (~> 3.0)
   safe_yaml (~> 1.0.1)
-  sass (~> 3.1)
   simplecov
-  sinatra
-  slim (~> 1.3)
   travis-yaml!
