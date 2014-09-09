@@ -4,7 +4,8 @@ module Travis::Yaml
       include LanguageSpecific
       map :jdk, :node, :perl, :php, :python, :ruby, :scala, :node, to: Version
       map :rvm, to: :ruby
-      map :repo, :branch, :condition, to: Scalar[:str]
+      map :repo, to: Scalar[:str]
+      map :branch, :condition, to: Sequence[:str]
       map :all_branches, :tags, to: Scalar[:bool]
       prefix_scalar :branch
     end

@@ -4,6 +4,11 @@ module Travis::Yaml
       attr_reader :children
       alias_method :__getobj__, :children
 
+      def self.[](node_type)
+        node_type = Scalar[node_type] unless node_type.is_a? Node
+        Class.new(self) { type(node_type) }
+      end
+
       def self.type(identifier = nil)
         @type = Nodes[identifier] if identifier
         @type ||= superclass.respond_to?(:type) ? superclass.type : Scalar
