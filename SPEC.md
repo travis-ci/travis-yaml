@@ -183,16 +183,16 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 **Expected format:** Boolean value.
 
 #### `deploy[].on`
-**Expected format:** Key value mapping, or string.
+**Expected format:** Key value mapping, or list of strings; or a single string.
 
 #### `deploy[].on.all_branches`
 **Expected format:** Boolean value.
 
 #### `deploy[].on.branch`
-**Expected format:** String.
+**Expected format:** List of strings; or a single string.
 
 #### `deploy[].on.condition`
-**Expected format:** String.
+**Expected format:** List of strings; or a single string.
 
 #### `deploy[].on.jdk`
 **This setting is only relevant if [`language`](#language) is set to `clojure`, `groovy`, `java`, `ruby` (default), `scala` or `android`.**
@@ -1020,6 +1020,11 @@ List of `perl` versions to use.
 List of `php` versions to use.
 
 **Expected format:** List of strings; or a single string.
+
+#### `podfile`
+`podfile` version to use.
+
+**Expected format:** String.
 
 #### `python`
 **This setting is only relevant if [`language`](#language) is set to `python`.**
