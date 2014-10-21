@@ -317,7 +317,7 @@ List of `jdk` versions to use.
 #### `language`
 **This setting is required!**
 
-Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala`, `android` or `generic`; or one of the known aliases: `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
+Value has to be `c`, `cpp`, `clojure`, `erlang`, `go`, `groovy`, `haskell`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala`, `android`, `csharp` or `generic`; or one of the known aliases: `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -1052,6 +1052,11 @@ Commands that will be run on the VM.
 List of `services` versions to use.
 
 **Expected format:** List of strings; or a single string.
+
+#### `solution`
+**This setting is only relevant if [`language`](#language) is set to `csharp`.**
+
+**Expected format:** String.
 
 #### `source_key`
 **Expected format:** String or encrypted string.
