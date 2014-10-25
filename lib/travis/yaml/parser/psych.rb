@@ -211,12 +211,12 @@ module Travis::Yaml
       end
 
       def generate_key(node, value)
-        unless value.respond_to? :value and (value.tag.nil? || value.tag == STR)
+        if value.respond_to? :value and (value.tag.nil? || value.tag == STR)
+          value = value.value.to_s
+          value.start_with?(?:) ? value[1..-1] : value
+        else
           node.visit_unexpected(self, value, "expected string as key")
         end
-
-        value = value.value.to_s
-        value.start_with?(?:) ? value[1..-1] : value
       end
     end
   end
