@@ -33,5 +33,10 @@ describe Travis::Yaml::Nodes::Addons do
       example { expect(addons(sauce_connect: true).sauce_connect).to be == {} }
       example { expect(addons(sauce_connect: { username: "foo" }).sauce_connect.username).to be == "foo" }
     end
+
+    context 'ssh_known_hosts' do
+      example { expect(addons(ssh_known_hosts: 'git.example.org').ssh_known_hosts).to be == ['git.example.org'] }
+      example { expect(addons(ssh_known_hosts: ['git.example.org', 'git.example.com']).ssh_known_hosts).to be == ['git.example.org', 'git.example.com'] }
+    end
   end
 end
