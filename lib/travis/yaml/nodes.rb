@@ -37,6 +37,8 @@ module Travis::Yaml
     require 'travis/yaml/nodes/cache'
     require 'travis/yaml/nodes/addons'
     require 'travis/yaml/nodes/android'
+    require 'travis/yaml/nodes/dist'
+    require 'travis/yaml/nodes/group'
     require 'travis/yaml/nodes/root'
   end
 end

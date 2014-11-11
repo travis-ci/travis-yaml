@@ -18,6 +18,10 @@ module Travis::Yaml
       map :source_key, to: Scalar[:str, :secure]
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
+      map :dist, to: Dist
+      map :group, to: Group
+
+      FEATURE_KEYS = [:dist, :group]
 
       def initialize
         super(nil)
@@ -27,6 +31,7 @@ module Travis::Yaml
         super
         verify_os
         verify_language(language)
+        FEATURE_KEYS.each {|feature| warn_on_feature feature}
       end
 
       def verify_os
@@ -37,6 +42,12 @@ module Travis::Yaml
           # https://github.com/travis-ci/travis-ci/issues/2317
           warning 'dropping "jdk" section: currently not supported on "osx"'
           @mapping.delete('jdk')
+        end
+      end
+
+      def warn_on_feature(feature)
+        if include? feature
+          warning 'your repository must be feature flagged for the "%s" setting to be used', feature
         end
       end
 
