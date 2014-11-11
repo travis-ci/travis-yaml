@@ -1,5 +1,22 @@
 describe Travis::Yaml::Nodes::Root do
+  let :warnings do
+    subject.warnings
+  end
+
   describe "from YAML" do
+    context "sudo" do
+      subject :yaml do
+        Travis::Yaml.parse <<-YAML.gsub(/^ {10}/, '')
+          language: ruby
+          sudo: false
+        YAML
+      end
+
+      specify "gives no warnings" do
+        expect(warnings).to be_empty
+      end
+    end
+
     context "double entry" do
       subject :yaml do
         Travis::Yaml.parse <<-YAML.gsub(/^ {10}/, '')
@@ -9,10 +26,6 @@ describe Travis::Yaml::Nodes::Root do
             code_climate:
               api_token: "foobar"
         YAML
-      end
-
-      let :warnings do
-        subject.warnings
       end
 
       specify "warns about double entries" do
