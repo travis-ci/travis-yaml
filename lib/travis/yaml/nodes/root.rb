@@ -18,6 +18,8 @@ module Travis::Yaml
       map :source_key, to: Scalar[:str, :secure]
       map :before_install, :install, :before_script, :script, :after_result, :after_script,
             :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
+      map :dist, to: Dist
+      map :group, to: Group
 
       def initialize
         super(nil)
