@@ -4,6 +4,7 @@ module Travis::Yaml
       include LanguageSpecific
 
       map :language, required: true
+      map :sudo, to: Scalar[:bool], required: false
       map :bundler_args, to: BundlerArgs
       map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv, :matrix, :env, :notifications, :branches, :cache, :addons, :android
       map :lein, :otp_release, :go, :ghc, :xcode_sdk, :xcode_scheme, :perl, :php, :python, :services, :gemfile, to: VersionList

@@ -21,6 +21,16 @@ module Travis::Yaml
           :build_command_prepend, to: Scalar[:str, :secure]
       end
 
+      class Artifacts < Addon
+        map :bucket,       to: Scalar[:str, :secure], required: true
+        map :key,          to: Scalar[:str, :secure], required: true
+        map :paths,        to: Sequence
+        map :secret,       to: Scalar[:str, :secure], required: true
+
+        map :branch, :concurrency, :log_format, :max_size, :target_paths, to: Scalar[:str, :secure]
+      end
+
+      map :artifacts,       to: Artifacts, drop_empty: false
       map :code_climate,    to: Addon[:repo_token], drop_empty: false
       map :coverity_scan,   to: CoverityScan
       map :firefox,         to: Version
