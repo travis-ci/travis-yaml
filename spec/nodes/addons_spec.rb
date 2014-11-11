@@ -4,6 +4,27 @@ describe Travis::Yaml::Nodes::Addons do
       Travis::Yaml.parse!(language: 'ruby', addons: input).addons
     end
 
+    context 'artifacts' do
+      let :config do
+        addons(artifacts: {
+          bucket:       'whatever',
+          branch:       'borken',
+          concurrency:  40,
+          debug:        1,
+          key:          'foo',
+          max_size:     1024 * 1024 * 10,
+          paths:        '$(git ls-files -o | tr "\n" ":")',
+          secret:       'bar',
+          target_paths: 'somewhere/in/teh/clood',
+          log_format:   'special',
+        })
+      end
+
+      example { expect(config.artifacts.key).to be == 'foo' }
+      example { expect(config.artifacts.secret).to be == 'bar' }
+      example { expect(config.artifacts.bucket).to be == 'whatever' }
+    end
+
     context 'code_climate' do
       example { expect(addons(code_climate: true).code_climate).to be == {} }
       example { expect(addons(code_climate: { repo_token: "foo" }).code_climate.repo_token).to be == "foo" }

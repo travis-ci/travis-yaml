@@ -27,7 +27,8 @@ module Travis::Yaml
         map :paths,        to: Sequence
         map :secret,       to: Scalar[:str, :secure], required: true
 
-        map :branch, :concurrency, :log_format, :max_size, :target_paths, to: Scalar[:str, :secure]
+        map :branch, :log_format, :target_paths, to: Scalar[:str, :secure]
+        map :debug, :concurrency, :max_size, to: Scalar[:str, :int, :secure]
       end
 
       map :artifacts,       to: Artifacts, drop_empty: false
