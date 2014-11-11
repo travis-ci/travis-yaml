@@ -21,6 +21,8 @@ module Travis::Yaml
       map :dist, to: Dist
       map :group, to: Group
 
+      FEATURE_KEYS = [:dist, :group]
+
       def initialize
         super(nil)
       end
@@ -29,6 +31,7 @@ module Travis::Yaml
         super
         verify_os
         verify_language(language)
+        FEATURE_KEYS.each {|feature| warn_on_feature feature}
       end
 
       def verify_os
@@ -39,6 +42,12 @@ module Travis::Yaml
           # https://github.com/travis-ci/travis-ci/issues/2317
           warning 'dropping "jdk" section: currently not supported on "osx"'
           @mapping.delete('jdk')
+        end
+      end
+
+      def warn_on_feature(feature)
+        if include? feature
+          warning 'your repository must be feature flagged for the "%s" setting to be used', feature
         end
       end
 

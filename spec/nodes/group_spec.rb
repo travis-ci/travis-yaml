@@ -1,6 +1,7 @@
 describe Travis::Yaml::Nodes::Group do
-  specify 'has no warnings' do
-    expect(Travis::Yaml.parse(language: 'ruby', group: 'dev').warnings).to be_empty
+  it 'adds warnings about feature' do
+    expect(Travis::Yaml.parse(group: 'dev').warnings).
+      to include('your repository must be feature flagged for the "group" setting to be used')
   end
 
   specify 'set group value' do
