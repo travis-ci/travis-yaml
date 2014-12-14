@@ -5,6 +5,7 @@ module Travis::Yaml
         bundler_args:     %w[ruby],
         compiler:         %w[c cpp],
         lein:             %w[clojure],
+        dart:             %w[dart],
         otp_release:      %w[erlang],
         gobuild_args:     %w[go],
         go:               %w[go],
