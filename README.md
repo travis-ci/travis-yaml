@@ -69,8 +69,8 @@ puts config['language']
 ### Warnings and errors
 
 * **errors** are actual parse errors, parent elements should discard elements with errors.
-* **warnigns** are general warnings for an element, with the element still being usable. These do not include warnings for child elements (though an error in a child element becomes a warning for its immediate parent).
-* **nested warnings** include warnigns for the whole tree, they also come with key prefix (array of strings) to identify the position the error occured at.
+* **warnings** are general warnings for an element, with the element still being usable. These do not include warnings for child elements (though an error in a child element becomes a warning for its immediate parent).
+* **nested warnings** include warnings for the whole tree, they also come with key prefix (array of strings) to identify the position the error occured at.
 
 ``` ruby
 Travis::Yaml.parse("foo: bar").nested_warnings.each do |key, warning|
