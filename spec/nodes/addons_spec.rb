@@ -59,5 +59,10 @@ describe Travis::Yaml::Nodes::Addons do
       example { expect(addons(ssh_known_hosts: 'git.example.org').ssh_known_hosts).to be == ['git.example.org'] }
       example { expect(addons(ssh_known_hosts: ['git.example.org', 'git.example.com']).ssh_known_hosts).to be == ['git.example.org', 'git.example.com'] }
     end
+
+    context 'apt_packages' do
+      example { expect(addons(apt_packages: 'curl').apt_packages).to be == ['curl'] }
+      example { expect(addons(apt_packages: ['curl', 'git']).apt_packages).to be == ['curl', 'git'] }
+    end
   end
 end
