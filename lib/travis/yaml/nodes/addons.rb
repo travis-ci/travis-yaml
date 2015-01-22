@@ -39,6 +39,7 @@ module Travis::Yaml
       map :postgresql,      to: Version
       map :sauce_connect,   to: Addon[:username, :access_key], drop_empty: false
       map :ssh_known_hosts, to: Sequence
+      map :apt_packages,    to: Sequence
     end
   end
 end
