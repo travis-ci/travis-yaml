@@ -3,7 +3,7 @@ require 'delegate'
 module Travis::Yaml
   class Matrix < DelegateClass(Array)
     EXPAND_KEYS = [
-      :compiler, :dart, :gemfile, :ghc, :go, :jdk, :lein, :node_js,
+      :compiler, :dart, :gemfile, :ghc, :go, :haxe, :jdk, :lein, :node_js,
       :otp_release, :perl, :php, :python, :ruby, :scala, :xcode_scheme,
       :xcode_sdk, :os
     ]

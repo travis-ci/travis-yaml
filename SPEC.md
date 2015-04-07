@@ -309,6 +309,20 @@ List of `go` versions to use.
 
 **Expected format:** String.
 
+#### `haxe`
+**This setting is only relevant if [`language`](#language) is set to `haxe`.**
+
+List of `haxe` versions to use.
+
+**Expected format:** List of strings; or a single string.
+
+#### `hxml`
+**This setting is only relevant if [`language`](#language) is set to `haxe`.**
+
+List of `hxml` files to be used in the default `install` and `script` phases.
+
+**Expected format:** List of strings.
+
 #### `install`
 Commands that will be run on the VM.
 
@@ -703,6 +717,13 @@ Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 `xcode_sdk` version to use.
 
 **Expected format:** String.
+
+#### `neko`
+**This setting is only relevant if [`language`](#language) is set to `haxe`.**
+
+The `neko` version to use.
+
+**Expected format:** A single string.
 
 #### `node`
 Alias for [`node_js`](#node_js).
