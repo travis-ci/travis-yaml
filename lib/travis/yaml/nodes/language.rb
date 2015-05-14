@@ -6,7 +6,7 @@ module Travis::Yaml
 
       value :c, :cpp, :clojure, :d, :dart, :erlang, :go, :groovy, :haskell, :haxe, :java,
             :node_js, :"objective-c", :ruby, :rust, :python, :perl, :php, :scala,
-            :android, :crystal
+            :android, :crystal, :csharp
       value dartlang: :dart, jvm: :java, javascript: :node_js, node: :node_js,
             nodejs: :node_js, golang: :go, objective_c: :"objective-c",
             obj_c: :"objective-c", objc: :"objective-c"
