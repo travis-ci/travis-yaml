@@ -60,9 +60,11 @@ describe Travis::Yaml::Nodes::Addons do
       example { expect(addons(ssh_known_hosts: ['git.example.org', 'git.example.com']).ssh_known_hosts).to be == ['git.example.org', 'git.example.com'] }
     end
 
-    context 'apt_packages' do
-      example { expect(addons(apt_packages: 'curl').apt_packages).to be == ['curl'] }
-      example { expect(addons(apt_packages: ['curl', 'git']).apt_packages).to be == ['curl', 'git'] }
+    context 'apt' do
+      example { expect(addons(apt: { 'sources': 'deadsnakes'}).apt.sources).to be == ['deadsnakes'] }
+      example { expect(addons(apt: { 'sources': ['deadsnakes', 'ubuntu-toolchain-r-test']}).apt.sources).to be == ['deadsnakes', 'ubuntu-toolchain-r-test'] }
+      example { expect(addons(apt: { 'packages': 'curl'}).apt.packages).to be == ['curl'] }
+      example { expect(addons(apt: { 'packages': ['curl', 'git']}).apt.packages).to be == ['curl', 'git'] }
     end
   end
 end

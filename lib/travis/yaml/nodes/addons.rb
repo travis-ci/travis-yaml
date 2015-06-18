@@ -31,6 +31,12 @@ module Travis::Yaml
         map :debug, :concurrency, :max_size, to: Scalar[:str, :int, :secure]
       end
 
+      class Apt < Addon
+        map :sources,       to: Sequence
+        map :packages,      to: Sequence
+      end
+      map :apt,             to: Apt
+
       map :artifacts,       to: Artifacts, drop_empty: false
       map :code_climate,    to: Addon[:repo_token], drop_empty: false
       map :coverity_scan,   to: CoverityScan
@@ -39,7 +45,6 @@ module Travis::Yaml
       map :postgresql,      to: Version
       map :sauce_connect,   to: Addon[:username, :access_key], drop_empty: false
       map :ssh_known_hosts, to: Sequence
-      map :apt_packages,    to: Sequence
     end
   end
 end
