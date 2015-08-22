@@ -7,6 +7,48 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 #### `addons`
 **Expected format:** Key value mapping.
 
+#### `addons.apt_packages`
+**Expected format:** List of strings; or a single string.
+
+#### `addons.artifacts`
+**Expected format:** Key value mapping.
+
+#### `addons.artifacts.branch`
+**Expected format:** String or encrypted string.
+
+#### `addons.artifacts.bucket`
+**This setting is required!**
+
+**Expected format:** String or encrypted string.
+
+#### `addons.artifacts.concurrency`
+**Expected format:** String, integer value or encrypted string.
+
+#### `addons.artifacts.debug`
+**Expected format:** String, integer value or encrypted string.
+
+#### `addons.artifacts.key`
+**This setting is required!**
+
+**Expected format:** String or encrypted string.
+
+#### `addons.artifacts.log_format`
+**Expected format:** String or encrypted string.
+
+#### `addons.artifacts.max_size`
+**Expected format:** String, integer value or encrypted string.
+
+#### `addons.artifacts.paths`
+**Expected format:** List of strings; or a single string.
+
+#### `addons.artifacts.secret`
+**This setting is required!**
+
+**Expected format:** String or encrypted string.
+
+#### `addons.artifacts.target_paths`
+**Expected format:** String or encrypted string.
+
 #### `addons.code_climate`
 **Expected format:** Key value mapping.
 
@@ -60,6 +102,9 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 
 #### `addons.sauce_connect.username`
 **Expected format:** String or encrypted string.
+
+#### `addons.ssh_known_hosts`
+**Expected format:** List of strings; or a single string.
 
 #### `after_deploy`
 Commands that will be run on the VM.
@@ -260,6 +305,9 @@ Alias for [`deploy[].on.ruby`](#deployonruby).
 
 **Expected format:** String.
 
+#### `dist`
+**Expected format:** String.
+
 #### `env`
 **Expected format:** Key value mapping, or list of strings or encrypted strings.
 
@@ -309,19 +357,15 @@ List of `go` versions to use.
 
 **Expected format:** String.
 
+#### `group`
+**Expected format:** String.
+
 #### `haxe`
 **This setting is only relevant if [`language`](#language) is set to `haxe`.**
 
 List of `haxe` versions to use.
 
 **Expected format:** List of strings; or a single string.
-
-#### `hxml`
-**This setting is only relevant if [`language`](#language) is set to `haxe`.**
-
-List of `hxml` files to be used in the default `install` and `script` phases.
-
-**Expected format:** List of strings.
 
 #### `install`
 Commands that will be run on the VM.
@@ -338,7 +382,7 @@ List of `jdk` versions to use.
 #### `language`
 **This setting is required!**
 
-Value has to be `c`, `cpp`, `clojure`, `dart`, `erlang`, `go`, `groovy`, `haskell`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala`, `android` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
+Value has to be `c`, `cpp`, `clojure`, `dart`, `erlang`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala`, `android` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -365,6 +409,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 
 **Expected format:** String.
 
+#### `matrix.allow_failures[].dart`
+**This setting is only relevant if [`language`](#language) is set to `dart`.**
+
+`dart` version to use.
+
+**Expected format:** String.
+
 #### `matrix.allow_failures[].env`
 **Expected format:** String or encrypted string.
 
@@ -386,6 +437,13 @@ Gemfile to use.
 **This setting is only relevant if [`language`](#language) is set to `go`.**
 
 `go` version to use.
+
+**Expected format:** String.
+
+#### `matrix.allow_failures[].haxe`
+**This setting is only relevant if [`language`](#language) is set to `haxe`.**
+
+`haxe` version to use.
 
 **Expected format:** String.
 
@@ -486,6 +544,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 
 **Expected format:** String.
 
+#### `matrix.exclude[].dart`
+**This setting is only relevant if [`language`](#language) is set to `dart`.**
+
+`dart` version to use.
+
+**Expected format:** String.
+
 #### `matrix.exclude[].env`
 **Expected format:** String or encrypted string.
 
@@ -507,6 +572,13 @@ Gemfile to use.
 **This setting is only relevant if [`language`](#language) is set to `go`.**
 
 `go` version to use.
+
+**Expected format:** String.
+
+#### `matrix.exclude[].haxe`
+**This setting is only relevant if [`language`](#language) is set to `haxe`.**
+
+`haxe` version to use.
 
 **Expected format:** String.
 
@@ -610,6 +682,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 
 **Expected format:** String.
 
+#### `matrix.include[].dart`
+**This setting is only relevant if [`language`](#language) is set to `dart`.**
+
+`dart` version to use.
+
+**Expected format:** String.
+
 #### `matrix.include[].env`
 **Expected format:** String or encrypted string.
 
@@ -631,6 +710,13 @@ Gemfile to use.
 **This setting is only relevant if [`language`](#language) is set to `go`.**
 
 `go` version to use.
+
+**Expected format:** String.
+
+#### `matrix.include[].haxe`
+**This setting is only relevant if [`language`](#language) is set to `haxe`.**
+
+`haxe` version to use.
 
 **Expected format:** String.
 
@@ -717,13 +803,6 @@ Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 `xcode_sdk` version to use.
 
 **Expected format:** String.
-
-#### `neko`
-**This setting is only relevant if [`language`](#language) is set to `haxe`.**
-
-The `neko` version to use.
-
-**Expected format:** A single string.
 
 #### `node`
 Alias for [`node_js`](#node_js).
@@ -1071,6 +1150,11 @@ List of `ruby` versions to use.
 #### `rvm`
 Alias for [`ruby`](#ruby).
 
+#### `scala`
+List of `scala` versions to use.
+
+**Expected format:** List of strings; or a single string.
+
 #### `script`
 Commands that will be run on the VM.
 
@@ -1083,6 +1167,9 @@ List of `services` versions to use.
 
 #### `source_key`
 **Expected format:** String or encrypted string.
+
+#### `sudo`
+**Expected format:** Boolean value.
 
 #### `virtual_env`
 Alias for [`virtualenv`](#virtualenv).
