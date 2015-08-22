@@ -4,7 +4,7 @@ module Travis::Yaml
       ignore_case
       default :ruby
 
-      value :c, :cpp, :clojure, :dart, :erlang, :go, :groovy, :haskell, :haxe, :java,
+      value :c, :cpp, :clojure, :d, :dart, :erlang, :go, :groovy, :haskell, :haxe, :java,
             :node_js, :"objective-c", :ruby, :python, :perl, :php, :scala,
             :android
       value dartlang: :dart, jvm: :java, javascript: :node_js, node: :node_js,
