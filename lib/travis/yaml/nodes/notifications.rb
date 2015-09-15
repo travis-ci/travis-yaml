@@ -36,7 +36,26 @@ module Travis::Yaml
       end
 
       class Template < Sequence
-        VARIABLES = %w[repository_slug repository_name repository build_number branch commit author message duration compare_url build_url commit_message]
+        VARIABLES = %w[
+          repository
+          repository_slug
+          repository_name
+          build_number
+          build_id
+          pull_request
+          pull_request_number
+          branch
+          commit
+          author
+          commit_subject
+          commit_message
+          result
+          duration
+          message
+          compare_url
+          build_url
+          pull_request_url
+        ]
 
         def verify
           super

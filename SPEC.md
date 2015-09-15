@@ -873,7 +873,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.campfire.template`
-Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`, `%{commit_message}`.
+Strings will be interpolated. Available variables: `%{repository}`, `%{repository_slug}`, `%{repository_name}`, `%{build_number}`, `%{build_id}`, `%{pull_request}`, `%{pull_request_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{commit_subject}`, `%{commit_message}`, `%{result}`, `%{duration}`, `%{message}`, `%{compare_url}`, `%{build_url}`, `%{pull_request_url}`.
 
 **Expected format:** List of strings; or a single string.
 
@@ -964,7 +964,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.hipchat.template`
-Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`, `%{commit_message}`.
+Strings will be interpolated. Available variables: `%{repository}`, `%{repository_slug}`, `%{repository_name}`, `%{build_number}`, `%{build_id}`, `%{pull_request}`, `%{pull_request_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{commit_subject}`, `%{commit_message}`, `%{result}`, `%{duration}`, `%{message}`, `%{compare_url}`, `%{build_url}`, `%{pull_request_url}`.
 
 **Expected format:** List of strings; or a single string.
 
@@ -1011,7 +1011,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** Boolean value.
 
 #### `notifications.irc.template`
-Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`, `%{commit_message}`.
+Strings will be interpolated. Available variables: `%{repository}`, `%{repository_slug}`, `%{repository_name}`, `%{build_number}`, `%{build_id}`, `%{pull_request}`, `%{pull_request_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{commit_subject}`, `%{commit_message}`, `%{result}`, `%{duration}`, `%{message}`, `%{compare_url}`, `%{build_url}`, `%{pull_request_url}`.
 
 **Expected format:** List of strings; or a single string.
 
@@ -1046,7 +1046,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.slack.template`
-Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`, `%{commit_message}`.
+Strings will be interpolated. Available variables: `%{repository}`, `%{repository_slug}`, `%{repository_name}`, `%{build_number}`, `%{build_id}`, `%{pull_request}`, `%{pull_request_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{commit_subject}`, `%{commit_message}`, `%{result}`, `%{duration}`, `%{message}`, `%{compare_url}`, `%{build_url}`, `%{pull_request_url}`.
 
 **Expected format:** List of strings; or a single string.
 
@@ -1078,7 +1078,7 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.sqwiggle.template`
-Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`, `%{commit_message}`.
+Strings will be interpolated. Available variables: `%{repository}`, `%{repository_slug}`, `%{repository_name}`, `%{build_number}`, `%{build_id}`, `%{pull_request}`, `%{pull_request_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{commit_subject}`, `%{commit_message}`, `%{result}`, `%{duration}`, `%{message}`, `%{compare_url}`, `%{build_url}`, `%{pull_request_url}`.
 
 **Expected format:** List of strings; or a single string.
 
