@@ -1,6 +1,6 @@
 describe Travis::Yaml::Nodes::Stage do
-  stages = [:before_install, :install, :before_script, :script, :after_result, :after_script,
-            :after_success, :after_failure, :before_deploy, :after_deploy]
+  stages = [:before_install, :install, :before_script, :script, :after_result, :before_cache, 
+            :after_script, :after_success, :after_failure, :before_deploy, :after_deploy]
 
   shared_examples "a stage" do
     specify 'with one entry' do
