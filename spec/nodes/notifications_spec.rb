@@ -49,4 +49,12 @@ describe Travis::Yaml::Nodes::Notifications do
       expect(config.notifications.flowdock.api_token).to be == "foo"
     end
   end
+
+  context :pushover do
+    example "handles basic setup" do
+      config = Travis::Yaml.parse(notifications: { pushover: { api_key: "foo", users: ["bar"] } })
+      expect(config.notifications.pushover.api_key).to be == "foo"
+      expect(config.notifications.pushover.users).to be == ["bar"]
+    end
+  end
 end
