@@ -1018,6 +1018,41 @@ Strings will be interpolated. Available variables: `%{repository}`, `%{repositor
 #### `notifications.irc.use_notice`
 **Expected format:** Boolean value.
 
+#### `notifications.pushover`
+**Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
+
+#### `notifications.pushover.api_key`
+**Expected format:** String or encrypted string.
+
+#### `notifications.pushover.disabled`
+**Expected format:** Boolean value.
+
+#### `notifications.pushover.enabled`
+**Expected format:** Boolean value.
+
+#### `notifications.pushover.on_failure`
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
+
+**Expected format:** String.
+
+#### `notifications.pushover.on_start`
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
+
+**Expected format:** String.
+
+#### `notifications.pushover.on_success`
+Value has to be `always`, `never` or `change`. Setting is case sensitive.
+
+**Expected format:** String.
+
+#### `notifications.pushover.template`
+Strings will be interpolated. Available variables: `%{repository}`, `%{repository_slug}`, `%{repository_name}`, `%{build_number}`, `%{build_id}`, `%{pull_request}`, `%{pull_request_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{commit_subject}`, `%{commit_message}`, `%{result}`, `%{duration}`, `%{message}`, `%{compare_url}`, `%{build_url}`, `%{pull_request_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.pushover.users`
+**Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
+
 #### `notifications.slack`
 **Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
