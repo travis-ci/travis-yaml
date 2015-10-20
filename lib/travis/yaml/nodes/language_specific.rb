@@ -29,7 +29,8 @@ module Travis::Yaml
         composer_args:    %w[php],
         npm_args:         %w[node_js],
         android:          %w[android],
-        d:                %w[d]
+        d:                %w[d],
+        crystal:          %w[crystal]
       }
 
       def verify_language(language)

@@ -210,6 +210,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 
 **Expected format:** String.
 
+#### `crystal`
+**This setting is only relevant if [`language`](#language) is set to `crystal`.**
+
+List of `crystal` versions to use.
+
+**Expected format:** List of strings; or a single string.
+
 #### `d`
 **This setting is only relevant if [`language`](#language) is set to `d`.**
 
@@ -416,6 +423,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 
 **Expected format:** String.
 
+#### `matrix.allow_failures[].crystal`
+**This setting is only relevant if [`language`](#language) is set to `crystal`.**
+
+`crystal` version to use.
+
+**Expected format:** String.
+
 #### `matrix.allow_failures[].d`
 **This setting is only relevant if [`language`](#language) is set to `d`.**
 
@@ -555,6 +569,13 @@ Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
 **This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
 
 Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` for `gcc` or `clang++` for `clang`. Setting is not case sensitive.
+
+**Expected format:** String.
+
+#### `matrix.exclude[].crystal`
+**This setting is only relevant if [`language`](#language) is set to `crystal`.**
+
+`crystal` version to use.
 
 **Expected format:** String.
 
@@ -700,6 +721,13 @@ Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
 **This setting is only relevant if [`language`](#language) is set to `c` or `cpp`.**
 
 Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` for `gcc` or `clang++` for `clang`. Setting is not case sensitive.
+
+**Expected format:** String.
+
+#### `matrix.include[].crystal`
+**This setting is only relevant if [`language`](#language) is set to `crystal`.**
+
+`crystal` version to use.
 
 **Expected format:** String.
 
