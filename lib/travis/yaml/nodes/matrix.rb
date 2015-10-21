@@ -5,7 +5,7 @@ module Travis::Yaml
         include LanguageSpecific
 
         map :ruby, :jdk, :lein, :otp_release, :go, :ghc, :haxe, :node_js, :xcode_sdk,
-          :xcode_scheme, :perl, :php, :python, :gemfile, :dart, :d, to: Version
+          :xcode_scheme, :perl, :php, :python, :gemfile, :dart, :d, :crystal, to: Version
         map :rvm, to: :ruby
         map :otp, to: :otp_release
         map :node, to: :node_js
