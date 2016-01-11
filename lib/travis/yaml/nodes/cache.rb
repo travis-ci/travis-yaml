@@ -1,7 +1,7 @@
 module Travis::Yaml
   module Nodes
     class Cache < Mapping
-      map :apt, :bundler, :cocoapods, to: Scalar[:bool]
+      map :apt, :bundler, :cocoapods, :pip, :ccache, to: Scalar[:bool]
       map :edge, to: Scalar[:bool], experimental: true
       map :directories, to: Sequence
 
@@ -11,6 +11,8 @@ module Travis::Yaml
           visit_key_value(visitor, :bundler,   value)
           visit_key_value(visitor, :apt,       value)
           visit_key_value(visitor, :cocoapods, value)
+          visit_key_value(visitor, :pip, value)
+          visit_key_value(visitor, :ccache, value)
         when :str
           key = visitor.generate_key(self, value)
           self[key] = true
