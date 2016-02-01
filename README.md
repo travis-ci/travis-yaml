@@ -123,7 +123,7 @@ Travis::Yaml.parse! content do |config|
 end
 ```
 
-### Serializiation
+### Serialization
 
 A travis-yaml document can be serialized to a few other formats via the `serialize` method:
 
