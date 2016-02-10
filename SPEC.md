@@ -121,6 +121,11 @@ Commands that will be run on the VM.
 
 **Expected format:** List of strings; or a single string.
 
+#### `before_cache`
+Commands that will be run on the VM.
+
+**Expected format:** List of strings; or a single string.
+
 #### `after_script`
 Commands that will be run on the VM.
 

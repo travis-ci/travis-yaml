@@ -18,8 +18,8 @@ module Travis::Yaml
       map :osx_image, to: Version, experimental: true
       map :gobuild_args, :xcode_project, :xcode_workspace, :xctool_args, :composer_args, :npm_args, to: Scalar[:str]
       map :source_key, to: Scalar[:str, :secure]
-      map :before_install, :install, :before_script, :script, :after_result, :after_script,
-            :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
+      map :before_install, :install, :before_script, :script, :after_result, :before_cache,
+            :after_script, :after_success, :after_failure, :before_deploy, :after_deploy, to: Stage
       map :dist, to: Dist
       map :group, to: Group
 
