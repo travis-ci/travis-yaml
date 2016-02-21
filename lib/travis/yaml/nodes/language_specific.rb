@@ -30,7 +30,8 @@ module Travis::Yaml
         npm_args:         %w[node_js],
         android:          %w[android],
         d:                %w[d],
-        crystal:          %w[crystal]
+        crystal:          %w[crystal],
+        solution:         %w[csharp]
       }
 
       def verify_language(language)
