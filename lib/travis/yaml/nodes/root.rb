@@ -23,7 +23,7 @@ module Travis::Yaml
       map :dist, to: Dist
       map :group, to: Group
 
-      FEATURE_KEYS = [:dist, :group]
+      FEATURE_KEYS = [:group]
 
       def initialize
         super(nil)
