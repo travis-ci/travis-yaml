@@ -8,7 +8,7 @@ module Travis::Yaml
       map :bundler_args, to: BundlerArgs
       map :deploy, :ruby, :os, :compiler, :git, :jdk, :virtualenv, :matrix, :env, :notifications, :branches, :cache, :addons, :android
       map :lein, :otp_release, :go, :ghc, :haxe, :xcode_sdk, :xcode_scheme, :perl, :php, :python, :services, :gemfile,
-        :dart, :scala, :d, :crystal, to: VersionList
+        :dart, :scala, :d, :crystal, :smalltalk, to: VersionList
       map :podfile, to: Version
       map :node_js, to: VersionList[/^((iojs)|(iojs\-v\d+\.\d+(\.\d+)?)|(\d+\.\d+(\.\d+)?))$/]
       map :rvm, to: :ruby

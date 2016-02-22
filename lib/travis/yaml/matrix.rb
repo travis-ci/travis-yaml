@@ -5,7 +5,7 @@ module Travis::Yaml
     EXPAND_KEYS = [
       :compiler, :crystal, :d, :dart, :gemfile, :ghc, :go, :haxe, :jdk, :lein,
       :node_js, :otp_release, :perl, :php, :python, :ruby, :scala, :xcode_scheme,
-      :xcode_sdk, :os
+      :xcode_sdk, :os , :smalltalk
     ]
 
     KEYS = EXPAND_KEYS + [:env]
