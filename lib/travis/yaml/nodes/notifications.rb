@@ -78,6 +78,11 @@ module Travis::Yaml
         map :use_notice, :skip_join, to: Scalar[:bool]
       end
 
+      class Pushover < WithTemplate
+        list :users
+        map :api_key, to: Scalar[:str, :secure]
+      end
+
       class Hipchat < WithTemplate
         map :format, to: FixedValue[:html, :text]
         list :rooms
@@ -94,6 +99,7 @@ module Travis::Yaml
       map :flowdock,                    to: Flowdock
       map :hipchat,                     to: Hipchat
       map :irc,                         to: IRC
+      map :pushover,                    to: Pushover
       map :webhook,                     to: :webhooks
     end
   end
