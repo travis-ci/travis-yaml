@@ -10,7 +10,7 @@ module Travis::Yaml
       map :lein, :otp_release, :go, :ghc, :haxe, :xcode_sdk, :xcode_scheme, :perl, :php, :python, :services, :gemfile,
         :dart, :scala, :d, :crystal, :smalltalk, to: VersionList
       map :podfile, to: Version
-      map :node_js, to: VersionList[/^((iojs)|(iojs\-v\d+\.\d+(\.\d+)?)|(\d+\.\d+(\.\d+)?))$/]
+      map :node_js, to: VersionList[/^((iojs)|(iojs\-v\d+\.\d+(\.\d+)?)|(\d+\.\d+(\.\d+)?)|stable|node)$/]
       map :rvm, to: :ruby
       map :otp, to: :otp_release
       map :node, to: :node_js
