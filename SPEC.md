@@ -121,11 +121,6 @@ Commands that will be run on the VM.
 
 **Expected format:** List of strings; or a single string.
 
-#### `before_cache`
-Commands that will be run on the VM.
-
-**Expected format:** List of strings; or a single string.
-
 #### `after_script`
 Commands that will be run on the VM.
 
@@ -148,6 +143,11 @@ List of `components` versions to use.
 
 #### `android.licenses`
 List of `licenses` versions to use.
+
+**Expected format:** List of strings; or a single string.
+
+#### `before_cache`
+Commands that will be run on the VM.
 
 **Expected format:** List of strings; or a single string.
 
@@ -189,6 +189,9 @@ Commands that will be run on the VM.
 #### `cache.bundler`
 **Expected format:** Boolean value.
 
+#### `cache.ccache`
+**Expected format:** Boolean value.
+
 #### `cache.cocoapods`
 **Expected format:** Boolean value.
 
@@ -198,6 +201,9 @@ Commands that will be run on the VM.
 #### `cache.edge`
 **This setting is experimental and might be removed!**
 
+**Expected format:** Boolean value.
+
+#### `cache.pip`
 **Expected format:** Boolean value.
 
 #### `compiler`
@@ -401,7 +407,7 @@ List of `jdk` versions to use.
 #### `language`
 **This setting is required!**
 
-Value has to be `c`, `cpp`, `clojure`, `csharp`, `d`, `dart`, `erlang`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `python`, `perl`, `php`, `scala`, `android`, `crystal` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
+Value has to be `c`, `cpp`, `clojure`, `d`, `dart`, `erlang`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `rust`, `python`, `perl`, `php`, `scala`, `android`, `crystal`, `csharp`, `smalltalk` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -549,6 +555,13 @@ Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_relea
 
 #### `matrix.allow_failures[].rvm`
 Alias for [`matrix.allow_failures[].ruby`](#matrixallow_failuresruby).
+
+#### `matrix.allow_failures[].smalltalk`
+**This setting is only relevant if [`language`](#language) is set to `smalltalk`.**
+
+`smalltalk` version to use.
+
+**Expected format:** String.
 
 #### `matrix.allow_failures[].xcode_scheme`
 **This setting is only relevant if [`language`](#language) is set to `objective-c`.**
@@ -698,6 +711,13 @@ Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 
 #### `matrix.exclude[].rvm`
 Alias for [`matrix.exclude[].ruby`](#matrixexcluderuby).
+
+#### `matrix.exclude[].smalltalk`
+**This setting is only relevant if [`language`](#language) is set to `smalltalk`.**
+
+`smalltalk` version to use.
+
+**Expected format:** String.
 
 #### `matrix.exclude[].xcode_scheme`
 **This setting is only relevant if [`language`](#language) is set to `objective-c`.**
@@ -850,6 +870,13 @@ Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 
 #### `matrix.include[].rvm`
 Alias for [`matrix.include[].ruby`](#matrixincluderuby).
+
+#### `matrix.include[].smalltalk`
+**This setting is only relevant if [`language`](#language) is set to `smalltalk`.**
+
+`smalltalk` version to use.
+
+**Expected format:** String.
 
 #### `matrix.include[].xcode_scheme`
 **This setting is only relevant if [`language`](#language) is set to `objective-c`.**
@@ -1226,12 +1253,12 @@ List of `services` versions to use.
 
 **Expected format:** List of strings; or a single string.
 
-#### `solution`
-**This setting is only relevant if [`language`](#language) is set to `csharp`.**
+#### `smalltalk`
+**This setting is only relevant if [`language`](#language) is set to `smalltalk`.**
 
-The C# solution to build.
+List of `smalltalk` versions to use.
 
-**Expected format:** String.
+**Expected format:** List of strings; or a single string.
 
 #### `source_key`
 **Expected format:** String or encrypted string.

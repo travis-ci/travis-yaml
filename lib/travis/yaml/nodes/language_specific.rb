@@ -31,7 +31,8 @@ module Travis::Yaml
         android:          %w[android],
         d:                %w[d],
         crystal:          %w[crystal],
-        solution:         %w[csharp]
+        solution:         %w[csharp],
+        smalltalk:        %w[smalltalk]
       }
 
       def verify_language(language)
