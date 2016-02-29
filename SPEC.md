@@ -407,7 +407,7 @@ List of `jdk` versions to use.
 #### `language`
 **This setting is required!**
 
-Value has to be `c`, `cpp`, `clojure`, `d`, `dart`, `erlang`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `rust`, `python`, `perl`, `php`, `scala`, `android`, `crystal`, `csharp`, `smalltalk` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
+Value has to be `c`, `cpp`, `clojure`, `d`, `dart`, `erlang`, `elixir`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `rust`, `python`, `perl`, `php`, `scala`, `android`, `crystal`, `csharp`, `smalltalk` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -519,7 +519,7 @@ Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu
 Alias for [`matrix.allow_failures[].otp_release`](#matrixallow_failuresotp_release).
 
 #### `matrix.allow_failures[].otp_release`
-**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+**This setting is only relevant if [`language`](#language) is set to `erlang` or `elixir`.**
 
 `otp_release` version to use.
 
@@ -675,7 +675,7 @@ Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu
 Alias for [`matrix.exclude[].otp_release`](#matrixexcludeotp_release).
 
 #### `matrix.exclude[].otp_release`
-**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+**This setting is only relevant if [`language`](#language) is set to `erlang` or `elixir`.**
 
 `otp_release` version to use.
 
@@ -834,7 +834,7 @@ Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu
 Alias for [`matrix.include[].otp_release`](#matrixincludeotp_release).
 
 #### `matrix.include[].otp_release`
-**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+**This setting is only relevant if [`language`](#language) is set to `erlang` or `elixir`.**
 
 `otp_release` version to use.
 
@@ -889,6 +889,11 @@ Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 **This setting is only relevant if [`language`](#language) is set to `objective-c`.**
 
 `xcode_sdk` version to use.
+
+**Expected format:** String.
+
+#### `mix`
+**This setting is only relevant if [`language`](#language) is set to `elixir`.**
 
 **Expected format:** String.
 
@@ -1231,7 +1236,7 @@ Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu
 Alias for [`otp_release`](#otp_release).
 
 #### `otp_release`
-**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+**This setting is only relevant if [`language`](#language) is set to `erlang` or `elixir`.**
 
 List of `otp_release` versions to use.
 
