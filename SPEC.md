@@ -892,11 +892,6 @@ Alias for [`matrix.include[].ruby`](#matrixincluderuby).
 
 **Expected format:** String.
 
-#### `mix`
-**This setting is only relevant if [`language`](#language) is set to `elixir`.**
-
-**Expected format:** String.
-
 #### `node`
 Alias for [`node_js`](#node_js).
 
