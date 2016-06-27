@@ -729,6 +729,21 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 
 **Expected format:** List of strings; or a single string.
 
+#### `notifications.campfire.template_error`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.campfire.template_failure`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.campfire.template_success`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
 #### `notifications.email`
 **Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
@@ -820,6 +835,21 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 
 **Expected format:** List of strings; or a single string.
 
+#### `notifications.hipchat.template_error`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.hipchat.template_failure`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.hipchat.template_success`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
 #### `notifications.irc`
 **Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
@@ -867,6 +897,21 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 
 **Expected format:** List of strings; or a single string.
 
+#### `notifications.irc.template_error`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.irc.template_failure`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.irc.template_success`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
 #### `notifications.irc.use_notice`
 **Expected format:** Boolean value.
 
@@ -902,6 +947,21 @@ Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repo
 
 **Expected format:** List of strings; or a single string.
 
+#### `notifications.slack.template_error`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.slack.template_failure`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.slack.template_success`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
 #### `notifications.sqwiggle`
 **Expected format:** Key value mapping, or list of strings or encrypted strings, or boolean value.
 
@@ -930,6 +990,21 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 **Expected format:** List of strings or encrypted strings; or a single string or encrypted string.
 
 #### `notifications.sqwiggle.template`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.sqwiggle.template_error`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.sqwiggle.template_failure`
+Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
+
+**Expected format:** List of strings; or a single string.
+
+#### `notifications.sqwiggle.template_success`
 Strings will be interpolated. Available variables: `%{repository_slug}`, `%{repository_name}`, `%{repository}`, `%{build_number}`, `%{branch}`, `%{commit}`, `%{author}`, `%{message}`, `%{duration}`, `%{compare_url}`, `%{build_url}`.
 
 **Expected format:** List of strings; or a single string.

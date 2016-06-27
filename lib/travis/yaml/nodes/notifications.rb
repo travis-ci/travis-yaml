@@ -50,7 +50,7 @@ module Travis::Yaml
       end
 
       class WithTemplate < Notification
-        map :template, to: Template
+        map :template, :template_success, :template_failure, :template_error, to: Template
       end
 
       class IRC < WithTemplate
