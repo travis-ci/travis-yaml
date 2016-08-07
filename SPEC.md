@@ -103,6 +103,9 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 #### `addons.sauce_connect.username`
 **Expected format:** String or encrypted string.
 
+#### `addons.jwt`
+**Expected format:** List of secured strings; or a single secured string.
+
 #### `addons.ssh_known_hosts`
 **Expected format:** List of strings; or a single string.
 

@@ -64,5 +64,9 @@ describe Travis::Yaml::Nodes::Addons do
       example { expect(addons(apt_packages: 'curl').apt_packages).to be == ['curl'] }
       example { expect(addons(apt_packages: ['curl', 'git']).apt_packages).to be == ['curl', 'git'] }
     end
+
+    context 'jwt' do
+      example { expect(addons(jwt: [ "String" ]).jwt).to be == ["String"] }
+    end
   end
 end
