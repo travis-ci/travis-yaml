@@ -104,7 +104,7 @@ Note that stricitly speaking Travis CI might not have the same understanding of 
 **Expected format:** String or encrypted string.
 
 #### `addons.jwt`
-**Expected format:** List of secured strings; or a single secured string.
+**Expected format:** List of strings; or encrypted strings.
 
 #### `addons.ssh_known_hosts`
 **Expected format:** List of strings; or a single string.

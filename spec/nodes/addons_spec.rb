@@ -66,7 +66,25 @@ describe Travis::Yaml::Nodes::Addons do
     end
 
     context 'jwt' do
-      example { expect(addons(jwt: [ "String" ]).jwt).to be == ["String"] }
+      example do
+        # uses parse directly instead of addons() so secure works
+        config = Travis::Yaml.parse <<-YAML.gsub(/^ {10}/, '')
+          ---
+          language: ruby
+          addons:
+            jwt:
+            - secure: "SECURE_STRING"
+            - secure: "SECURE_STRING_2"
+        YAML
+        expect(config.addons.jwt.length).to be == 2
+
+        string = ""
+        config.addons.jwt[0].decrypt { |s| string = s }
+        expect(string).to be == "SECURE_STRING"
+
+        config.addons.jwt[1].decrypt { |s| string = s }
+        expect(string).to be == "SECURE_STRING_2"
+      end
     end
   end
 end
