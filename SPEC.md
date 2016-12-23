@@ -330,6 +330,9 @@ Alias for [`deploy[].on.ruby`](#deployonruby).
 
 **Expected format:** String.
 
+#### `deploy[].run`
+**Expected format:** List of strings; or a single string.
+
 #### `dist`
 **Expected format:** String.
 
