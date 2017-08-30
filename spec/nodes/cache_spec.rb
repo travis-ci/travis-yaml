@@ -2,12 +2,12 @@ describe Travis::Yaml::Nodes::Cache do
   context 'from Ruby' do
     specify 'with true' do
       config = Travis::Yaml.parse(cache: true)
-      expect(config.cache).to be == { 'apt' => true, 'bundler' => true, 'cocoapods' => true, 'pip' => true, 'ccache' => true }
+      expect(config.cache).to be == { 'apt' => true, 'bundler' => true, 'cocoapods' => true, 'pip' => true, 'ccache' => true, 'yarn' => true }
     end
 
     specify 'with false' do
       config = Travis::Yaml.parse(cache: false)
-      expect(config.cache).to be == { 'apt' => false, 'bundler' => false, 'cocoapods' => false, 'pip' => false, 'ccache' => false }
+      expect(config.cache).to be == { 'apt' => false, 'bundler' => false, 'cocoapods' => false, 'pip' => false, 'ccache' => false, 'yarn' => false }
     end
 
     specify 'with string' do
@@ -29,12 +29,12 @@ describe Travis::Yaml::Nodes::Cache do
   context 'from YAML' do
     specify 'with true' do
       config = Travis::Yaml.parse('cache: on')
-      expect(config.cache).to be == { 'apt' => true, 'bundler' => true, 'cocoapods' => true, 'pip' => true, 'ccache' => true }
+      expect(config.cache).to be == { 'apt' => true, 'bundler' => true, 'cocoapods' => true, 'pip' => true, 'ccache' => true, 'yarn' => true }
     end
 
     specify 'with false' do
       config = Travis::Yaml.parse('cache: off')
-      expect(config.cache).to be == { 'apt' => false, 'bundler' => false, 'cocoapods' => false, 'pip' => false, 'ccache' => false }
+      expect(config.cache).to be == { 'apt' => false, 'bundler' => false, 'cocoapods' => false, 'pip' => false, 'ccache' => false, 'yarn' => false }
     end
 
     specify 'with string' do
