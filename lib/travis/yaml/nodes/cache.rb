@@ -1,7 +1,7 @@
 module Travis::Yaml
   module Nodes
     class Cache < Mapping
-      map :apt, :bundler, :cocoapods, :pip, :ccache, :yarn to: Scalar[:bool]
+      map :apt, :bundler, :cocoapods, :pip, :ccache, :yarn, to: Scalar[:bool]
       map :edge, to: Scalar[:bool], experimental: true
       map :directories, to: Sequence
 
