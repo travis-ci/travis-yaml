@@ -1010,6 +1010,9 @@ Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
 
+#### `notifications.hipchat.on_pull_requests`
+**Expected format:** Boolean value.
+
 #### `notifications.hipchat.on_start`
 Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
@@ -1126,6 +1129,9 @@ Strings will be interpolated. Available variables: `%{repository}`, `%{repositor
 Value has to be `always`, `never` or `change`. Setting is case sensitive.
 
 **Expected format:** String.
+
+#### `notifications.slack.on_pull_requests`
+**Expected format:** Boolean value.
 
 #### `notifications.slack.on_start`
 Value has to be `always`, `never` or `change`. Setting is case sensitive.

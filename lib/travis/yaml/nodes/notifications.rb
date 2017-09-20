@@ -72,6 +72,15 @@ module Travis::Yaml
         map :template, to: Template
       end
 
+      class WithPullRequestSwitch < WithTemplate
+        map :on_pull_requests, to: Scalar[:bool]
+      end
+
+      class Hipchat < WithPullRequestSwitch
+        list :rooms
+        map :format, to: FixedValue[:html, :text]
+      end
+
       class IRC < WithTemplate
         list :channels
         map :channel_key, :password, :nickserv_password, :nick, to: Scalar[:str, :secure]
@@ -83,11 +92,6 @@ module Travis::Yaml
         map :api_key, to: Scalar[:str, :secure]
       end
 
-      class Hipchat < WithTemplate
-        map :format, to: FixedValue[:html, :text]
-        list :rooms
-      end
-
       class Flowdock < Notification
         map :api_token, to: Scalar[:str, :secure]
         prefix_scalar :api_token, :str, :secure
@@ -95,7 +99,8 @@ module Travis::Yaml
 
       map :webhooks,                    to: Notification[:urls]
       map :email,                       to: Notification[:recipients]
-      map :sqwiggle, :slack, :campfire, to: WithTemplate[:rooms]
+      map :sqwiggle, :campfire,         to: WithTemplate[:rooms]
+      map :slack,                       to: WithPullRequestSwitch[:rooms]
       map :flowdock,                    to: Flowdock
       map :hipchat,                     to: Hipchat
       map :irc,                         to: IRC
