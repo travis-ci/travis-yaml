@@ -57,4 +57,18 @@ describe Travis::Yaml::Nodes::Notifications do
       expect(config.notifications.pushover.users).to be == ["bar"]
     end
   end
+
+  context :slack do
+    example "handles pull-request flag" do
+      config = Travis::Yaml.parse(notifications: { slack: { on_pull_requests: true } })
+      expect(config.notifications.slack.on_pull_requests).to be
+    end
+  end
+
+  context :hipchat do
+    example "handles pull-request flag" do
+      config = Travis::Yaml.parse(notifications: { hipchat: { on_pull_requests: true } })
+      expect(config.notifications.hipchat.on_pull_requests).to be
+    end
+  end
 end
