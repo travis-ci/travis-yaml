@@ -333,6 +333,13 @@ Alias for [`deploy[].on.ruby`](#deployonruby).
 #### `dist`
 **Expected format:** String.
 
+#### `elixir`
+**This setting is only relevant if [`language`](#language) is set to `elixir`**
+
+List of `elixir` version to use.
+
+**Expected format:** List of strings; or a single string.
+
 #### `env`
 **Expected format:** Key value mapping, or list of strings or encrypted strings.
 
@@ -407,7 +414,7 @@ List of `jdk` versions to use.
 #### `language`
 **This setting is required!**
 
-Value has to be `c`, `cpp`, `clojure`, `d`, `dart`, `erlang`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `rust`, `python`, `perl`, `php`, `scala`, `android`, `crystal`, `csharp`, `smalltalk` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
+Value has to be `c`, `cpp`, `clojure`, `d`, `dart`, `elixir`, `erlang`, `go`, `groovy`, `haskell`, `haxe`, `java`, `node_js`, `objective-c`, `ruby` (default), `rust`, `python`, `perl`, `php`, `scala`, `android`, `crystal`, `csharp`, `smalltalk` or `generic`; or one of the known aliases: `dartlang` for `dart`, `jvm` for `java`, `javascript` for `node_js`, `node` for `node_js`, `nodejs` for `node_js`, `golang` for `go`, `objective_c` for `objective-c`, `obj_c` for `objective-c`, `objc` for `objective-c`, `c++` for `cpp`, `node.js` for `node_js`, `obj-c` for `objective-c`, `bash` for `generic`, `sh` for `generic` or `shell` for `generic`. Setting is not case sensitive.
 
 **Expected format:** String.
 
@@ -452,6 +459,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 **This setting is only relevant if [`language`](#language) is set to `dart`.**
 
 `dart` version to use.
+
+**Expected format:** String.
+
+#### `matrix.exclude[].elixir`
+**This setting is only relevant if [`language`](#language) is set to `elixir`**
+
+`elixir` version to use.
 
 **Expected format:** String.
 
@@ -767,6 +781,13 @@ Value has to be `gcc` (default) or `clang`; or one of the known aliases: `g++` f
 **This setting is only relevant if [`language`](#language) is set to `dart`.**
 
 `dart` version to use.
+
+**Expected format:** String.
+
+#### `matrix.include[].elixir`
+**This setting is only relevant if [`language`](#language) is set to `elixir`**
+
+`elixir` version to use.
 
 **Expected format:** String.
 
@@ -1231,7 +1252,7 @@ Value has to be `linux` (default) or `osx`; or one of the known aliases: `ubuntu
 Alias for [`otp_release`](#otp_release).
 
 #### `otp_release`
-**This setting is only relevant if [`language`](#language) is set to `erlang`.**
+**This setting is only relevant if [`language`](#language) is set to `erlang` or `elixir`.**
 
 List of `otp_release` versions to use.
 
