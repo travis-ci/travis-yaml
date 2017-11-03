@@ -32,7 +32,8 @@ module Travis::Yaml
         d:                %w[d],
         crystal:          %w[crystal],
         solution:         %w[csharp],
-        smalltalk:        %w[smalltalk]
+        smalltalk:        %w[smalltalk],
+        mix:              %w[elixir]
       }
 
       def verify_language(language)
