@@ -58,6 +58,16 @@ describe Travis::Yaml::Nodes::Deploy do
       expect(config.deploy.first['foo'])    .to be == { 'master' => 'bar' }
       expect(config.deploy.nested_warnings) .to include([['foo'], 'branch "staging" not permitted by deploy condition, dropping'])
     end
+
+    specify 'with commands' do
+      config = Travis::Yaml.parse(deploy: { provider: :heroku, run: 'rake db:migrate' })
+      expect(config.deploy.first.run).to be == ['rake db:migrate']
+    end
+
+    specify 'with multiple commands' do
+      config = Travis::Yaml.parse(deploy: { provider: :heroku, run: ['rake db:migrate', 'rake cleanup'] })
+      expect(config.deploy.first.run).to be == ['rake db:migrate', 'rake cleanup']
+    end
   end
 
   describe 'from yaml' do
@@ -90,6 +100,16 @@ describe Travis::Yaml::Nodes::Deploy do
       config = Travis::Yaml.parse('deploy: { provider: heroku, foo: bar }')
       expect(config.deploy.first['foo'])    .to be == "bar"
       expect(config.deploy.nested_warnings) .to be_empty
+    end
+
+    specify 'with commands' do
+      config = Travis::Yaml.parse('deploy: { provider: heroku, run: "rake db:migrate" }')
+      expect(config.deploy.first.run).to be == ['rake db:migrate']
+    end
+
+    specify 'with multiple commands' do
+      config = Travis::Yaml.parse('deploy: { provider: heroku, run: ["rake db:migrate", "rake cleanup"] }')
+      expect(config.deploy.first.run).to be == ['rake db:migrate', 'rake cleanup']
     end
   end
 end

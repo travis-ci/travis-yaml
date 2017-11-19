@@ -46,6 +46,7 @@ module Travis::Yaml
       map :provider, to: Scalar, required: true
       map :edge, to: Scalar[:bool], experimental: true
       map :on, to: DeployConditions
+      map :run, to: Sequence[:str]
 
       def verify
         @mapping.each_value { |v| v.verify_branch(on.branch) if v.respond_to? :verify_branch } if on and on.branch
