@@ -75,5 +75,13 @@ describe Travis::Yaml::Nodes::Language do
       expect(config.language)           .to be == 'node_js'
       expect(config.language.warnings)  .to include('does not support multiple values, dropping "ruby"')
     end
+
+    specify 'supports all un-aliased languages' do
+      languages = Travis::Yaml::Nodes::Language.valid_values
+      languages.each do |lang|
+        config = Travis::Yaml.parse("language: #{lang}")
+        expect(config.language).to be == lang
+      end
+    end
   end
 end
