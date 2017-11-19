@@ -75,5 +75,47 @@ describe Travis::Yaml::Nodes::Language do
       expect(config.language)           .to be == 'node_js'
       expect(config.language.warnings)  .to include('does not support multiple values, dropping "ruby"')
     end
+
+    specify 'supports dart aliases' do
+      aliases = ['dartlang']
+      assert_all_aliases(aliases, 'dart')
+    end
+
+    specify 'supports java aliases' do
+      aliases = ['jvm']
+      assert_all_aliases(aliases, 'java')
+    end
+
+    specify 'supports node_js aliases' do
+      aliases = ['javascript', 'node', 'nodejs', 'node.js']
+      assert_all_aliases(aliases, 'node_js')
+    end
+
+    specify 'supports go aliases' do
+      aliases = ['golang']
+      assert_all_aliases(aliases, 'go')
+    end
+
+    specify 'supports objective-c aliases' do
+      aliases = ['objective_c', 'obj_c', 'obj-c', 'objc']
+      assert_all_aliases(aliases, 'objective-c')
+    end
+
+    specify 'supports cpp aliases' do
+      aliases = ['c++']
+      assert_all_aliases(aliases, 'cpp')
+    end
+
+    specify 'supports generic aliases' do
+      aliases = ['bash', 'sh', 'shell']
+      assert_all_aliases(aliases, 'generic')
+    end
+  end
+
+  def assert_all_aliases(aliases, language)
+    aliases.each do |a|
+      config = Travis::Yaml.parse("language: #{a}")
+      expect(config.language).to be == language
+    end
   end
 end
