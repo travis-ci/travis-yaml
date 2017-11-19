@@ -34,6 +34,7 @@ module Travis::Yaml
       map :artifacts,       to: Artifacts, drop_empty: false
       map :code_climate,    to: Addon[:repo_token], drop_empty: false
       map :coverity_scan,   to: CoverityScan
+      map :deploy,          to: Deploy
       map :firefox,         to: Version
       map :hosts,           to: Sequence
       map :postgresql,      to: Version

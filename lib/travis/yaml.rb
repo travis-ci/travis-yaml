@@ -1,13 +1,14 @@
+require 'travis/yaml/secure_string'
+require 'travis/yaml/nodes'
+require 'travis/yaml/matrix'
+require 'travis/yaml/parser'
+require 'travis/yaml/patch'
+require 'travis/yaml/serializer'
+
 module Travis
   module Yaml
     Error      ||= Class.new(StandardError)
     ParseError ||= Class.new(Error)
-
-    require 'travis/yaml/secure_string'
-    require 'travis/yaml/nodes'
-    require 'travis/yaml/matrix'
-    require 'travis/yaml/parser'
-    require 'travis/yaml/serializer'
 
     extend self
 
