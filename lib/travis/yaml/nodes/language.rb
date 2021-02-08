@@ -11,7 +11,7 @@ module Travis::Yaml
             nodejs: :node_js, golang: :go, objective_c: :"objective-c",
             obj_c: :"objective-c", objc: :"objective-c"
       value "c++" => :cpp, "node.js" => :node_js, "obj-c" => :"objective-c"
-      value :generic, bash: :generic, sh: :generic, shell: :generic
+      value :generic, bash: :generic, sh: :generic, shell: :generic, minimal: :generic
 
       def default_os
         value == "objective-c" ? "osx" : OSEntry.default
