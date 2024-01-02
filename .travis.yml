@@ -7,3 +7,5 @@ rvm:
 sudo: false
 script: bundle exec rspec
 bundler_args: "--without play"
+before_install:
+  - gem install rubygems-update -v 3.4.22
