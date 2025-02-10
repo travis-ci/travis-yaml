@@ -1,3 +1,5 @@
+# This repository is deprecated and was replaced by travis-yml 
+
 # Travis Configuration Parser
 
 ## What is this?
